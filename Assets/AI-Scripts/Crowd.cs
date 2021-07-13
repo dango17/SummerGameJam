@@ -32,6 +32,31 @@ public class Crowd : CrowdMaster
             hunger -= 10;
         }
 
+        float distanceToFood = float.MaxValue;
+        FoodStall closestStall = foodStall[0];
+        foreach(FoodStall fS in foodStall)
+        {
+            float distFS = Vector3.Distance(transform.position, fS.transform.position);
+            if(distFS < distanceToFood)
+            {
+                closestStall = fS;
+                distanceToFood = distFS;
+            }
+        }
+
+        float distanceToEntertainment = float.MaxValue;
+        Entertainment closestE = entertainment[0];
+        foreach (Entertainment e in entertainment)
+        {
+            float distE = Vector3.Distance(transform.position, e.transform.position);
+            if(distE < distanceToEntertainment)
+            {
+                closestE = e;
+                distanceToEntertainment = distE;
+            }
+        }
+
+
         if(hunger <= 50)
         {
             Hungry = true;
