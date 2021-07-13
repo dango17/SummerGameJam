@@ -2,13 +2,26 @@
 
 /// <summary>
 /// Abstract class to be implemented by all interactable items.
-/// Not to be instantiated by itself.
 /// </summary>
 public abstract class Interactable : MonoBehaviour {
 	/// <summary>
 	/// Interactable currently selected by the player.
 	/// </summary>
 	public static Interactable CurrentSelection { get; set; } = null;
+
+	/// <summary>
+	/// True if the item has been activated at least once, otherwise false.
+	/// </summary>
+	public bool IsUsed { get { return isUsed; } set { } }
+
+	[Tooltip("Amount of times the item can be activated.")]
+	[SerializeField]
+	protected int usesAvailable = 1;
+	/// <summary>
+	/// Amount of times the item has been activated.
+	/// </summary>
+	protected int timesUsed = 0;
+	protected bool isUsed = false;
 
 	public abstract void Use();
 
@@ -24,6 +37,14 @@ public abstract class Interactable : MonoBehaviour {
 				}
 			} else {
 				CurrentSelection = this;
+			}
+		}
+	}
+
+	private void OnTriggerExit(Collider other) {
+		if (other.CompareTag("Player")) {
+			if (CurrentSelection = this) {
+				CurrentSelection = null;
 			}
 		}
 	}
