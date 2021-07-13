@@ -3841,6 +3841,8 @@ GameObject:
   - component: {fileID: 8568041024945728215}
   - component: {fileID: 8568041024945728214}
   - component: {fileID: 8568041024945728213}
+  - component: {fileID: 8568041024945728217}
+  - component: {fileID: 8568041024945728218}
   m_Layer: 0
   m_Name: LowPolyMan
   m_TagString: Untagged
@@ -3917,6 +3919,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc2ce72548aa13409e878aca458429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &8568041024945728217
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8568041024945728211}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d105fa512ce7b9747b4287183758397a, type: 3}
+  m_Controller: {fileID: 9100000, guid: bbdf1307d087961429be91bb12d79a58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8568041024945728218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8568041024945728211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68da10736934c0644870e6f9af2162f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8573577094593118671
