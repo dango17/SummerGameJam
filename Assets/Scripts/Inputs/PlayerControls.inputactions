@@ -126,6 +126,44 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Player Interaction",
+            "id": "475db5ac-f7f4-475f-b8e8-a003b39d11c3",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "3b5fbe71-3cfa-4e7f-ac68-6f53b311fed4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "461685c8-0728-466c-9847-7bf0c1925d90",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "844b5d9d-4652-4716-b1f4-525c75b4a701",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
