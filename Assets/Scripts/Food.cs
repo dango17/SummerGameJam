@@ -17,6 +17,7 @@ public class Food : Interactable {
 		
 		if (timesUsed >= usesAvailable) {
 			Destroy(gameObject);
+			Deselect();
 		}
 	}
 }

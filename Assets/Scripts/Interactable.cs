@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Abstract class to be implemented by all interactable items.
@@ -23,7 +24,21 @@ public abstract class Interactable : MonoBehaviour {
 	protected int timesUsed = 0;
 	protected bool isUsed = false;
 
+	/// <summary>
+	/// UI text for displaying the name of the currently select item.
+	/// </summary>
+	private Text interactPrompt = null;
+
 	public abstract void Use();
+
+	protected void Deselect() {
+		CurrentSelection = null;
+		interactPrompt.text = "";
+	}
+
+	private void Start() {
+		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
+	}
 
 	/// <summary>
 	/// Updates which item is currently selected by the player to the nearest item.
@@ -34,9 +49,11 @@ public abstract class Interactable : MonoBehaviour {
 			if (CurrentSelection && CurrentSelection != this) {
 				if (Vector3.Distance(transform.position, other.transform.position) < Vector3.Distance(CurrentSelection.transform.position, other.transform.position)) {
 					CurrentSelection = this;
+					interactPrompt.text = gameObject.name;
 				}
 			} else {
 				CurrentSelection = this;
+				interactPrompt.text = gameObject.name;
 			}
 		}
 	}
@@ -45,6 +62,7 @@ public abstract class Interactable : MonoBehaviour {
 		if (other.CompareTag("Player")) {
 			if (CurrentSelection = this) {
 				CurrentSelection = null;
+				interactPrompt.text = "";
 			}
 		}
 	}
