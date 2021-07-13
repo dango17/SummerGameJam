@@ -23,6 +23,8 @@ public class CrowdMaster : MonoBehaviour
     [HideInInspector]
     public Entertainment[] entertainment;
 
-    public int hunger;
+    [HideInInspector] public int hunger;
     public int boredom;
+
+    
 }
