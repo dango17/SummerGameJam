@@ -5,8 +5,13 @@ using UnityEngine.AI;
 
 public class Crowd : CrowdMaster
 {
+    playingGuitair guitair;
+
     [SerializeField]
     private NavMeshAgent agent;
+
+    //DELETE for testing some stuf only
+    public GameObject sphere;
 
     // Start is called before the first frame update
     void Start()
@@ -21,16 +26,19 @@ public class Crowd : CrowdMaster
         Hungry = false;
         bored = false;
         hunger = 100;
-        boredom = 10;
+        boredom = 20;
+        guitair = FindObjectOfType<playingGuitair>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+     
+        //this will be removed
         if (Input.GetKeyDown(KeyCode.E))
         {
-            hunger -= 10;
+            boredom -= 5;
         }
 
         float distanceToFood = float.MaxValue;
@@ -45,21 +53,42 @@ public class Crowd : CrowdMaster
             }
         }
 
-        float distanceToEntertainment = float.MaxValue;
-        Entertainment closestE = entertainment[0];
-        foreach (Entertainment e in entertainment)
-        {
-            float distE = Vector3.Distance(transform.position, e.transform.position);
-            if(distE < distanceToEntertainment)
-            {
-                closestE = e;
-                distanceToEntertainment = distE;
-            }
-        }
+        //float distanceToEntertainment = float.MaxValue;
+        //Entertainment closestE = entertainment[0];
+        //foreach (Entertainment e in entertainment)
+        //{
+        //    float distE = Vector3.Distance(transform.position, e.transform.position);
+        //    if(distE < distanceToEntertainment)
+        //    {
+        //        closestE = e;
+        //        distanceToEntertainment = distE;
+        //    }
+        //}
         if(hunger <= 50)
         {
             Hungry = true;
             agent.SetDestination(closestStall.transform.position);
+        }
+
+        if (guitair.playing == true && boredom <= 10) 
+        {
+            //put logic here some thing like
+            //a boolean for is the player doing a minigame
+            //if yes, set the destination to the player
+            //that should hopefully be enough without needing different logic for every minigame;
+
+            // the bool will probably be in the minigame script, player.playing = true
+            //then in here
+
+            // if (player.Playing = true && boredom <= 10)
+            //{
+            //   agent.SetDestination(player.transform.position)
+            //}
+            //
+
+            bored = true;
+            agent.SetDestination(sphere.transform.position);
+            
         }
     }
 
@@ -96,6 +125,7 @@ public class Crowd : CrowdMaster
         {
             agent.ResetPath();
             Brain.pushState(Idle, OnIdleEnter);
+            hunger -= 2;
         }
     }
 }
