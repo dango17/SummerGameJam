@@ -5,7 +5,10 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
+
     public Vector2 movementInput;
+    public float verticalInput;
+    public float horizontalInput;
 
     //Input Detected
     private void OnEnable()
@@ -24,5 +27,16 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         playerControls.Disable(); 
+    }
+
+    public void HandleAllInputs()
+    {
+        HandleMovementInput(); 
+    }
+
+    private void HandleMovementInput()
+    {
+        verticalInput = movementInput.y;
+        horizontalInput = movementInput.x; 
     }
 }
