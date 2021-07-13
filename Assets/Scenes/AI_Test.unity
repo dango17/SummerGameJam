@@ -155,9 +155,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 408058384}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 408058384}
 --- !u!114 &408058383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408058381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.02, y: 1.17, z: -0.4}
+  m_LocalPosition: {x: -16.02, y: 2.3, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -300,9 +307,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 506521169}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 506521169}
 --- !u!114 &506521168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506521166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66510844, y: 1.17, z: 3.1892118}
+  m_LocalPosition: {x: 0.66510844, y: 2.3, z: 3.1892118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -445,9 +459,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 521826411}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 521826411}
 --- !u!114 &521826410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521826408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.86, y: 1.17, z: 9.7992115}
+  m_LocalPosition: {x: -6.86, y: 2.3, z: 9.7992115}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -569,7 +590,7 @@ GameObject:
   - component: {fileID: 558053324}
   - component: {fileID: 558053323}
   m_Layer: 0
-  m_Name: GreenStall
+  m_Name: GreenStall/food
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,9 +704,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 604868166}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 604868166}
 --- !u!114 &604868165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,7 +816,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604868163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.83, y: 1.17, z: 7.0492115}
+  m_LocalPosition: {x: -9.83, y: 2.3, z: 7.0492115}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -807,7 +835,7 @@ GameObject:
   - component: {fileID: 691006305}
   - component: {fileID: 691006304}
   m_Layer: 0
-  m_Name: Cube (13)
+  m_Name: BrownStall/Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -921,9 +949,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 705979485}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 705979485}
 --- !u!114 &705979484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,7 +1061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705979482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.34, y: 1.17, z: -5.420789}
+  m_LocalPosition: {x: -18.34, y: 2.3, z: -5.420789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1066,9 +1101,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 921895247}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 921895247}
 --- !u!114 &921895246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1171,7 +1213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921895244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.44, y: 1.17, z: 13.099211}
+  m_LocalPosition: {x: -4.44, y: 2.3, z: 13.099211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1211,9 +1253,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 970486633}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 970486633}
 --- !u!114 &970486632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1316,7 +1365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970486630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.75, y: 1.17, z: -0.39999962}
+  m_LocalPosition: {x: 6.75, y: 2.3, z: -0.39999962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1427,7 +1476,7 @@ GameObject:
   - component: {fileID: 1182130402}
   - component: {fileID: 1182130401}
   m_Layer: 0
-  m_Name: Cube (14)
+  m_Name: WhiteStall/Games
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1541,9 +1590,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1270792616}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 1270792616}
 --- !u!114 &1270792615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,7 +1702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270792613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66510844, y: 1.17, z: 8.719212}
+  m_LocalPosition: {x: 0.66510844, y: 2.3, z: 8.719212}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1800,9 +1856,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1505648858}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 1505648858}
 --- !u!114 &1505648857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,7 +1968,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505648855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.42, y: 1.17, z: -0.39999962}
+  m_LocalPosition: {x: -5.42, y: 2.3, z: -0.39999962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1945,9 +2008,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1610205813}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 1610205813}
 --- !u!114 &1610205812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2050,7 +2120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610205810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66510844, y: 1.17, z: -0.39999962}
+  m_LocalPosition: {x: 0.66510844, y: 2.3, z: -0.39999962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2090,9 +2160,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bbbcd9d9f0f1646a2732c45b6ededc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 1799187886}
+  Brain: {fileID: 0}
   change: 0
   GreenStall: {fileID: 558053322}
+  GreenNear: 0
+  brownNear: 0
+  Hungry: 0
+  bored: 0
+  hunger: 0
+  boredom: 0
+  agent: {fileID: 1799187886}
 --- !u!114 &1799187885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,7 +2272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799187883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.94, y: 1.17, z: -0.39999962}
+  m_LocalPosition: {x: -11.94, y: 2.3, z: -0.39999962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
