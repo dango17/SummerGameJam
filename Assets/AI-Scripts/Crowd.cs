@@ -3,22 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Crowd : MonoBehaviour
+public class Crowd : CrowdMaster
 {
-    
-    private StateMachines Brain;
-
     [SerializeField]
     private NavMeshAgent agent;
-
-    [HideInInspector]
-    public float change;
-
-    [SerializeField]
-    private GameObject GreenStall;
-
-    
-    private bool GreenNear;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +16,10 @@ public class Crowd : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         Brain = GetComponent<StateMachines>();
         Brain.pushState(Idle, OnIdleEnter);
+        Hungry = false;
+        bored = false;
+        hunger = 100;
+        boredom = 10;
     }
 
     // Update is called once per frame
@@ -35,8 +27,14 @@ public class Crowd : MonoBehaviour
     {
         GreenNear = Vector3.Distance(transform.position, GreenStall.transform.position) < 10;
 
-        if (Input.GetKeyDown(KeyCode.E) && GreenNear)
+        if (Input.GetKeyDown(KeyCode.E))
         {
+            hunger -= 10;
+        }
+
+        if(hunger <= 50)
+        {
+            Hungry = true;
             agent.SetDestination(GreenStall.transform.position);
         }
     }
