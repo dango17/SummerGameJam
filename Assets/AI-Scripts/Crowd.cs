@@ -15,6 +15,8 @@ public class Crowd : CrowdMaster
 
         agent = GetComponent<NavMeshAgent>();
         Brain = GetComponent<StateMachines>();
+        foodStall = FindObjectsOfType<FoodStall>();
+        entertainment = FindObjectsOfType<Entertainment>();
         Brain.pushState(Idle, OnIdleEnter);
         Hungry = false;
         bored = false;
@@ -25,8 +27,7 @@ public class Crowd : CrowdMaster
     // Update is called once per frame
     void Update()
     {
-        GreenNear = Vector3.Distance(transform.position, GreenStall.transform.position) < 10;
-
+       
         if (Input.GetKeyDown(KeyCode.E))
         {
             hunger -= 10;
@@ -34,7 +35,7 @@ public class Crowd : CrowdMaster
 
         float distanceToFood = float.MaxValue;
         FoodStall closestStall = foodStall[0];
-        foreach(FoodStall fS in foodStall)
+        foreach (FoodStall fS in foodStall)
         {
             float distFS = Vector3.Distance(transform.position, fS.transform.position);
             if(distFS < distanceToFood)
@@ -55,12 +56,10 @@ public class Crowd : CrowdMaster
                 distanceToEntertainment = distE;
             }
         }
-
-
         if(hunger <= 50)
         {
             Hungry = true;
-            agent.SetDestination(GreenStall.transform.position);
+            agent.SetDestination(closestStall.transform.position);
         }
     }
 

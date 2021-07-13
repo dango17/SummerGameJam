@@ -10,12 +10,7 @@ public class CrowdMaster : MonoBehaviour
     [HideInInspector]
     public float change;
 
-    [SerializeField]
-    public GameObject GreenStall;
-
     //Will change these name once more crap is added
-    [HideInInspector]
-    public bool GreenNear;
     [HideInInspector]
     public bool brownNear;
     [HideInInspector]
