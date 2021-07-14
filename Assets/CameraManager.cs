@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    InputManager inputManager; 
+    InputManager inputManager;
 
     public Transform targetTransform; //Follow Camera 
-    public Transform CameraPivot; 
+    public Transform CameraPivot;
     private Vector3 cameraFollowVelocity = Vector3.zero;
 
+    [Header("Camera-Speed")]
     public float cameraFollowSpeed = 0.2f;
     public float cameraLookSpeed = 2;
-    public float cameraPivotSpeed = 2; 
+    public float cameraPivotSpeed = 2;
 
+    [Header("Camera-Clamp")]
+    public float minimumPivotAngle = -35;
+    public float maximumPivotAngle = 35; 
+
+
+    [Header("Axis Angles")]
     public float lookAngle; //Up - Down
     public float pivotAngle; //Left - Right
 
@@ -41,6 +48,7 @@ public class CameraManager : MonoBehaviour
     {
         lookAngle = lookAngle + (inputManager.cameraInputX * cameraLookSpeed);
         pivotAngle = pivotAngle - (inputManager.cameraInputY * cameraPivotSpeed);
+        pivotAngle = Mathf.Clamp(pivotAngle, minimumPivotAngle, maximumPivotAngle); 
 
         Vector3 rotation = Vector3.zero;
         rotation.y = lookAngle;
