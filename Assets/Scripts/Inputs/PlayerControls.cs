@@ -139,6 +139,44 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Player Interaction"",
+            ""id"": ""475db5ac-f7f4-475f-b8e8-a003b39d11c3"",
+            ""actions"": [
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b5fbe71-3cfa-4e7f-ac68-6f53b311fed4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""461685c8-0728-466c-9847-7bf0c1925d90"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""844b5d9d-4652-4716-b1f4-525c75b4a701"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -146,6 +184,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Player Movement
         m_PlayerMovement = asset.FindActionMap("Player Movement", throwIfNotFound: true);
         m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
+        // Player Interaction
+        m_PlayerInteraction = asset.FindActionMap("Player Interaction", throwIfNotFound: true);
+        m_PlayerInteraction_Interact = m_PlayerInteraction.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -224,8 +265,45 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+
+    // Player Interaction
+    private readonly InputActionMap m_PlayerInteraction;
+    private IPlayerInteractionActions m_PlayerInteractionActionsCallbackInterface;
+    private readonly InputAction m_PlayerInteraction_Interact;
+    public struct PlayerInteractionActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PlayerInteractionActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Interact => m_Wrapper.m_PlayerInteraction_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerInteraction; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerInteractionActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerInteractionActions instance)
+        {
+            if (m_Wrapper.m_PlayerInteractionActionsCallbackInterface != null)
+            {
+                @Interact.started -= m_Wrapper.m_PlayerInteractionActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerInteractionActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerInteractionActionsCallbackInterface.OnInteract;
+            }
+            m_Wrapper.m_PlayerInteractionActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+            }
+        }
+    }
+    public PlayerInteractionActions @PlayerInteraction => new PlayerInteractionActions(this);
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IPlayerInteractionActions
+    {
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

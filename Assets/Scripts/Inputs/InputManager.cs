@@ -38,7 +38,8 @@ public class InputManager : MonoBehaviour
 
     public void HandleAllInputs()
     {
-        HandleMovementInput(); 
+        HandleMovementInput();
+        HandleInteractionInput();
     }
 
     private void HandleMovementInput()
@@ -49,4 +50,11 @@ public class InputManager : MonoBehaviour
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput)); 
         animationHandler.UpdateAnimatorValues(0, moveAmount); 
     }
+
+    private void HandleInteractionInput() {
+        // Test interact button is pressed and player has selected an interactable item.
+        if (playerControls.PlayerInteraction.Interact.triggered && Interactable.CurrentSelection) {
+            Interactable.CurrentSelection.Use();
+		}
+	}
 }
