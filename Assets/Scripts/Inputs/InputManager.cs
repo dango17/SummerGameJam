@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     PlayerControls playerControls;
     AnimationHandler animationHandler;
     PlayerMovement playerMovement; 
+    PlayerAbility playerAbility;
 
     public Vector2 movementInput;
     public Vector2 cameraInput;
@@ -24,6 +25,7 @@ public class InputManager : MonoBehaviour
     {
         animationHandler = GetComponent<AnimationHandler>();
         playerMovement = GetComponent<PlayerMovement>(); 
+        playerAbility = GetComponent<PlayerAbility>();
     }
 
     private void OnEnable()
@@ -54,6 +56,7 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleInteractionInput();
         HandleSprintingInput();
+        HandleActionsInput();
     }
 
     private void HandleMovementInput()
@@ -86,4 +89,10 @@ public class InputManager : MonoBehaviour
             Interactable.CurrentSelection.Use();
 		}
 	}
+
+    private void HandleActionsInput() {
+        if (playerControls.PlayerActions.Ability.triggered) {
+            playerAbility.Use();
+        }
+    }
 }

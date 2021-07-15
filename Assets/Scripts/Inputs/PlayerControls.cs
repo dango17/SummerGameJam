@@ -289,6 +289,44 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Player Actions"",
+            ""id"": ""18fb119c-406e-448a-b89b-d815e704d692"",
+            ""actions"": [
+                {
+                    ""name"": ""Ability"",
+                    ""type"": ""Button"",
+                    ""id"": ""25adb325-dd6f-45b4-9cf8-32a8caaa11c8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b96fe76d-4578-410a-8d30-0e5385288505"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""504d492d-a72f-4d3a-82e1-0ddf06dc2ce3"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -303,6 +341,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Player Actions
         m_PlayerActions = asset.FindActionMap("Player Actions", throwIfNotFound: true);
         m_PlayerActions_Shift = m_PlayerActions.FindAction("Shift", throwIfNotFound: true);
+        m_PlayerActions_Ability = m_PlayerActions.FindAction("Ability", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -431,6 +470,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         private @PlayerControls m_Wrapper;
         public PlayerActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shift => m_Wrapper.m_PlayerActions_Shift;
+        public InputAction @Ability => m_Wrapper.m_PlayerActions_Ability;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -443,6 +483,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Shift.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnShift;
                 @Shift.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnShift;
                 @Shift.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnShift;
+                @Ability.started -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAbility;
+                @Ability.performed -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAbility;
+                @Ability.canceled -= m_Wrapper.m_PlayerActionsActionsCallbackInterface.OnAbility;
             }
             m_Wrapper.m_PlayerActionsActionsCallbackInterface = instance;
             if (instance != null)
@@ -450,6 +493,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Shift.started += instance.OnShift;
                 @Shift.performed += instance.OnShift;
                 @Shift.canceled += instance.OnShift;
+                @Ability.started += instance.OnAbility;
+                @Ability.performed += instance.OnAbility;
+                @Ability.canceled += instance.OnAbility;
             }
         }
     }
@@ -466,5 +512,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlayerInteractionActions
     {
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IPlayerActionsActions
+    {
+        void OnAbility(InputAction.CallbackContext context);
     }
 }
