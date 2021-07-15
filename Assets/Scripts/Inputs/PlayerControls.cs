@@ -319,6 +319,44 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Player Pickup"",
+            ""id"": ""446d09cf-1686-48b8-a96d-e66361d05389"",
+            ""actions"": [
+                {
+                    ""name"": ""PickUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""9af54ffd-c370-41e4-b08f-18310ee7e8c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ac9e311e-ab2a-4ec7-b0a8-d4dd4b868662"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e48b5519-f33b-4afd-83d2-182145efced8"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PickUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -334,6 +372,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Player Interaction
         m_PlayerInteraction = asset.FindActionMap("Player Interaction", throwIfNotFound: true);
         m_PlayerInteraction_Interact = m_PlayerInteraction.FindAction("Interact", throwIfNotFound: true);
+        // Player Pickup
+        m_PlayerPickup = asset.FindActionMap("Player Pickup", throwIfNotFound: true);
+        m_PlayerPickup_PickUp = m_PlayerPickup.FindAction("PickUp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -494,6 +535,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerInteractionActions @PlayerInteraction => new PlayerInteractionActions(this);
+
+    // Player Pickup
+    private readonly InputActionMap m_PlayerPickup;
+    private IPlayerPickupActions m_PlayerPickupActionsCallbackInterface;
+    private readonly InputAction m_PlayerPickup_PickUp;
+    public struct PlayerPickupActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PlayerPickupActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PickUp => m_Wrapper.m_PlayerPickup_PickUp;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerPickup; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerPickupActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerPickupActions instance)
+        {
+            if (m_Wrapper.m_PlayerPickupActionsCallbackInterface != null)
+            {
+                @PickUp.started -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnPickUp;
+                @PickUp.performed -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnPickUp;
+                @PickUp.canceled -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnPickUp;
+            }
+            m_Wrapper.m_PlayerPickupActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @PickUp.started += instance.OnPickUp;
+                @PickUp.performed += instance.OnPickUp;
+                @PickUp.canceled += instance.OnPickUp;
+            }
+        }
+    }
+    public PlayerPickupActions @PlayerPickup => new PlayerPickupActions(this);
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -507,5 +581,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlayerInteractionActions
     {
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IPlayerPickupActions
+    {
+        void OnPickUp(InputAction.CallbackContext context);
     }
 }

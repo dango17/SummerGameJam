@@ -212,6 +212,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Ability",
+                    "type": "Button",
+                    "id": "25adb325-dd6f-45b4-9cf8-32a8caaa11c8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -234,6 +242,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b96fe76d-4578-410a-8d30-0e5385288505",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "504d492d-a72f-4d3a-82e1-0ddf06dc2ce3",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -278,13 +308,13 @@
             ]
         },
         {
-            "name": "Player Actions",
-            "id": "18fb119c-406e-448a-b89b-d815e704d692",
+            "name": "Player Pickup",
+            "id": "446d09cf-1686-48b8-a96d-e66361d05389",
             "actions": [
                 {
-                    "name": "Ability",
+                    "name": "PickUp",
                     "type": "Button",
-                    "id": "25adb325-dd6f-45b4-9cf8-32a8caaa11c8",
+                    "id": "9af54ffd-c370-41e4-b08f-18310ee7e8c2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -293,23 +323,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "b96fe76d-4578-410a-8d30-0e5385288505",
-                    "path": "<Keyboard>/q",
+                    "id": "ac9e311e-ab2a-4ec7-b0a8-d4dd4b868662",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Ability",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "504d492d-a72f-4d3a-82e1-0ddf06dc2ce3",
-                    "path": "<Gamepad>/buttonNorth",
+                    "id": "e48b5519-f33b-4afd-83d2-182145efced8",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Ability",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

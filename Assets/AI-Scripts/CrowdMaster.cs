@@ -10,9 +10,12 @@ public class CrowdMaster : MonoBehaviour
     [HideInInspector]
     public float change;
 
-    //Will change these name once more crap is added
+    public bool blocked;
+    public bool NearBarricade;
+
     [HideInInspector]
-    public bool brownNear;
+    public Block block;
+
     [HideInInspector]
     public bool Hungry;
     [HideInInspector]
@@ -25,9 +28,14 @@ public class CrowdMaster : MonoBehaviour
     public Stall[] foodStall;
     [HideInInspector]
     public Entertainment[] entertainment;
+    [HideInInspector]
+    public Exit[] exit;
 
     [HideInInspector] public int hunger;
     public int boredom;
 
-    
+    [HideInInspector]
+    public float pDistance = 4.0f;
+
+
 }
