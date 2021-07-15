@@ -9,6 +9,9 @@ TagManager:
   - Score
   - PowerLevelSlider
   - UI
+  - DestructionZone
+  - Instruction
+  - GuitarUI
   layers:
   - Default
   - TransparentFX

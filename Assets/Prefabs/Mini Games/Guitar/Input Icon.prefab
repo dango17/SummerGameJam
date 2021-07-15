@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4619319870214015898}
   - component: {fileID: 121851041077501916}
   - component: {fileID: 938271713855742079}
+  - component: {fileID: 2946213387188383089}
   m_Layer: 5
   m_Name: Input Icon
   m_TagString: Untagged
@@ -123,3 +124,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2946213387188383089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668030277710691406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9390a5dc9168d84cbe135828504e56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 1
+  inputButton:
+    m_Name: Input Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d5bc91bf-2821-474c-b87e-e03c0dedd874
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: d26f4f13-9fc0-44cb-99b2-fad6a6d2ab43
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Button
+      m_Flags: 0

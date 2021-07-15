@@ -319,6 +319,134 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MiniGame"",
+            ""id"": ""3f060b97-36e5-4a2a-8f69-cfad724f779e"",
+            ""actions"": [
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""861434ba-4a50-49c4-b749-953893e5698c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""8899b830-f712-470c-b65d-5ff643938b97"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""977b6f9b-8453-441f-90b8-29bbd38f5377"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""944fd136-9490-4481-9cb9-8ac4a7f975fa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c8e5091e-cdb6-4355-97e6-acb030e91c5d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91976409-369c-4545-a59e-91cfea80e451"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1947b35-7e01-40f2-8365-cc5023f62e26"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3caa958-ef50-4bf3-88ef-c847750452c9"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3332b872-b9b3-49d9-9351-8f3ee1168b6b"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c74bf117-691a-4076-9e32-5bfa586d0f28"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20c2cd86-26d7-4776-9303-bb1588350a5b"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee1346e8-8a7a-48aa-b70b-3bb813c062ad"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -334,6 +462,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Player Interaction
         m_PlayerInteraction = asset.FindActionMap("Player Interaction", throwIfNotFound: true);
         m_PlayerInteraction_Interact = m_PlayerInteraction.FindAction("Interact", throwIfNotFound: true);
+        // MiniGame
+        m_MiniGame = asset.FindActionMap("MiniGame", throwIfNotFound: true);
+        m_MiniGame_Up = m_MiniGame.FindAction("Up", throwIfNotFound: true);
+        m_MiniGame_Left = m_MiniGame.FindAction("Left", throwIfNotFound: true);
+        m_MiniGame_Down = m_MiniGame.FindAction("Down", throwIfNotFound: true);
+        m_MiniGame_Right = m_MiniGame.FindAction("Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -494,6 +628,63 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerInteractionActions @PlayerInteraction => new PlayerInteractionActions(this);
+
+    // MiniGame
+    private readonly InputActionMap m_MiniGame;
+    private IMiniGameActions m_MiniGameActionsCallbackInterface;
+    private readonly InputAction m_MiniGame_Up;
+    private readonly InputAction m_MiniGame_Left;
+    private readonly InputAction m_MiniGame_Down;
+    private readonly InputAction m_MiniGame_Right;
+    public struct MiniGameActions
+    {
+        private @PlayerControls m_Wrapper;
+        public MiniGameActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Up => m_Wrapper.m_MiniGame_Up;
+        public InputAction @Left => m_Wrapper.m_MiniGame_Left;
+        public InputAction @Down => m_Wrapper.m_MiniGame_Down;
+        public InputAction @Right => m_Wrapper.m_MiniGame_Right;
+        public InputActionMap Get() { return m_Wrapper.m_MiniGame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MiniGameActions set) { return set.Get(); }
+        public void SetCallbacks(IMiniGameActions instance)
+        {
+            if (m_Wrapper.m_MiniGameActionsCallbackInterface != null)
+            {
+                @Up.started -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnUp;
+                @Up.performed -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnUp;
+                @Up.canceled -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnUp;
+                @Left.started -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnLeft;
+                @Left.performed -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnLeft;
+                @Left.canceled -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnLeft;
+                @Down.started -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnDown;
+                @Down.performed -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnDown;
+                @Down.canceled -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnDown;
+                @Right.started -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnRight;
+                @Right.performed -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnRight;
+                @Right.canceled -= m_Wrapper.m_MiniGameActionsCallbackInterface.OnRight;
+            }
+            m_Wrapper.m_MiniGameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Up.started += instance.OnUp;
+                @Up.performed += instance.OnUp;
+                @Up.canceled += instance.OnUp;
+                @Left.started += instance.OnLeft;
+                @Left.performed += instance.OnLeft;
+                @Left.canceled += instance.OnLeft;
+                @Down.started += instance.OnDown;
+                @Down.performed += instance.OnDown;
+                @Down.canceled += instance.OnDown;
+                @Right.started += instance.OnRight;
+                @Right.performed += instance.OnRight;
+                @Right.canceled += instance.OnRight;
+            }
+        }
+    }
+    public MiniGameActions @MiniGame => new MiniGameActions(this);
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -507,5 +698,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlayerInteractionActions
     {
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IMiniGameActions
+    {
+        void OnUp(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
     }
 }
