@@ -12,6 +12,8 @@ TagManager:
   - DestructionZone
   - Instruction
   - GuitarUI
+  - Exit
+  - Block
   layers:
   - Default
   - TransparentFX

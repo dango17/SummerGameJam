@@ -13,29 +13,39 @@ public class Crowd : CrowdMaster
     [HideInInspector]
     public bool canEat;
 
+    [HideInInspector]
+    public bool canExit;
+
     public GameObject character;
+
+    [SerializeField]
+    private GameObject spawn;
 
     // Start is called before the first frame update
     void Start()
     {
-        //will add character reference whem they are in
-
         agent = GetComponent<NavMeshAgent>();
         Brain = GetComponent<StateMachines>();
         foodStall = FindObjectsOfType<Stall>();
+        exit = FindObjectsOfType<Exit>();
         entertainment = FindObjectsOfType<Entertainment>();
         Brain.pushState(Idle, OnIdleEnter);
         Hungry = false;
         bored = false;
+        NearBarricade = false;
+        block = FindObjectOfType<Block>();
         hunger = 100;
         boredom = 20;
         player = FindObjectOfType<PlayerManager>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        NearBarricade = Vector3.Distance(transform.position, block.transform.position) < 3;
+
         float distanceToFood = float.MaxValue;
         Stall closestStall = foodStall[0];
         foreach (Stall fS in foodStall)
@@ -48,17 +58,18 @@ public class Crowd : CrowdMaster
             }
         }
 
-        //float distanceToEntertainment = float.MaxValue;
-        //Entertainment closestE = entertainment[0];
-        //foreach (Entertainment e in entertainment)
-        //{
-        //    float distE = Vector3.Distance(transform.position, e.transform.position);
-        //    if(distE < distanceToEntertainment)
-        //    {
-        //        closestE = e;
-        //        distanceToEntertainment = distE;
-        //    }
-        //}
+        float distanceToExit = float.MaxValue;
+        Exit closestExit = exit[0];
+        foreach(Exit e in exit)
+        {
+            float distE = Vector3.Distance(transform.position, e.transform.position);
+            if(distE < distanceToExit)
+            {
+                closestExit = e;
+                distanceToExit = distE;
+            }
+        }
+
         if(hunger <= 50)
         {
             Hungry = true;
@@ -66,7 +77,13 @@ public class Crowd : CrowdMaster
             agent.SetDestination(closestStall.transform.position);
         }
 
-        if (player.playing == true && boredom <= 10) 
+        if(player.playing == true && boredom <= 10)
+        {
+            bored = true;
+            agent.SetDestination(character.transform.position);
+        }
+
+        else if (boredom <= 0) 
         {
             //put logic here some thing like
             //a boolean for is the player doing a minigame
@@ -75,14 +92,41 @@ public class Crowd : CrowdMaster
 
             // the bool will probably be in the minigame script, player.playing = true
             //then in here
-
             bored = true;
-            agent.SetDestination(character.transform.position);
+            agent.SetDestination(closestExit.transform.position);
+
+            if (NearBarricade)
+            {
+                Brain.pushState(Run, null);
+            }
+
         }
 
-        if(Hungry && canEat)
+        if (Hungry && canEat)
         {
             Brain.pushState(Eat, OnEatEnter);
+        }
+
+
+    }
+
+    void Run()
+    {
+        float distance = Vector3.Distance(transform.position, block.transform.position);
+
+        if(distance < pDistance)
+        {
+            Vector3 blockDir = transform.position - block.transform.position;
+
+            Vector3 newPos = transform.position + blockDir;
+
+            agent.SetDestination(newPos);
+
+        }
+
+        else if (Vector3.Distance(transform.position, block.transform.position) > 5.5f)
+        {
+            Brain.pushState(Idle, OnIdleEnter);
         }
     }
 
@@ -120,7 +164,7 @@ public class Crowd : CrowdMaster
             agent.ResetPath();
             Brain.pushState(Idle, OnIdleEnter);
             hunger -= 2;
-            //boredom -= 5;
+            boredom -= 2;
         }
     }
 
@@ -159,13 +203,11 @@ public class Crowd : CrowdMaster
         }
     }
 
-    void OnBeingEntertainedEnter()
+    private void OnCollisionEnter(Collision collision)
     {
-
-    }
-
-    void BeingEntertained()
-    {
-
+        if (collision.gameObject.CompareTag("Exit"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

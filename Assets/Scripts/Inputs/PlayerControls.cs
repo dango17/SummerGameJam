@@ -447,6 +447,134 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+         {
+            ""name"": ""MiniGame"",
+            ""id"": ""3f060b97-36e5-4a2a-8f69-cfad724f779e"",
+            ""actions"": [
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""861434ba-4a50-49c4-b749-953893e5698c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""8899b830-f712-470c-b65d-5ff643938b97"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""977b6f9b-8453-441f-90b8-29bbd38f5377"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""944fd136-9490-4481-9cb9-8ac4a7f975fa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c8e5091e-cdb6-4355-97e6-acb030e91c5d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91976409-369c-4545-a59e-91cfea80e451"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1947b35-7e01-40f2-8365-cc5023f62e26"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3caa958-ef50-4bf3-88ef-c847750452c9"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3332b872-b9b3-49d9-9351-8f3ee1168b6b"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c74bf117-691a-4076-9e32-5bfa586d0f28"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20c2cd86-26d7-4776-9303-bb1588350a5b"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee1346e8-8a7a-48aa-b70b-3bb813c062ad"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -468,6 +596,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_MiniGame_Left = m_MiniGame.FindAction("Left", throwIfNotFound: true);
         m_MiniGame_Down = m_MiniGame.FindAction("Down", throwIfNotFound: true);
         m_MiniGame_Right = m_MiniGame.FindAction("Right", throwIfNotFound: true);
+        // Player Pickup
+        m_PlayerPickup = asset.FindActionMap("Player Pickup", throwIfNotFound: true);
+        m_PlayerPickup_PickUp = m_PlayerPickup.FindAction("PickUp", throwIfNotFound: true);
+        m_PlayerPickup_Drop = m_PlayerPickup.FindAction("Drop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -685,6 +817,46 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public MiniGameActions @MiniGame => new MiniGameActions(this);
+    // Player Pickup
+    private readonly InputActionMap m_PlayerPickup;
+    private IPlayerPickupActions m_PlayerPickupActionsCallbackInterface;
+    private readonly InputAction m_PlayerPickup_PickUp;
+    private readonly InputAction m_PlayerPickup_Drop;
+    public struct PlayerPickupActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PlayerPickupActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PickUp => m_Wrapper.m_PlayerPickup_PickUp;
+        public InputAction @Drop => m_Wrapper.m_PlayerPickup_Drop;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerPickup; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerPickupActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerPickupActions instance)
+        {
+            if (m_Wrapper.m_PlayerPickupActionsCallbackInterface != null)
+            {
+                @PickUp.started -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnPickUp;
+                @PickUp.performed -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnPickUp;
+                @PickUp.canceled -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnPickUp;
+                @Drop.started -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnDrop;
+                @Drop.performed -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnDrop;
+                @Drop.canceled -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnDrop;
+            }
+            m_Wrapper.m_PlayerPickupActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @PickUp.started += instance.OnPickUp;
+                @PickUp.performed += instance.OnPickUp;
+                @PickUp.canceled += instance.OnPickUp;
+                @Drop.started += instance.OnDrop;
+                @Drop.performed += instance.OnDrop;
+                @Drop.canceled += instance.OnDrop;
+            }
+        }
+    }
+    public PlayerPickupActions @PlayerPickup => new PlayerPickupActions(this);
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -705,5 +877,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnLeft(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
+    }
+    public interface IPlayerPickupActions
+    {
+        void OnPickUp(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
 }

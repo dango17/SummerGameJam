@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour {
 	private AnimationHandler animationHandler;
 	private PlayerMovement playerMovement;
 	private PlayerAbility playerAbility;
+	private PickUp pickUpA;
 
 	public void HandleAllInputs() {
 		switch (inputMode) {
@@ -37,6 +38,7 @@ public class InputManager : MonoBehaviour {
 				HandleInteractionInput();
 				HandleSprintingInput();
 				HandleActionsInput();
+				HandlePickup();
 				break;
 			}
 			case InputModes.MiniGame: {
@@ -61,6 +63,7 @@ public class InputManager : MonoBehaviour {
 		animationHandler = GetComponent<AnimationHandler>();
 		playerMovement = GetComponent<PlayerMovement>();
 		playerAbility = GetComponent<PlayerAbility>();
+		pickUpA = FindObjectOfType<PickUp>();
 	}
 
 	private void OnEnable() {
@@ -114,4 +117,17 @@ public class InputManager : MonoBehaviour {
 			playerAbility.Use();
 		}
 	}
+
+	private void HandlePickup()
+    {
+        if (playerControls.PlayerPickup.PickUp.triggered && pickUpA.canPickup == true)
+        {
+            pickUpA.PickUpObject();
+        }
+
+        if (playerControls.PlayerPickup.Drop.triggered)
+        {
+            pickUpA.DropObject();
+        }
+    }
 }
