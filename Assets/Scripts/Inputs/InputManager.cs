@@ -5,17 +5,25 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
-    AnimationHandler animationHandler; 
+    AnimationHandler animationHandler;
+    PlayerMovement playerMovement; 
 
     public Vector2 movementInput;
+    public Vector2 cameraInput;
 
-    private float moveAmount; 
+    public float cameraInputX;
+    public float cameraInputY; 
+
+    public float moveAmount; 
     public float verticalInput;
     public float horizontalInput;
 
+    public bool s_input; 
+
     private void Awake()
     {
-        animationHandler = GetComponent<AnimationHandler>(); 
+        animationHandler = GetComponent<AnimationHandler>();
+        playerMovement = GetComponent<PlayerMovement>(); 
     }
 
     private void OnEnable()
@@ -24,8 +32,13 @@ public class InputManager : MonoBehaviour
         {
             playerControls = new PlayerControls();
 
-            //Move thorugh variables in input system 
+            //Movement Inputs
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
+            playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
+
+            //Action Inputs
+            playerControls.PlayerActions.Shift.performed += i => s_input = true;
+            playerControls.PlayerActions.Shift.canceled += i => s_input = false; 
         }
 
         playerControls.Enable();
@@ -40,6 +53,7 @@ public class InputManager : MonoBehaviour
     {
         HandleMovementInput();
         HandleInteractionInput();
+        HandleSprintingInput();
     }
 
     private void HandleMovementInput()
@@ -48,7 +62,22 @@ public class InputManager : MonoBehaviour
         horizontalInput = movementInput.x;
 
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput)); 
-        animationHandler.UpdateAnimatorValues(0, moveAmount); 
+        animationHandler.UpdateAnimatorValues(0, moveAmount);
+
+        cameraInputY = cameraInput.y;
+        cameraInputX = cameraInput.x; 
+    } 
+
+    private void HandleSprintingInput()
+    {
+        if(s_input && moveAmount > 0.5f)
+        {
+            playerMovement.isSprinting = true; 
+        } 
+        else
+        {
+            playerMovement.isSprinting = false; 
+        }
     }
 
     private void HandleInteractionInput() {
