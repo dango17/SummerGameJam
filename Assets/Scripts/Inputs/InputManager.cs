@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     AnimationHandler animationHandler;
     PlayerMovement playerMovement; 
     PlayerAbility playerAbility;
+    PickUp pickUpA;
 
     public Vector2 movementInput;
     public Vector2 cameraInput;
@@ -26,6 +27,7 @@ public class InputManager : MonoBehaviour
         animationHandler = GetComponent<AnimationHandler>();
         playerMovement = GetComponent<PlayerMovement>(); 
         playerAbility = GetComponent<PlayerAbility>();
+        pickUpA = FindObjectOfType<PickUp>();
     }
 
     private void OnEnable()
@@ -57,6 +59,7 @@ public class InputManager : MonoBehaviour
         HandleInteractionInput();
         HandleSprintingInput();
         HandleActionsInput();
+        HandlePickup();
     }
 
     private void HandleMovementInput()
@@ -93,6 +96,19 @@ public class InputManager : MonoBehaviour
     private void HandleActionsInput() {
         if (playerControls.PlayerActions.Ability.triggered) {
             playerAbility.Use();
+        }
+    }
+
+    private void HandlePickup()
+    {
+        if (playerControls.PlayerPickup.PickUp.triggered && pickUpA.canPickup == true)
+        {
+            pickUpA.PickUpObject();
+        }
+
+        if (playerControls.PlayerPickup.Drop.triggered)
+        {
+            pickUpA.DropObject();
         }
     }
 }

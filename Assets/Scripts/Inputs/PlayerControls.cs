@@ -331,6 +331,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""7eb8010c-9fb6-4b27-9f61-0b9f84e4a401"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -355,6 +363,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""PickUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de6d3ee2-4d0b-4820-a057-45e30b4244c7"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4a0b0f0-e8cc-4f10-ab67-7b63f801e5ee"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -375,6 +405,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Player Pickup
         m_PlayerPickup = asset.FindActionMap("Player Pickup", throwIfNotFound: true);
         m_PlayerPickup_PickUp = m_PlayerPickup.FindAction("PickUp", throwIfNotFound: true);
+        m_PlayerPickup_Drop = m_PlayerPickup.FindAction("Drop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -540,11 +571,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_PlayerPickup;
     private IPlayerPickupActions m_PlayerPickupActionsCallbackInterface;
     private readonly InputAction m_PlayerPickup_PickUp;
+    private readonly InputAction m_PlayerPickup_Drop;
     public struct PlayerPickupActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerPickupActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @PickUp => m_Wrapper.m_PlayerPickup_PickUp;
+        public InputAction @Drop => m_Wrapper.m_PlayerPickup_Drop;
         public InputActionMap Get() { return m_Wrapper.m_PlayerPickup; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -557,6 +590,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @PickUp.started -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnPickUp;
                 @PickUp.performed -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnPickUp;
                 @PickUp.canceled -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnPickUp;
+                @Drop.started -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnDrop;
+                @Drop.performed -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnDrop;
+                @Drop.canceled -= m_Wrapper.m_PlayerPickupActionsCallbackInterface.OnDrop;
             }
             m_Wrapper.m_PlayerPickupActionsCallbackInterface = instance;
             if (instance != null)
@@ -564,6 +600,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @PickUp.started += instance.OnPickUp;
                 @PickUp.performed += instance.OnPickUp;
                 @PickUp.canceled += instance.OnPickUp;
+                @Drop.started += instance.OnDrop;
+                @Drop.performed += instance.OnDrop;
+                @Drop.canceled += instance.OnDrop;
             }
         }
     }
@@ -585,5 +624,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlayerPickupActions
     {
         void OnPickUp(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
 }
