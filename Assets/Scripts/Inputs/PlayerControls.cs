@@ -448,38 +448,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 }
             ]
         },
-         {
-            ""name"": ""MiniGame"",
-            ""id"": ""3f060b97-36e5-4a2a-8f69-cfad724f779e"",
+        {
+            ""name"": ""Player Pickup"",
+            ""id"": ""446d09cf-1686-48b8-a96d-e66361d05389"",
             ""actions"": [
                 {
-                    ""name"": ""Up"",
+                    ""name"": ""PickUp"",
                     ""type"": ""Button"",
-                    ""id"": ""861434ba-4a50-49c4-b749-953893e5698c"",
+                    ""id"": ""9af54ffd-c370-41e4-b08f-18310ee7e8c2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Left"",
+                    ""name"": ""Drop"",
                     ""type"": ""Button"",
-                    ""id"": ""8899b830-f712-470c-b65d-5ff643938b97"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Down"",
-                    ""type"": ""Button"",
-                    ""id"": ""977b6f9b-8453-441f-90b8-29bbd38f5377"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Right"",
-                    ""type"": ""Button"",
-                    ""id"": ""944fd136-9490-4481-9cb9-8ac4a7f975fa"",
+                    ""id"": ""7eb8010c-9fb6-4b27-9f61-0b9f84e4a401"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -488,89 +472,45 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""c8e5091e-cdb6-4355-97e6-acb030e91c5d"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""id"": ""ac9e311e-ab2a-4ec7-b0a8-d4dd4b868662"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Up"",
+                    ""action"": ""PickUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""91976409-369c-4545-a59e-91cfea80e451"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""id"": ""e48b5519-f33b-4afd-83d2-182145efced8"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Up"",
+                    ""action"": ""PickUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f1947b35-7e01-40f2-8365-cc5023f62e26"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""id"": ""de6d3ee2-4d0b-4820-a057-45e30b4244c7"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Left"",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e3caa958-ef50-4bf3-88ef-c847750452c9"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""id"": ""b4a0b0f0-e8cc-4f10-ab67-7b63f801e5ee"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3332b872-b9b3-49d9-9351-8f3ee1168b6b"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c74bf117-691a-4076-9e32-5bfa586d0f28"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""20c2cd86-26d7-4776-9303-bb1588350a5b"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee1346e8-8a7a-48aa-b70b-3bb813c062ad"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Right"",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -817,6 +757,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public MiniGameActions @MiniGame => new MiniGameActions(this);
+
     // Player Pickup
     private readonly InputActionMap m_PlayerPickup;
     private IPlayerPickupActions m_PlayerPickupActionsCallbackInterface;
