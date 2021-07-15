@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class Crowd : CrowdMaster
 {
-    playingGuitair guitair;
+    PlayerManager player;
 
     [SerializeField]
     private NavMeshAgent agent;
 
-    //DELETE for testing some stuf only
-    public GameObject sphere;
+    [HideInInspector]
+    public bool canEat;
+
+    public GameObject character;
 
     // Start is called before the first frame update
     void Start()
@@ -20,30 +22,23 @@ public class Crowd : CrowdMaster
 
         agent = GetComponent<NavMeshAgent>();
         Brain = GetComponent<StateMachines>();
-        foodStall = FindObjectsOfType<FoodStall>();
+        foodStall = FindObjectsOfType<Stall>();
         entertainment = FindObjectsOfType<Entertainment>();
         Brain.pushState(Idle, OnIdleEnter);
         Hungry = false;
         bored = false;
         hunger = 100;
         boredom = 20;
-        guitair = FindObjectOfType<playingGuitair>();
+        player = FindObjectOfType<PlayerManager>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-     
-        //this will be removed
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            boredom -= 5;
-        }
-
         float distanceToFood = float.MaxValue;
-        FoodStall closestStall = foodStall[0];
-        foreach (FoodStall fS in foodStall)
+        Stall closestStall = foodStall[0];
+        foreach (Stall fS in foodStall)
         {
             float distFS = Vector3.Distance(transform.position, fS.transform.position);
             if(distFS < distanceToFood)
@@ -67,10 +62,11 @@ public class Crowd : CrowdMaster
         if(hunger <= 50)
         {
             Hungry = true;
+            canEat = Vector3.Distance(transform.position, closestStall.transform.position) < 1;
             agent.SetDestination(closestStall.transform.position);
         }
 
-        if (guitair.playing == true && boredom <= 10) 
+        if (player.playing == true && boredom <= 10) 
         {
             //put logic here some thing like
             //a boolean for is the player doing a minigame
@@ -80,15 +76,13 @@ public class Crowd : CrowdMaster
             // the bool will probably be in the minigame script, player.playing = true
             //then in here
 
-            // if (player.Playing = true && boredom <= 10)
-            //{
-            //   agent.SetDestination(player.transform.position)
-            //}
-            //
-
             bored = true;
-            agent.SetDestination(sphere.transform.position);
-            
+            agent.SetDestination(character.transform.position);
+        }
+
+        if(Hungry && canEat)
+        {
+            Brain.pushState(Eat, OnEatEnter);
         }
     }
 
@@ -126,6 +120,52 @@ public class Crowd : CrowdMaster
             agent.ResetPath();
             Brain.pushState(Idle, OnIdleEnter);
             hunger -= 2;
+            //boredom -= 5;
         }
+    }
+
+    void OnEatEnter()
+    {
+        agent.ResetPath();
+    }
+
+    void Eat()
+    {
+        float distanceToFood = float.MaxValue;
+        Stall closestStall = foodStall[0];
+        foreach (Stall fS in foodStall)
+        {
+            float distFS = Vector3.Distance(transform.position, fS.transform.position);
+            if (distFS < distanceToFood)
+            {
+                closestStall = fS;
+                distanceToFood = distFS;
+            }
+        }
+
+        EatTimer -= Time.deltaTime;
+        if(EatTimer <= 0)
+        {
+            closestStall.Eating(2, 1);
+            hunger += 10;
+            EatTimer = 2f;
+        }
+
+        else if (hunger >= 100)
+        {
+            Hungry = false;
+            canEat = Vector3.Distance(transform.position, closestStall.transform.position) < 0.00;
+            Brain.pushState(Idle, OnIdleEnter);
+        }
+    }
+
+    void OnBeingEntertainedEnter()
+    {
+
+    }
+
+    void BeingEntertained()
+    {
+
     }
 }
