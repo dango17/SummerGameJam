@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         cameraManager = FindObjectOfType<CameraManager>(); 
         playerMovement = GetComponent<PlayerMovement>();
-        playing = true;
+        playing = false;
     } 
 
     private void Update()
