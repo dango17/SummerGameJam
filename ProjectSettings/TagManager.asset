@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InteractPrompt
   - AI
+  - Score
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,6 @@ public class PlayerAbility : MonoBehaviour {
 	public bool Used { get; private set; } = false;
 
 	private int powerLevel = 1;
-	[SerializeField]
 	private Score score = null;
 
 	public void Use() {
@@ -36,5 +35,9 @@ public class PlayerAbility : MonoBehaviour {
 	public void DecreasePower(int energy) {
 		powerLevel -= energy;
 		// TODO: Update power level UI slider.
+	}
+
+	private void Start() {
+		score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
 	}
 }

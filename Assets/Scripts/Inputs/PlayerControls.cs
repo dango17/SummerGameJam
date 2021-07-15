@@ -225,6 +225,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Ability"",
+                    ""type"": ""Button"",
+                    ""id"": ""25adb325-dd6f-45b4-9cf8-32a8caaa11c8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -247,6 +255,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b96fe76d-4578-410a-8d30-0e5385288505"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""504d492d-a72f-4d3a-82e1-0ddf06dc2ce3"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -289,44 +319,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Player Actions"",
-            ""id"": ""18fb119c-406e-448a-b89b-d815e704d692"",
-            ""actions"": [
-                {
-                    ""name"": ""Ability"",
-                    ""type"": ""Button"",
-                    ""id"": ""25adb325-dd6f-45b4-9cf8-32a8caaa11c8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""b96fe76d-4578-410a-8d30-0e5385288505"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""504d492d-a72f-4d3a-82e1-0ddf06dc2ce3"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": []
@@ -334,14 +326,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Player Movement
         m_PlayerMovement = asset.FindActionMap("Player Movement", throwIfNotFound: true);
         m_PlayerMovement_Movement = m_PlayerMovement.FindAction("Movement", throwIfNotFound: true);
-        // Player Interaction
-        m_PlayerInteraction = asset.FindActionMap("Player Interaction", throwIfNotFound: true);
-        m_PlayerInteraction_Interact = m_PlayerInteraction.FindAction("Interact", throwIfNotFound: true);
         m_PlayerMovement_Camera = m_PlayerMovement.FindAction("Camera", throwIfNotFound: true);
         // Player Actions
         m_PlayerActions = asset.FindActionMap("Player Actions", throwIfNotFound: true);
         m_PlayerActions_Shift = m_PlayerActions.FindAction("Shift", throwIfNotFound: true);
         m_PlayerActions_Ability = m_PlayerActions.FindAction("Ability", throwIfNotFound: true);
+        // Player Interaction
+        m_PlayerInteraction = asset.FindActionMap("Player Interaction", throwIfNotFound: true);
+        m_PlayerInteraction_Interact = m_PlayerInteraction.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -429,42 +421,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     }
     public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
 
-    // Player Interaction
-    private readonly InputActionMap m_PlayerInteraction;
-    private IPlayerInteractionActions m_PlayerInteractionActionsCallbackInterface;
-    private readonly InputAction m_PlayerInteraction_Interact;
-    public struct PlayerInteractionActions
-    {
-        private @PlayerControls m_Wrapper;
-        public PlayerInteractionActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Interact => m_Wrapper.m_PlayerInteraction_Interact;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerInteraction; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerInteractionActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerInteractionActions instance)
-        {
-            if (m_Wrapper.m_PlayerInteractionActionsCallbackInterface != null)
-            {
-                @Interact.started -= m_Wrapper.m_PlayerInteractionActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_PlayerInteractionActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_PlayerInteractionActionsCallbackInterface.OnInteract;
-            }
-            m_Wrapper.m_PlayerInteractionActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
-            }
-        }
-    }
-    public PlayerInteractionActions @PlayerInteraction => new PlayerInteractionActions(this);
     // Player Actions
     private readonly InputActionMap m_PlayerActions;
     private IPlayerActionsActions m_PlayerActionsActionsCallbackInterface;
     private readonly InputAction m_PlayerActions_Shift;
+    private readonly InputAction m_PlayerActions_Ability;
     public struct PlayerActionsActions
     {
         private @PlayerControls m_Wrapper;
@@ -500,6 +461,39 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerActionsActions @PlayerActions => new PlayerActionsActions(this);
+
+    // Player Interaction
+    private readonly InputActionMap m_PlayerInteraction;
+    private IPlayerInteractionActions m_PlayerInteractionActionsCallbackInterface;
+    private readonly InputAction m_PlayerInteraction_Interact;
+    public struct PlayerInteractionActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PlayerInteractionActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Interact => m_Wrapper.m_PlayerInteraction_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerInteraction; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerInteractionActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerInteractionActions instance)
+        {
+            if (m_Wrapper.m_PlayerInteractionActionsCallbackInterface != null)
+            {
+                @Interact.started -= m_Wrapper.m_PlayerInteractionActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerInteractionActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerInteractionActionsCallbackInterface.OnInteract;
+            }
+            m_Wrapper.m_PlayerInteractionActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+            }
+        }
+    }
+    public PlayerInteractionActions @PlayerInteraction => new PlayerInteractionActions(this);
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -508,13 +502,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public interface IPlayerActionsActions
     {
         void OnShift(InputAction.CallbackContext context);
+        void OnAbility(InputAction.CallbackContext context);
     }
     public interface IPlayerInteractionActions
     {
         void OnInteract(InputAction.CallbackContext context);
-    }
-    public interface IPlayerActionsActions
-    {
-        void OnAbility(InputAction.CallbackContext context);
     }
 }
