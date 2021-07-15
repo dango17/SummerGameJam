@@ -13,17 +13,20 @@ public class Instruction : MonoBehaviour {
 	private int scoreWorth = 5;
 	private GuitarInterface guitarInterface = null;
 
-	public void SetType(CustomButton button) {
+	public void SetType(CustomButton button) 
+	{
 		GetComponent<Image>().sprite = button.GetComponent<Image>().sprite;
 		CorresspondingInput = button.InputButton.ToString();
 	}
 
-	public void Destroy() {
+    public void Destroy()
+    {
 		guitarInterface.Score.AddScore(scoreWorth);
 		Destroy(gameObject);
 	}
 
-	private void Start() {
+	private void Start() 
+	{
 		guitarInterface = GameObject.FindGameObjectWithTag("GuitarUI").GetComponent<GuitarInterface>();
 	}
 
@@ -31,7 +34,7 @@ public class Instruction : MonoBehaviour {
 		transform.position -= new Vector3(0, movementSpeed * Time.deltaTime, 0);
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision) {
+	public void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.CompareTag("DestructionZone")) {
 			guitarInterface.Score.SubtractScore(scoreWorth);
 			Destroy(gameObject);

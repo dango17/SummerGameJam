@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] float Radius = 10, time = 5f;
+    [SerializeField] float time = 5f;
 
     public GameObject[] crowd;
 
@@ -17,8 +17,6 @@ public class Spawner : MonoBehaviour
     IEnumerator theSpawner()
     {
         Vector3 pos = GameObject.Find("Spawn").transform.position;
-
-        
 
         Instantiate(crowd[Random.Range(0, crowd.Length - 1)], pos, Quaternion.identity);
 

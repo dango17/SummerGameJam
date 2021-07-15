@@ -18,9 +18,6 @@ public class Crowd : CrowdMaster
 
     public GameObject character;
 
-    [SerializeField]
-    private GameObject spawn;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,14 +34,15 @@ public class Crowd : CrowdMaster
         hunger = 100;
         boredom = 20;
         player = FindObjectOfType<PlayerManager>();
-
+        score = FindObjectOfType<Score>();
+        guitarI = FindObjectOfType<Guitar>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         NearBarricade = Vector3.Distance(transform.position, block.transform.position) < 3;
+        nearPlayer = Vector3.Distance(transform.position, character.transform.position) < 4;
 
         float distanceToFood = float.MaxValue;
         Stall closestStall = foodStall[0];
@@ -70,20 +68,20 @@ public class Crowd : CrowdMaster
             }
         }
 
-        if(hunger <= 50)
+        if (hunger <= 50)
         {
             Hungry = true;
             canEat = Vector3.Distance(transform.position, closestStall.transform.position) < 1;
             agent.SetDestination(closestStall.transform.position);
         }
 
-        if(player.playing == true && boredom <= 10)
+        if (guitarI.playingGuitar && boredom <= 10)
         {
             bored = true;
             agent.SetDestination(character.transform.position);
         }
 
-        else if (boredom <= 0) 
+        else if (boredom <= -1000000) 
         {
             //put logic here some thing like
             //a boolean for is the player doing a minigame
@@ -99,7 +97,6 @@ public class Crowd : CrowdMaster
             {
                 Brain.pushState(Run, null);
             }
-
         }
 
         if (Hungry && canEat)
@@ -107,7 +104,10 @@ public class Crowd : CrowdMaster
             Brain.pushState(Eat, OnEatEnter);
         }
 
-
+        if(bored && nearPlayer)
+        {
+            Brain.pushState(OnListenEnter, ListenToGuitar);
+        }
     }
 
     void Run()
@@ -143,7 +143,6 @@ public class Crowd : CrowdMaster
             Brain.pushState(Walk, WalkEnter);
 
             change = Random.Range(1, 2);
-        
         }
     }
 
@@ -165,6 +164,34 @@ public class Crowd : CrowdMaster
             Brain.pushState(Idle, OnIdleEnter);
             hunger -= 2;
             boredom -= 2;
+        }
+    }
+
+    void OnListenEnter()
+    {
+        agent.ResetPath();
+    }
+
+    void ListenToGuitar()
+    {
+        boredomChange -= Time.deltaTime;
+
+        if (nearPlayer && boredomChange <= 0)
+        {
+            boredom += 1;
+            boredomChange = 3f;
+        }
+
+        if(score.Scored > 5)
+        {
+            boredom += 25;
+            boredomChange = 5f;
+        }
+
+        if (score.Scored < 0)
+        {
+            boredom -= 3;
+            boredomChange = 5f;
         }
     }
 

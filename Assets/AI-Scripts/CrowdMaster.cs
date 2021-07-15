@@ -8,10 +8,17 @@ public class CrowdMaster : MonoBehaviour
     public StateMachines Brain;
 
     [HideInInspector]
+    public Score score;
+
+    [HideInInspector]
+    public Guitar guitarI;
+
+    [HideInInspector]
     public float change;
 
     public bool blocked;
     public bool NearBarricade;
+    public bool nearPlayer;
 
     [HideInInspector]
     public Block block;
@@ -20,6 +27,9 @@ public class CrowdMaster : MonoBehaviour
     public bool Hungry;
     [HideInInspector]
     public bool bored;
+
+    [HideInInspector]
+    public float boredomChange;
 
     [HideInInspector]
     public float EatTimer;

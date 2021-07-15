@@ -26,7 +26,7 @@ public class PickUp : MonoBehaviour
         GetComponent<Rigidbody>().freezeRotation = true;
         GetComponent<Rigidbody>().isKinematic = true;
         this.transform.position = destination.position;
-        this.transform.parent = GameObject.Find("GameObject").transform;
+        this.transform.parent = GameObject.Find("Head").transform;
         heldObj = this.gameObject;
     }
 

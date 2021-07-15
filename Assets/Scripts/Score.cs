@@ -6,12 +6,13 @@ public class Score : MonoBehaviour {
 
 	private Text scoreText = null;
 
-	public void AddScore(int addAmount) {
+    public void AddScore(int addAmount) {
 		Scored += addAmount;
 		scoreText.text = Scored.ToString();
 	}
 
-	public void SubtractScore(int subtractAmount) {
+    public void SubtractScore(int subtractAmount)
+    {
 		Scored -= subtractAmount;
 		scoreText.text = Scored.ToString();
 	}
