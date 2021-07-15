@@ -19,7 +19,10 @@ public class CrowdMaster : MonoBehaviour
     public bool bored;
 
     [HideInInspector]
-    public FoodStall[] foodStall;
+    public float EatTimer;
+
+    [HideInInspector]
+    public Stall[] foodStall;
     [HideInInspector]
     public Entertainment[] entertainment;
 
