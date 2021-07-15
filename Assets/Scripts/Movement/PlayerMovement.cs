@@ -99,14 +99,16 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 raycastOrigin = transform.position;
-        raycastOrigin.y = raycastOrigin.y + rayCastHeightOffSet; 
+        Vector3 targetPosition; 
+        raycastOrigin.y = raycastOrigin.y + rayCastHeightOffSet;
+        targetPosition = transform.position; 
 
         if(!isGrounded)
         {
             if(!playerManager.isInteracting)
             {
                 animationHandler.PlayTargetAnimation("Falling", true); 
-            }
+            } 
 
             inAirTimer = inAirTimer + Time.deltaTime;
             playerRigidbody.AddForce(transform.forward * leapingVelocity);
@@ -120,12 +122,24 @@ public class PlayerMovement : MonoBehaviour
                 animationHandler.PlayTargetAnimation("Land", true);
             }
 
+            Vector3 rayCastHitPoint = hit.point;
+            targetPosition.y = rayCastHitPoint.y; 
             inAirTimer = 0;
             isGrounded = true;
         }
         else
         {
             isGrounded = false;
+        }
+
+        //Ground check
+        if (playerManager.isInteracting || inputManager.moveAmount > 0)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime / 0.1f);
+        }
+        else
+        {
+            transform.position = targetPosition;
         }
     }
 }
