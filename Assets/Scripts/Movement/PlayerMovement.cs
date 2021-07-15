@@ -5,28 +5,47 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     InputManager inputManager;
+    PlayerManager playerManager;
+    AnimationHandler animationHandler; 
 
     Vector3 moveDirection;
     Transform cameraObject;
     Rigidbody playerRigidbody;
 
-    public bool isSprinting; 
-
     [Header("Movement-Speeds")]
     public float walkingSpeed = 1.5f;
     public float runningSpeed = 5;
     public float sprintingSpeed = 7;
-    public float rotationSpeed = 15; 
+    public float rotationSpeed = 15;
+
+    [Header("Falling")]
+    public float inAirTimer;
+    public float leapingVelocity;
+    public float fallingVelocity;
+    public float rayCastHeightOffSet = 0.5f; 
+    public LayerMask groundLayer; 
+
+    [Header("Movement Bools")]
+    public bool isSprinting;
+    public bool isGrounded; 
+
 
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
         playerRigidbody = GetComponent<Rigidbody>();
+        playerManager = GetComponent<PlayerManager>();
+        animationHandler = GetComponent<AnimationHandler>();
         cameraObject = Camera.main.transform; 
     }  
 
     public void HandleAllMovement()
     {
+        HandleFallingAndLanding(); 
+
+        if (playerManager.isInteracting)
+            return; 
+
         HandleMovement();
         HandleRotation(); 
     }
@@ -74,5 +93,39 @@ public class PlayerMovement : MonoBehaviour
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         transform.rotation = playerRotation; 
+    } 
+
+    private void HandleFallingAndLanding()
+    {
+        RaycastHit hit;
+        Vector3 raycastOrigin = transform.position;
+        raycastOrigin.y = raycastOrigin.y + rayCastHeightOffSet; 
+
+        if(!isGrounded)
+        {
+            if(!playerManager.isInteracting)
+            {
+                animationHandler.PlayTargetAnimation("Falling", true); 
+            }
+
+            inAirTimer = inAirTimer + Time.deltaTime;
+            playerRigidbody.AddForce(transform.forward * leapingVelocity);
+            playerRigidbody.AddForce(-Vector3.up * fallingVelocity * inAirTimer); 
+        }
+
+        if (Physics.SphereCast(raycastOrigin, 0.2f, -Vector3.up, out hit, groundLayer))
+        {
+            if (!isGrounded && !playerManager.isInteracting)
+            {
+                animationHandler.PlayTargetAnimation("Land", true);
+            }
+
+            inAirTimer = 0;
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 }
