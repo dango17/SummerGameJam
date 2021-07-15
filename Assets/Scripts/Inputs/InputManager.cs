@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
     AnimationHandler animationHandler; 
+    PlayerAbility playerAbility;
 
     public Vector2 movementInput;
 
@@ -15,7 +16,8 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        animationHandler = GetComponent<AnimationHandler>(); 
+        animationHandler = GetComponent<AnimationHandler>();
+        playerAbility = GetComponent<PlayerAbility>();
     }
 
     private void OnEnable()
@@ -40,6 +42,7 @@ public class InputManager : MonoBehaviour
     {
         HandleMovementInput();
         HandleInteractionInput();
+        HandleActionsInput();
     }
 
     private void HandleMovementInput()
@@ -57,4 +60,10 @@ public class InputManager : MonoBehaviour
             Interactable.CurrentSelection.Use();
 		}
 	}
+
+    private void HandleActionsInput() {
+        if (playerControls.PlayerActions.Ability.triggered) {
+            playerAbility.Use();
+        }
+    }
 }

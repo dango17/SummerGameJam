@@ -2,15 +2,15 @@
 
 public class Food : Interactable {
 	/// <summary>
-	/// Used to power the player's ability.
+	/// Powers the player's ability by increasing it's radius by energy amount.
 	/// </summary>
 	[Tooltip("Amount of energy the player receives upon consuming the food.")]
 	[SerializeField]
-	private int energy = 0;
+	private int energy = 1;
 
 	public override void Use() {
 		if (timesUsed < usesAvailable) {
-			Debug.Log("Used Food: " + gameObject.name);
+			GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAbility>().IncreasePower(energy);
 			isUsed = true;
 			++timesUsed;
 		}
