@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -730,7 +730,7 @@ PrefabInstance:
     - target: {fileID: 1205099133465909337, guid: a7bcd1c7aa60579459ad2302e8a885e8,
         type: 3}
       propertyPath: energy
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2140411171804848537, guid: a7bcd1c7aa60579459ad2302e8a885e8,
         type: 3}
@@ -1130,7 +1130,7 @@ PrefabInstance:
     - target: {fileID: 1205099133465909337, guid: a7bcd1c7aa60579459ad2302e8a885e8,
         type: 3}
       propertyPath: energy
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2140411171804848537, guid: a7bcd1c7aa60579459ad2302e8a885e8,
         type: 3}
@@ -1625,6 +1625,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 317814490741495566, guid: 9c3e08cef50414d478b57fbe4ad5388e,
+        type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1292602798351348805, guid: 9c3e08cef50414d478b57fbe4ad5388e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1735,10 +1740,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2836717300444063876, guid: 9c3e08cef50414d478b57fbe4ad5388e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836717300444063876, guid: 9c3e08cef50414d478b57fbe4ad5388e,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5417820670682310149, guid: 9c3e08cef50414d478b57fbe4ad5388e,
         type: 3}
       propertyPath: m_TagString
       value: Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365576125770115040, guid: 9c3e08cef50414d478b57fbe4ad5388e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365576125770115040, guid: 9c3e08cef50414d478b57fbe4ad5388e,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c3e08cef50414d478b57fbe4ad5388e, type: 3}
@@ -1752,7 +1777,7 @@ PrefabInstance:
     - target: {fileID: 1205099133465909337, guid: a7bcd1c7aa60579459ad2302e8a885e8,
         type: 3}
       propertyPath: energy
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2140411171804848537, guid: a7bcd1c7aa60579459ad2302e8a885e8,
         type: 3}

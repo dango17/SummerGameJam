@@ -6,7 +6,7 @@ public class Food : Interactable {
 	/// </summary>
 	[Tooltip("Amount of energy the player receives upon consuming the food.")]
 	[SerializeField]
-	private int energy = 1;
+	private float energy = 0.2f;
 
 	public override void Use() {
 		if (timesUsed < usesAvailable) {

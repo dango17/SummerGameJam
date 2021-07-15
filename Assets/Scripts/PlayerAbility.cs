@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAbility : MonoBehaviour {
 	public bool Used { get; private set; } = false;
 
-	private int powerLevel = 1;
+	private float powerLevel = 0.5f;
 	private Score score = null;
+	private Slider powerLevelSlider = null;
 
 	public void Use() {
 		if (Used) {
@@ -27,17 +29,18 @@ public class PlayerAbility : MonoBehaviour {
 		// TODO: restart game
 	}
 
-	public void IncreasePower(int energy) {
+	public void IncreasePower(float energy) {
 		powerLevel += energy;
-		// TODO: Update power level UI slider.
+		powerLevelSlider.SetValueWithoutNotify(powerLevel);
 	}
 
-	public void DecreasePower(int energy) {
+	public void DecreasePower(float energy) {
 		powerLevel -= energy;
-		// TODO: Update power level UI slider.
+		powerLevelSlider.SetValueWithoutNotify(powerLevel);
 	}
 
 	private void Start() {
 		score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
+		powerLevelSlider = GameObject.FindGameObjectWithTag("PowerLevelSlider").GetComponent<Slider>();
 	}
 }
