@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385815858867875259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.160265, y: -13.001653, z: -38.073933}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2669980795937610979}
@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 976913443028935459, guid: f769c54f2990413449a1475b7e7b05e3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.001653
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 976913443028935459, guid: f769c54f2990413449a1475b7e7b05e3,
         type: 3}
@@ -125,7 +125,7 @@ PrefabInstance:
     - target: {fileID: 1588255506907445176, guid: d7855582e81f9974cbe821d8625deba6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.520653
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1588255506907445176, guid: d7855582e81f9974cbe821d8625deba6,
         type: 3}
@@ -205,7 +205,7 @@ PrefabInstance:
     - target: {fileID: 976913443028935459, guid: f769c54f2990413449a1475b7e7b05e3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.001653
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 976913443028935459, guid: f769c54f2990413449a1475b7e7b05e3,
         type: 3}
@@ -275,7 +275,7 @@ PrefabInstance:
     - target: {fileID: 1588255506907445176, guid: d7855582e81f9974cbe821d8625deba6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.001653
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1588255506907445176, guid: d7855582e81f9974cbe821d8625deba6,
         type: 3}
@@ -355,7 +355,7 @@ PrefabInstance:
     - target: {fileID: 8868300826279920635, guid: ab247a98825c47f4194f00757112869e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.987683
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8868300826279920635, guid: ab247a98825c47f4194f00757112869e,
         type: 3}
