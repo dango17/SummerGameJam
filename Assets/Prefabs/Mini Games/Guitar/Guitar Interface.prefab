@@ -496,8 +496,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructionsToSpawn: 10
-  instructionOffset: {x: 0, y: 700, z: 0}
-  instruction: {fileID: 6741746207191276861, guid: b7ab1e5fc7aa9a949b231de7d4a7a0d7,
+  spawnTime: 0.65
+  instructionOffset: {x: 0, y: 800, z: 0}
+  instructionPrefab: {fileID: 6741746207191276861, guid: b7ab1e5fc7aa9a949b231de7d4a7a0d7,
     type: 3}
   inputIcons:
   - {fileID: 1720664664900476778}

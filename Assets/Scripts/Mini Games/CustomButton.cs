@@ -36,7 +36,7 @@ public class CustomButton : MonoBehaviour {
 	private void HandleInput() {
 		if (inputButton.triggered && instructions.Count > 0) {
 			if (instructions.First.Value.CorresspondingInput == inputButton.ToString()) {
-				instructions.First.Value.Destroy();
+				Destroy(instructions.First.Value.gameObject);
 			}
 		}
 	}
