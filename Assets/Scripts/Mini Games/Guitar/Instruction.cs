@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Acts as a prompt for which type of input the player should enter.
+/// </summary>
 public class Instruction : MonoBehaviour {
 	/// <summary>
 	/// The input to enter.
@@ -8,25 +11,21 @@ public class Instruction : MonoBehaviour {
 	public string CorresspondingInput { get; private set; } = "";
 
 	private int movementSpeed = 320;
-	[Tooltip("How much score to add/subtract.")]
+	[Tooltip("The amount of score this is worth.")]
 	[SerializeField]
-	private int scoreWorth = 5;
+	private int scoreValue = 5;
 	private GuitarInterface guitarInterface = null;
 
-	public void SetType(CustomButton button) 
-	{
+	/// <summary>
+	/// Sets the type of input this instruction represents.
+	/// </summary>
+	/// <param name="button"> Button associated with this input type. </param>
+	public void SetType(CustomButton button) {
 		GetComponent<Image>().sprite = button.GetComponent<Image>().sprite;
 		CorresspondingInput = button.InputButton.ToString();
 	}
 
-    public void Destroy()
-    {
-		guitarInterface.Score.AddScore(scoreWorth);
-		Destroy(gameObject);
-	}
-
-	private void Start() 
-	{
+	private void Start() {
 		guitarInterface = GameObject.FindGameObjectWithTag("GuitarUI").GetComponent<GuitarInterface>();
 	}
 
@@ -34,9 +33,18 @@ public class Instruction : MonoBehaviour {
 		transform.position -= new Vector3(0, movementSpeed * Time.deltaTime, 0);
 	}
 
-	public void OnTriggerEnter2D(Collider2D collision) {
+	private void OnDestroy() {
+		guitarInterface.Score.AddScore(scoreValue);
+
+		if (FindObjectsOfType<Instruction>().Length == 0) {
+			// Mini-game should close once all instructions have been destroyed.
+			Destroy(guitarInterface.gameObject);
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.CompareTag("DestructionZone")) {
-			guitarInterface.Score.SubtractScore(scoreWorth);
+			guitarInterface.Score.SubtractScore(scoreValue);
 			Destroy(gameObject);
 		}
 	}

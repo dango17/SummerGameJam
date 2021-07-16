@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stall Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6522083654205481570, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fe74032eb1d1a45b52958817244ac4, type: 3}
 --- !u!1 &212395901
@@ -306,6 +311,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1704116649}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &514968955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1115384355127930349, guid: 5586bf60ce153fc4e86ceea484963673,
+    type: 3}
+  m_PrefabInstance: {fileID: 1704116649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514968946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f59a080b2a53624a8422b585f123b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &590431778
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,6 +903,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6927810516987555841, guid: a7bcd1c7aa60579459ad2302e8a885e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7bcd1c7aa60579459ad2302e8a885e8, type: 3}
 --- !u!1 &957928522
@@ -1381,6 +1403,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Food (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927810516987555841, guid: a7bcd1c7aa60579459ad2302e8a885e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7bcd1c7aa60579459ad2302e8a885e8, type: 3}
@@ -2172,6 +2199,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food
       objectReference: {fileID: 0}
+    - target: {fileID: 6927810516987555841, guid: a7bcd1c7aa60579459ad2302e8a885e8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7bcd1c7aa60579459ad2302e8a885e8, type: 3}
 --- !u!1001 &4856273016784069365
@@ -2241,5 +2273,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guitar
       objectReference: {fileID: 0}
+    - target: {fileID: 8427976085166368615, guid: 011c021b1ad53924b82a98de246c3c7f,
+        type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 1297297248}
+    - target: {fileID: 8427976085166368615, guid: 011c021b1ad53924b82a98de246c3c7f,
+        type: 3}
+      propertyPath: inputManager
+      value: 
+      objectReference: {fileID: 514968955}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 011c021b1ad53924b82a98de246c3c7f, type: 3}

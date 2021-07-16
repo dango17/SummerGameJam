@@ -77,7 +77,7 @@ public class Crowd : CrowdMaster
             agent.SetDestination(closestStall.transform.position);
         }
 
-        if (guitarI.playingGuitar && boredom <= 10)
+        if (guitarI.IsMiniGameActive && boredom <= 10)
         {
             bored = true;
             agent.SetDestination(character.transform.position);
