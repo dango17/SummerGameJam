@@ -35,6 +35,7 @@ public class Guitar : Interactable {
 			Destroy(guitarInterface.gameObject);
 		}
 
+		IsMiniGameActive = false;
 		inputManager.SwitchInputMode(InputManager.InputModes.Player);
 	}
 }
