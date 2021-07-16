@@ -11,8 +11,6 @@ public class PlayerManager : MonoBehaviour
 
     public bool isInteracting;
 
-    //just testing AI stuff will delete if/when needed
-    public bool playing;
 
     private void Awake()
     {
@@ -20,7 +18,6 @@ public class PlayerManager : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         cameraManager = FindObjectOfType<CameraManager>(); 
         playerMovement = GetComponent<PlayerMovement>();
-        playing = true;
     } 
 
     private void Update()
