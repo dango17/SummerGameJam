@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Crowd : CrowdMaster
 {
     PlayerManager player;
+    private Animator animator;
 
     [SerializeField]
     private NavMeshAgent agent;
@@ -23,10 +24,11 @@ public class Crowd : CrowdMaster
     {
         agent = GetComponent<NavMeshAgent>();
         Brain = GetComponent<StateMachines>();
+        animator = GetComponent<Animator>();
         foodStall = FindObjectsOfType<Stall>();
         exit = FindObjectsOfType<Exit>();
         entertainment = FindObjectsOfType<Entertainment>();
-        Brain.pushState(Idle, OnIdleEnter);
+        Brain.pushState(Idle, OnIdleEnter, null);
         Hungry = false;
         bored = false;
         NearBarricade = false;
@@ -95,19 +97,24 @@ public class Crowd : CrowdMaster
 
             if (NearBarricade)
             {
-                Brain.pushState(Run, null);
+                Brain.pushState(Run, OnRunEnter, OnRunExit);
             }
         }
 
         if (Hungry && canEat)
         {
-            Brain.pushState(Eat, OnEatEnter);
+            Brain.pushState(Eat, OnEatEnter, null);
         }
 
         if(bored && nearPlayer)
         {
-            Brain.pushState(OnListenEnter, ListenToGuitar);
+            Brain.pushState(OnListenEnter, ListenToGuitar, null);
         }
+    }
+
+    void OnRunEnter()
+    {
+        animator.SetBool("playing", true);
     }
 
     void Run()
@@ -126,8 +133,13 @@ public class Crowd : CrowdMaster
 
         else if (Vector3.Distance(transform.position, block.transform.position) > 5.5f)
         {
-            Brain.pushState(Idle, OnIdleEnter);
+            Brain.pushState(Idle, OnIdleEnter, null);
         }
+    }
+
+    void OnRunExit()
+    {
+        animator.SetBool("playing", false);
     }
 
     void OnIdleEnter()
@@ -140,7 +152,7 @@ public class Crowd : CrowdMaster
         change -= Time.deltaTime;
         if(change <= 0) 
         {
-            Brain.pushState(Walk, WalkEnter);
+            Brain.pushState(Walk, WalkEnter, OnWalkExit);
 
             change = Random.Range(1, 2);
         }
@@ -148,6 +160,7 @@ public class Crowd : CrowdMaster
 
     void WalkEnter()
     {
+        animator.SetBool("walk", true);
         //every few seconds walk in a random direction
         Vector3 walkDirection = (Random.insideUnitSphere * 8f) + transform.position;
         NavMesh.SamplePosition(walkDirection, out NavMeshHit navHit, 3f, NavMesh.AllAreas);
@@ -161,10 +174,15 @@ public class Crowd : CrowdMaster
         if(agent.remainingDistance <= 0.25f)
         {
             agent.ResetPath();
-            Brain.pushState(Idle, OnIdleEnter);
+            Brain.pushState(Idle, OnIdleEnter, null);
             hunger -= 2;
             boredom -= 2;
         }
+    }
+
+    void OnWalkExit()
+    {
+        animator.SetBool("walk", false);
     }
 
     void OnListenEnter()
@@ -226,7 +244,7 @@ public class Crowd : CrowdMaster
         {
             Hungry = false;
             canEat = Vector3.Distance(transform.position, closestStall.transform.position) < 0.00;
-            Brain.pushState(Idle, OnIdleEnter);
+            Brain.pushState(Idle, OnIdleEnter, null);
         }
     }
 
