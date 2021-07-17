@@ -183,7 +183,7 @@ Transform:
   m_GameObject: {fileID: 1705545903152574168}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -4.726, y: 0, z: -0.105}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4101736946811635263}
   - {fileID: 1143692461171005435}
@@ -949,6 +949,7 @@ GameObject:
   - component: {fileID: 4101736946811635263}
   - component: {fileID: 6185931323775932094}
   - component: {fileID: 6330024580633822768}
+  - component: {fileID: 379548540292867602}
   m_Layer: 0
   m_Name: LemonadeStall 1
   m_TagString: Untagged
@@ -1017,6 +1018,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &379548540292867602
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456344311500125515}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3762522, y: 0.544293, z: 0.60000014}
+  m_Center: {x: 0, y: -0.000000014901161, z: 0.30000007}
 --- !u!1 &6486518471012635181
 GameObject:
   m_ObjectHideFlags: 0

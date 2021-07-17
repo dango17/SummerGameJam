@@ -657,7 +657,7 @@ Transform:
   m_GameObject: {fileID: 3677521038410014711}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 20.599636, y: 0.0026302636, z: 2.5803356}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 2403218059117743368}
   - {fileID: 6381091019574467804}
@@ -922,7 +922,6 @@ GameObject:
   - component: {fileID: 3369123715578663711}
   - component: {fileID: 5881854955804413116}
   - component: {fileID: 2284903795558417127}
-  - component: {fileID: 4438759063348116218}
   m_Layer: 0
   m_Name: FlowerPlane
   m_TagString: Untagged
@@ -991,17 +990,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4438759063348116218
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6856220401231216373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
