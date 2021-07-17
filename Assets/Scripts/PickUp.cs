@@ -5,38 +5,57 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
 
-    public Transform destination;
+    public Transform player, container;
 
-    public GameObject heldObj;
+    public float pickupRange;
 
+    public bool holding;
     public bool canPickup;
 
-    private void OnCollisionEnter(Collision collision)
+    private void Start()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        this.holding = false;
+        this.canPickup = false;
+    }
+
+    private void Update()
+    {
+        Vector3 distanceToPlayer = player.position - transform.position;
+        if (!holding && distanceToPlayer.magnitude < pickupRange)
         {
-            canPickup = true;
+            this.canPickup = true;
+        }
+
+        if (distanceToPlayer.magnitude > pickupRange)
+        {
+            this.canPickup = false;
         }
     }
 
     public void PickUpObject()
     {
-        GetComponent<BoxCollider>().enabled = false;
-        GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Rigidbody>().freezeRotation = true;
-        GetComponent<Rigidbody>().isKinematic = true;
-        this.transform.position = destination.position;
-        this.transform.parent = GameObject.Find("Head").transform;
-        heldObj = this.gameObject;
+        this.holding = true;
+
+        this.transform.SetParent(container);
+        this.transform.position = container.position;
+
+        this.GetComponent<BoxCollider>().enabled = false;
+        this.GetComponent<Rigidbody>().useGravity = false;
+        this.GetComponent<Rigidbody>().freezeRotation = true;
+        this.GetComponent<Rigidbody>().isKinematic = true;
+
+
     }
 
     public void DropObject()
     {
-        this.transform.parent = null;
+        holding = false;
+
+        this.transform.SetParent(null);
         this.GetComponent<Rigidbody>().useGravity = true;
         this.GetComponent<BoxCollider>().enabled = true;
-        GetComponent<Rigidbody>().freezeRotation = false;
-        GetComponent<Rigidbody>().isKinematic = false;
+        this.GetComponent<Rigidbody>().freezeRotation = false;
+        this.GetComponent<Rigidbody>().isKinematic = false;
 
     }
 }
