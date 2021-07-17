@@ -37,5 +37,6 @@ public class PickUp : MonoBehaviour
         this.GetComponent<BoxCollider>().enabled = true;
         GetComponent<Rigidbody>().freezeRotation = false;
         GetComponent<Rigidbody>().isKinematic = false;
+
     }
 }
