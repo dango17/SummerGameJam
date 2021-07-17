@@ -81,6 +81,7 @@ public class Crowd : CrowdMaster
         {
             bored = true;
             agent.SetDestination(character.transform.position);
+            animator.SetBool("playing", true);
         }
 
         else if (boredom <= -1000000) 
@@ -188,6 +189,7 @@ public class Crowd : CrowdMaster
     void OnListenEnter()
     {
         agent.ResetPath();
+        animator.SetBool("playing", false);
     }
 
     void ListenToGuitar()
@@ -200,7 +202,7 @@ public class Crowd : CrowdMaster
             boredomChange = 3f;
         }
 
-        if(score.Scored > 5)
+        if (score.Scored > 5 && guitarI.IsMiniGameActive == true) 
         {
             boredom += 25;
             boredomChange = 5f;
@@ -210,6 +212,11 @@ public class Crowd : CrowdMaster
         {
             boredom -= 3;
             boredomChange = 5f;
+        }
+
+        if(guitarI.IsMiniGameActive == false)
+        {
+            Brain.pushState(Idle, OnIdleEnter, null);
         }
     }
 
