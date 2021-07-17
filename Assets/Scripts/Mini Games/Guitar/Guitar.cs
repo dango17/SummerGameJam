@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Used for starting/completing the guitar mini-game.
@@ -7,6 +8,10 @@ public class Guitar : MiniGame {
 	[SerializeField]
 	private Score score = null;
 	private GuitarInterface guitarInterface = null;
+
+	private void Start() {
+		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
+	}
 
 	public override void Use() {
 		if (timesUsed < usesAvailable) {

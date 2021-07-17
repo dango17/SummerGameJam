@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Stall : Interactable {
 	//this is for the AI not the player
 	[HideInInspector]
 	public Health StallHeath;
-
+	
 	private float restockTimer;
 
 	public override void Use() {
@@ -23,9 +24,13 @@ public class Stall : Interactable {
 		StartCoroutine(StallHeath.Regen(amount, delay));
 	}
 
-	private void Start() {
+	private void Awake() {
 		StallHeath = GetComponent<Health>();
 		StallHeath.SetHealth(50);
+	}
+
+	private void Start() {
+		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
 	}
 
 	private void Update() {

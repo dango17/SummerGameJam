@@ -32,10 +32,12 @@ public class ButtonPrompt : MonoBehaviour {
 	[SerializeField]
 	private InputAction inputButton = null;
 
-	public delegate void MethodToExecute();
+	public delegate void MethodToExecute(ButtonPrompt buttonPrompt);
 
 	public void Use() {
-		methodToExecute();
+		// Reset the button's use.
+		timesActivated = 0;
+		methodToExecute(this);
 
 		if (destroyOnUse) {
 			Destroy(gameObject);
@@ -52,38 +54,27 @@ public class ButtonPrompt : MonoBehaviour {
 
 	// Update is called once per frame
 	private void Update() {
-		inputButton.performed += i => pressed = true;
-		inputButton.started += i => held = true;
+		inputButton.performed += i => held = true;
+		inputButton.started += i => pressed = true;
+		inputButton.canceled += i => held = false;
+		inputButton.canceled += i => pressed = false;
 
 		if (buttonType == ButtonTypes.Hold) {
-			if (pressed) {
+			if (held) {
 				duration += Time.deltaTime;
-			}
 
-			if (duration >= timeToActivate) {
-				Use();
+				if (duration >= timeToActivate) {
+					Use();
+				}
 			}
 		} else {
-			if (held) {
+			if (pressed) {
+				pressed = false;
 				++timesActivated;
-			}
 
-			if (timesActivated >= timeToActivate) {
-				Use();
-			}
-		}
-	}
-
-	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.CompareTag("Instruction") && collision.GetComponent<Instruction>().CorresspondingInput == inputButton.ToString()) {
-			instructions.AddLast(collision.GetComponent<Instruction>());
-		}
-	}
-
-	private void OnTriggerExit2D(Collider2D collision) {
-		if (collision.CompareTag("Instruction") && collision.GetComponent<Instruction>().CorresspondingInput == inputButton.ToString()) {
-			if (instructions.Contains(collision.GetComponent<Instruction>())) {
-				instructions.Remove(collision.GetComponent<Instruction>());
+				if (timesActivated >= timeToActivate) {
+					Use();
+				}
 			}
 		}
 	}

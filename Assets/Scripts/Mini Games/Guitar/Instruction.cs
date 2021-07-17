@@ -34,6 +34,10 @@ public class Instruction : MonoBehaviour {
 	}
 
 	private void OnDestroy() {
+		if (!guitarInterface) {
+			return;
+		}
+
 		guitarInterface.Score.AddScore(scoreValue);
 
 		if (FindObjectsOfType<Instruction>().Length == 0) {
@@ -46,6 +50,18 @@ public class Instruction : MonoBehaviour {
 		if (collision.CompareTag("DestructionZone")) {
 			guitarInterface.Score.SubtractScore(scoreValue);
 			Destroy(gameObject);
+		}
+
+		if (collision.CompareTag("ButtonPrompt") && CorresspondingInput == collision.GetComponent<ButtonPrompt>().InputButton.ToString()) {
+			guitarInterface.SpawnedInstructions.AddLast(this);
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collision) {
+		if (collision.CompareTag("ButtonPrompt") && CorresspondingInput == collision.GetComponent<ButtonPrompt>().InputButton.ToString()) {
+			if (guitarInterface.SpawnedInstructions.Contains(this)) {
+				guitarInterface.SpawnedInstructions.Remove(this);
+			}
 		}
 	}
 }

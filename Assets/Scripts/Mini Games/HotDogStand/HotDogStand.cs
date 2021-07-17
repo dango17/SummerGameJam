@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class HotDogStand : MiniGame {
 	/// <summary>
 	/// Score achieved by the player through playing the mini-game.
 	/// </summary>
 	public Score Score { get; private set; } = null;
-
+	
 	[Tooltip("Total number of buttons for the player to mash to complete the mini-game.")]
 	[SerializeField]
 	private int buttonsToSpawn = 10;
@@ -24,7 +25,7 @@ public class HotDogStand : MiniGame {
 			ui.transform).gameObject;
 		Score = standInterfaceInstance.GetComponent<Score>();
 		Score.ShowScore();
-		SpawnInstruction();
+		SpawnInstruction(null);
 	}
 
 	public override void CompleteEvent() {
@@ -33,7 +34,11 @@ public class HotDogStand : MiniGame {
 		inputManager.SwitchInputMode(InputManager.InputModes.Player);
 	}
 
-	private void SpawnInstruction() {
+	private void Start() {
+		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
+	}
+
+	private void SpawnInstruction(ButtonPrompt buttonPrompt) {
 		if (buttonsSpawned >= buttonsToSpawn) {
 			CompleteEvent();
 			return;
@@ -48,7 +53,6 @@ public class HotDogStand : MiniGame {
 		lastSpawnedButton.TimeToActivate = 4;
 		lastSpawnedButton.DestroyOnUse = true;
 		lastSpawnedButton.ButtonType = ButtonPrompt.ButtonTypes.MultiplePress;
-		// TODO: link to spawning another button.
 		lastSpawnedButton.LinkButton(SpawnInstruction);
 		++buttonsSpawned;
 	}

@@ -1,8 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Boombox : MiniGame {
+	private void Start() {
+		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
+	}
+
 	public override void Use() {
 		Debug.Log("Using Boombox");
 		inputManager.SwitchInputMode(InputManager.InputModes.MiniGame);
