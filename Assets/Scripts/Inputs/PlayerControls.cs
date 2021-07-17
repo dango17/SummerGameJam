@@ -463,7 +463,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""Drop"",
                     ""type"": ""Button"",
-                    ""id"": ""7eb8010c-9fb6-4b27-9f61-0b9f84e4a401"",
+                    ""id"": ""7043995f-c11f-4af4-b6c5-add8cca82e55"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -494,7 +494,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""de6d3ee2-4d0b-4820-a057-45e30b4244c7"",
+                    ""id"": ""e2d29bdc-c002-4b0b-bd19-dde1a7494038"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -505,7 +505,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b4a0b0f0-e8cc-4f10-ab67-7b63f801e5ee"",
+                    ""id"": ""3f2aa4e9-ab09-42a8-b1d8-2cdb0159b5ae"",
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
