@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log("You Started the Game :)");
 
         //String empty, main scene to go inside
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Level_Whitebox");
     } 
 
     public void QuitGame()

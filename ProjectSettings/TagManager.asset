@@ -15,6 +15,7 @@ TagManager:
   - Exit
   - Block
   - ButtonPrompt
+  - MenuThing
   layers:
   - Default
   - TransparentFX
