@@ -79,12 +79,11 @@ public class Crowd : CrowdMaster
 
         if (guitarI.IsMiniGameActive && boredom <= 10)
         {
-            bored = true;
             agent.SetDestination(character.transform.position);
             animator.SetBool("playing", true);
         }
 
-        else if (boredom <= -1000000) 
+        else if (boredom <= 0) 
         {
             //put logic here some thing like
             //a boolean for is the player doing a minigame
