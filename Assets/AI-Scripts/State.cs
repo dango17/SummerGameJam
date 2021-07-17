@@ -9,10 +9,13 @@ public class State
     //the action that is called whenever we enter this state.
     public Action OnEnterAction;
 
-    public State(Action active, Action OnEnter)
+    public Action OnExitAction;
+
+    public State(Action active, Action OnEnter, Action OnExit)
     {
         ActiveAction = active;
         OnEnterAction = OnEnter;
+        OnExitAction = OnExit;
     }
 
     public void Execute()
@@ -27,5 +30,11 @@ public class State
         //same as above if there is no OnEnter state we can go to then dont Invoke
         if (OnEnterAction != null)
             OnEnterAction.Invoke();
+    }
+
+    public void OnExit()
+    {
+        if (OnExitAction != null)
+            OnExitAction.Invoke();
     }
 }

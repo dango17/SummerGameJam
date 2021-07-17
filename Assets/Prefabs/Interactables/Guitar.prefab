@@ -138,5 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usesAvailable: 1
-  guitarInterfacePrefab: {fileID: 8665479525893431592, guid: cb34998f965df0641b6ec66df10ca6a5,
+  inputManager: {fileID: 0}
+  interfacePrefab: {fileID: 8665479525893431592, guid: cb34998f965df0641b6ec66df10ca6a5,
     type: 3}
+  score: {fileID: 0}
