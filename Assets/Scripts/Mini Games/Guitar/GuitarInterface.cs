@@ -32,10 +32,15 @@ public class GuitarInterface : MonoBehaviour {
 	private GameObject instructionPrefab = null;
 	[SerializeField]
 	private GameObject[] inputIcons = new GameObject[0];
+	private LinkedList<Instruction> spawnedInstructions = new LinkedList<Instruction>();
 
 	private void Start() {
 		Score = GetComponentInChildren<Score>();
 		Score.ShowScore();
+
+		foreach (GameObject inputIcon in inputIcons) {
+			inputIcon.GetComponent<ButtonPrompt>().LinkButton(HandleInput);
+		}
 	}
 
 	private void Update() {
@@ -56,8 +61,16 @@ public class GuitarInterface : MonoBehaviour {
 			inputIcons[index].transform.position + instructionOffset,
 			Quaternion.identity,
 			inputIcons[index].transform).GetComponent<Instruction>();
-		instructionInstance.SetType(inputIcons[index].GetComponent<CustomButton>());
+		instructionInstance.SetType(inputIcons[index].GetComponent<ButtonPrompt>());
 		spawnTimer = spawnTime;
 		--instructionsToSpawn;
+	}
+
+	private void HandleInput() {
+		if (spawnedInstructions.Count > 0) {
+			if (spawnedInstructions.First.Value.CorresspondingInput == inputButton.ToString()) {
+				Destroy(spawnedInstructions.First.Value.gameObject);
+			}
+		}
 	}
 }

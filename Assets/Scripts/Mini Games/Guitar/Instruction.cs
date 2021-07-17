@@ -20,7 +20,7 @@ public class Instruction : MonoBehaviour {
 	/// Sets the type of input this instruction represents.
 	/// </summary>
 	/// <param name="button"> Button associated with this input type. </param>
-	public void SetType(CustomButton button) {
+	public void SetType(ButtonPrompt button) {
 		GetComponent<Image>().sprite = button.GetComponent<Image>().sprite;
 		CorresspondingInput = button.InputButton.ToString();
 	}
