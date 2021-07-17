@@ -110,6 +110,8 @@ public class Crowd : CrowdMaster
         {
             Brain.pushState(OnListenEnter, ListenToGuitar, null);
         }
+
+        
     }
 
     void OnRunEnter()
@@ -259,6 +261,11 @@ public class Crowd : CrowdMaster
         if (collision.gameObject.CompareTag("Exit"))
         {
             Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("MenuThing"))
+        {
+            boredom += 1000000;
         }
     }
 }
