@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4190316916556765002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826600007506406319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d2ea9ca6d86ef4d8cccc64a3a8b211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usesAvailable: 1
+  inputManager: {fileID: 0}
+  interfacePrefab: {fileID: 3298930662058792684, guid: 77120937b0a832c48b36a1c294635106,
+    type: 3}
+  buttonsToSpawn: 4
+  buttonPrefab: {fileID: 5783795369156517711, guid: 21a3c2f1870a6f44d80450c8aa93efe8,
+    type: 3}
+--- !u!1001 &5907514162720639437
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815834900068447226, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522083654205481570, guid: b6fe74032eb1d1a45b52958817244ac4,
+        type: 3}
+      propertyPath: m_Name
+      value: Hot Dog Stand Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6fe74032eb1d1a45b52958817244ac4, type: 3}
+--- !u!1 &826600007506406319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6522083654205481570, guid: b6fe74032eb1d1a45b52958817244ac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5907514162720639437}
+  m_PrefabAsset: {fileID: 0}

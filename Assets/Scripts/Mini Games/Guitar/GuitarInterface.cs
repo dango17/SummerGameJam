@@ -13,6 +13,7 @@ public class GuitarInterface : MonoBehaviour {
 	/// The guitar which spawned this interface.
 	/// </summary>
 	public Guitar GuitarOwner { get { return guitar; } set { guitar = value; } }
+	public LinkedList<Instruction> SpawnedInstructions { get; set; } = new LinkedList<Instruction>();
 
 	[Tooltip("Total number of button presses for the player to execute throughout the mini-game.")]
 	[SerializeField]
@@ -31,11 +32,15 @@ public class GuitarInterface : MonoBehaviour {
 	[SerializeField]
 	private GameObject instructionPrefab = null;
 	[SerializeField]
-	private GameObject[] inputIcons = new GameObject[0];
+	private GameObject[] buttonPrompts = new GameObject[0];
 
 	private void Start() {
 		Score = GetComponentInChildren<Score>();
 		Score.ShowScore();
+
+		foreach (GameObject buttonPrompt in buttonPrompts) {
+			buttonPrompt.GetComponent<ButtonPrompt>().LinkButton(HandleInput);
+		}
 	}
 
 	private void Update() {
@@ -51,13 +56,22 @@ public class GuitarInterface : MonoBehaviour {
 	}
 
 	private void SpawnInstruction() {
-		int index = Random.Range(0, inputIcons.Length);
+		int index = Random.Range(0, buttonPrompts.Length);
 		Instruction instructionInstance = Instantiate(instructionPrefab,
-			inputIcons[index].transform.position + instructionOffset,
+			buttonPrompts[index].transform.position + instructionOffset,
 			Quaternion.identity,
-			inputIcons[index].transform).GetComponent<Instruction>();
-		instructionInstance.SetType(inputIcons[index].GetComponent<CustomButton>());
+			buttonPrompts[index].transform).GetComponent<Instruction>();
+		instructionInstance.SetType(buttonPrompts[index].GetComponent<ButtonPrompt>());
 		spawnTimer = spawnTime;
 		--instructionsToSpawn;
+	}
+
+	private void HandleInput(ButtonPrompt buttonPrompt) {
+		if (SpawnedInstructions.Count > 0) {
+			// Always execute the first instruction before any others.
+			if (SpawnedInstructions.First.Value.CorresspondingInput == buttonPrompt.InputButton.ToString()) {
+				Destroy(SpawnedInstructions.First.Value.gameObject);
+			}
+		}
 	}
 }

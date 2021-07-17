@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Food : Interactable {
 	/// <summary>
@@ -19,5 +20,9 @@ public class Food : Interactable {
 			Destroy(gameObject);
 			Deselect();
 		}
+	}
+
+	private void Start() {
+		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
 	}
 }

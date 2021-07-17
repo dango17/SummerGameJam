@@ -6,14 +6,13 @@ using UnityEngine.UI;
 /// </summary>
 public abstract class Interactable : MonoBehaviour {
 	/// <summary>
-	/// Interactable currently selected by the player.
-	/// </summary>
-	public static Interactable CurrentSelection { get; set; } = null;
-
-	/// <summary>
 	/// True if the item has been activated at least once, otherwise false.
 	/// </summary>
 	public bool IsUsed { get { return isUsed; } set { } }
+	/// <summary>
+	/// Interactable currently selected by the player.
+	/// </summary>
+	public static Interactable CurrentSelection { get; set; } = null;
 
 	[Tooltip("Amount of times the item can be activated.")]
 	[SerializeField]
@@ -23,21 +22,16 @@ public abstract class Interactable : MonoBehaviour {
 	/// </summary>
 	protected int timesUsed = 0;
 	protected bool isUsed = false;
-
 	/// <summary>
 	/// UI text for displaying the name of the currently select item.
 	/// </summary>
-	private Text interactPrompt = null;
+	protected Text interactPrompt = null;
 
 	public abstract void Use();
 
 	protected void Deselect() {
 		CurrentSelection = null;
 		interactPrompt.text = "";
-	}
-
-	private void Start() {
-		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
 	}
 
 	/// <summary>
