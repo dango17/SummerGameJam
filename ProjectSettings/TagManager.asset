@@ -19,6 +19,7 @@ TagManager:
   - Boombox
   - PauseMenu
   - GameOverMenu
+  - AIStunned
   layers:
   - Default
   - TransparentFX
