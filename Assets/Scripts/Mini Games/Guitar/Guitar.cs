@@ -5,6 +5,7 @@ using UnityEngine.UI;
 /// Used for starting/completing the guitar mini-game.
 /// </summary>
 public class Guitar : MiniGame {
+	[Tooltip("The player's total game score.")]
 	[SerializeField]
 	private Score score = null;
 	private GuitarInterface guitarInterface = null;

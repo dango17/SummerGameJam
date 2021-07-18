@@ -21,8 +21,9 @@ public class Instruction : MonoBehaviour {
 	/// </summary>
 	/// <param name="button"> Button associated with this input type. </param>
 	public void SetType(ButtonPrompt button) {
-		GetComponent<Image>().sprite = button.GetComponent<Image>().sprite;
 		CorresspondingInput = button.InputButton.ToString();
+		GetComponent<Image>().sprite = button.GetComponent<Image>().sprite;
+		GetComponentInChildren<Text>().text = button.GetComponentInChildren<Text>().text;
 	}
 
 	private void Start() {
