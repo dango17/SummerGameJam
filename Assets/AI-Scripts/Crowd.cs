@@ -32,7 +32,7 @@ public class Crowd : CrowdMaster
         Hungry = false;
         bored = false;
         NearBarricade = false;
-        block = FindObjectOfType<Block>();
+        block = FindObjectsOfType<Block>();
         hunger = 100;
         boredom = 20;
         player = FindObjectOfType<PlayerManager>();
@@ -43,8 +43,19 @@ public class Crowd : CrowdMaster
     // Update is called once per frame
     void Update()
     {
-        NearBarricade = Vector3.Distance(transform.position, block.transform.position) < 3;
         nearPlayer = Vector3.Distance(transform.position, character.transform.position) < 4;
+
+        float distanceToBlock = float.MaxValue;
+        Block closestBlock = block[0];
+        foreach(Block bl in block)
+        {
+            float distBl = Vector3.Distance(transform.position, bl.transform.position);
+            if(distBl < distanceToBlock)
+            {
+                closestBlock = bl;
+                distanceToBlock = distBl;
+            }
+        }
 
         float distanceToFood = float.MaxValue;
         Stall closestStall = foodStall[0];
@@ -121,11 +132,21 @@ public class Crowd : CrowdMaster
 
     void Run()
     {
-        float distance = Vector3.Distance(transform.position, block.transform.position);
-
-        if(distance < pDistance)
+        float distanceToBlock = float.MaxValue;
+        Block closestBlock = block[0];
+        foreach (Block bl in block)
         {
-            Vector3 blockDir = transform.position - block.transform.position;
+            float distBl = Vector3.Distance(transform.position, bl.transform.position);
+            if (distBl < distanceToBlock)
+            {
+                closestBlock = bl;
+                distanceToBlock = distBl;
+            }
+        }
+
+        if (distanceToBlock < pDistance)
+        {
+            Vector3 blockDir = transform.position - closestBlock.transform.position;
 
             Vector3 newPos = transform.position + blockDir;
 
@@ -133,7 +154,7 @@ public class Crowd : CrowdMaster
 
         }
 
-        else if (Vector3.Distance(transform.position, block.transform.position) > 5.5f)
+        else if (Vector3.Distance(transform.position, closestBlock.transform.position) > 5.5f)
         {
             Brain.pushState(Idle, OnIdleEnter, null);
         }

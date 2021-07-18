@@ -29,7 +29,7 @@ public class InputManager : MonoBehaviour {
 	private AnimationHandler animationHandler;
 	private PlayerMovement playerMovement;
 	private PlayerAbility playerAbility;
-	private PickUp pickUpA;
+	[HideInInspector] PickUp pickUpA;
 
 	public void HandleAllInputs() {
 		switch (inputMode) {

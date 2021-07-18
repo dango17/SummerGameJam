@@ -21,7 +21,7 @@ public class CrowdMaster : MonoBehaviour
     public bool nearPlayer;
 
     [HideInInspector]
-    public Block block;
+    public Block[] block;
 
     [HideInInspector]
     public bool Hungry;
