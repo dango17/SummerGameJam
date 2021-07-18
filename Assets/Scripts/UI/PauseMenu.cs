@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour {
 
 	private void Awake() {
 		pauseMenuCanvas = GetComponent<Canvas>();
+		pauseMenuCanvas.enabled = false;
 		menuControls = new MenuControls();
 		menuControls.Enable();
 	}

@@ -9,4 +9,8 @@ public class GameOverMenu : MonoBehaviour {
     public void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
+
+	private void Awake() {
+        GetComponent<Canvas>().enabled = false;
+	}
 }
