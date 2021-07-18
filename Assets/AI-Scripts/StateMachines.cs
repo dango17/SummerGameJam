@@ -21,14 +21,26 @@ public class StateMachines : MonoBehaviour
             GetCurrentState().ActiveAction.Invoke();
         }
     }
-    public void pushState(Action active, Action onEnter)
+    public void pushState(Action active, Action onEnter, Action onExit)
     {
+        if (GetCurrentState() != null)
+            GetCurrentState().OnExit();
+
         //Used to get the AI into its next state
-        State state = new State(active, onEnter);
+        State state = new State(active, onEnter, onExit);
         States.Push(state);
 
         GetCurrentState().OnEnterExecute();
     }
+
+    public void PopState()
+    {
+        GetCurrentState().OnExit();
+        GetCurrentState().ActiveAction = null;
+        States.Pop();
+        GetCurrentState().Execute();
+    }
+
     private State GetCurrentState()
     {
         //gets whatever state should currently be active if states.count is more than 0

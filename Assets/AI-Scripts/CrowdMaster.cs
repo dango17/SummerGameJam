@@ -8,23 +8,48 @@ public class CrowdMaster : MonoBehaviour
     public StateMachines Brain;
 
     [HideInInspector]
+    public Score score;
+
+    [HideInInspector]
+    public Guitar guitarI;
+    [HideInInspector]
+    public HotDogStand HDstand;
+    [HideInInspector]
+    public Boombox boomBox;
+
+    [HideInInspector]
     public float change;
 
-    //Will change these name once more crap is added
+    public bool blocked;
+    public bool NearBarricade;
+    public bool nearPlayer;
+
     [HideInInspector]
-    public bool brownNear;
+    public Block[] block;
+
     [HideInInspector]
     public bool Hungry;
     [HideInInspector]
     public bool bored;
 
     [HideInInspector]
-    public FoodStall[] foodStall;
+    public float boredomChange;
+
+    [HideInInspector]
+    public float EatTimer;
+
+    [HideInInspector]
+    public Stall[] foodStall;
     [HideInInspector]
     public Entertainment[] entertainment;
+    [HideInInspector]
+    public Exit[] exit;
 
-    [HideInInspector] public int hunger;
+    public int hunger;
     public int boredom;
 
-    
+    [HideInInspector]
+    public float pDistance = 4.0f;
+
+
 }

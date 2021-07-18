@@ -9,14 +9,14 @@ public class PlayerManager : MonoBehaviour
     PlayerMovement playerMovement;
     Animator animator;
 
-    public bool isInteracting; 
+    public bool isInteracting = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>(); 
         inputManager = GetComponent<InputManager>();
         cameraManager = FindObjectOfType<CameraManager>(); 
-        playerMovement = GetComponent<PlayerMovement>(); 
+        playerMovement = GetComponent<PlayerMovement>();
     } 
 
     private void Update()
