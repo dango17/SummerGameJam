@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1689997059904030334}
+  - component: {fileID: 7251323789653616987}
+  - component: {fileID: 4868996559200675446}
   m_Layer: 0
-  m_Name: BurgerCrate
+  m_Name: Burger Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,6 +77,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7251323789653616987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6606013622355784379}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6740394, y: 1.5671073, z: 1.243074}
+  m_Center: {x: -0.013465017, y: 0.28355366, z: -0.12153703}
+--- !u!114 &4868996559200675446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6606013622355784379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e0925df57177a48b5d062341ca15e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usesAvailable: 1
+  energy: 5
 --- !u!1001 &573515640887187436
 PrefabInstance:
   m_ObjectHideFlags: 0
