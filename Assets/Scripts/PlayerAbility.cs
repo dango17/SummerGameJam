@@ -38,6 +38,11 @@ public class PlayerAbility : MonoBehaviour {
 				++aiStunned;
 				const int scoreAmount = 10;
 				totalGameScore.AddScore(scoreAmount);
+				Vector3 spawnOffset = Vector3.up * 0.2f;
+				Instantiate(hit.collider.GetComponent<Crowd>().RagdollCharacter,
+					hit.collider.gameObject.transform.position + spawnOffset,
+					Quaternion.identity);
+				Destroy(hit.collider.gameObject);
 			}
 		}
 

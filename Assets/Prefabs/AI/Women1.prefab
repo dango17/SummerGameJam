@@ -200,6 +200,8 @@ MonoBehaviour:
   agent: {fileID: 2156750719170607537}
   canEat: 0
   canExit: 0
+  ragdollCharacter: {fileID: 1418059571217972338, guid: 10b2c172c3d5c814f97f255495d977d3,
+    type: 3}
 --- !u!114 &2156750719170607538
 MonoBehaviour:
   m_ObjectHideFlags: 0

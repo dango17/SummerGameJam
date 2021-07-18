@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class Crowd : CrowdMaster
 {
+    public GameObject RagdollCharacter { get { return ragdollCharacter; } private set { } }
+
     private Animator animator;
 
     [SerializeField]
@@ -15,6 +17,8 @@ public class Crowd : CrowdMaster
     public bool canExit;
 
     private GameObject player = null;
+    [SerializeField]
+    private GameObject ragdollCharacter = null;
 
     // Start is called before the first frame update
     void Start()
