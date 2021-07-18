@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class Crowd : CrowdMaster
 {
-    PlayerManager player;
     private Animator animator;
 
     [SerializeField]
@@ -17,7 +14,7 @@ public class Crowd : CrowdMaster
     [HideInInspector]
     public bool canExit;
 
-    public GameObject character;
+    private GameObject player = null;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +30,7 @@ public class Crowd : CrowdMaster
         bored = false;
         NearBarricade = false;
         block = FindObjectsOfType<Block>();
-        player = FindObjectOfType<PlayerManager>();
+        player = GameObject.FindGameObjectWithTag("Player");
         score = FindObjectOfType<Score>();
         guitarI = FindObjectOfType<Guitar>();
         boomBox = FindObjectOfType<Boombox>();
@@ -41,9 +38,9 @@ public class Crowd : CrowdMaster
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        nearPlayer = Vector3.Distance(transform.position, character.transform.position) < 4;
+        nearPlayer = Vector3.Distance(transform.position, player.transform.position) < 4;
 
         float distanceToBlock = float.MaxValue;
         Block closestBlock = block[0];
@@ -91,7 +88,7 @@ public class Crowd : CrowdMaster
             (boomBox && boomBox.IsMiniGameActive) ||
             (HDstand && HDstand.IsMiniGameActive) && boredom <= 10)
         {
-            agent.SetDestination(character.transform.position);
+            agent.SetDestination(player.transform.position);
             animator.SetBool("playing", true);
         }
 
