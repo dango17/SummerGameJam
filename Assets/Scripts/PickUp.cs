@@ -24,6 +24,10 @@ public class PickUp : CrowdMaster {
 	}
 
 	private void Update() {
+		if (block.Length == 0) {
+			return;
+		}
+
 		float distanceToBlock = float.MaxValue;
 		Block closestBlock = block[0];
 		foreach (Block bl in block) {
@@ -44,6 +48,10 @@ public class PickUp : CrowdMaster {
 	}
 
 	public void PickUpObject() {
+		if (block.Length == 0) {
+			return;
+		}
+
 		holding = true;
 
 		float distanceToBlock = float.MaxValue;
@@ -63,8 +71,6 @@ public class PickUp : CrowdMaster {
 		closestBlock.GetComponent<Rigidbody>().useGravity = false;
 		closestBlock.GetComponent<Rigidbody>().freezeRotation = true;
 		closestBlock.GetComponent<Rigidbody>().isKinematic = true;
-
-
 	}
 
 	public void DropObject() {
