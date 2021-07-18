@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6036479135884671960}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanLThigh010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4139858257000284207}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanLCollarbone010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7790800327800339838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanLPlatform010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3212411165589770422}
   - component: {fileID: 4138827401142556288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Object003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3039961895696897114}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanLFoot010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5278078935217957184}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanRCalf010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5308663402721134990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanRForearm010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7796358182253813801}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanRFoot010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7277585161156092769}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanRPalm010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3390498097411533884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanRibcage010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 4158084361835803335}
   - component: {fileID: 4158084361835803334}
   - component: {fileID: 4158084361835803329}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Man1
   m_TagString: AI
   m_Icon: {fileID: 0}
@@ -512,6 +512,8 @@ MonoBehaviour:
   Brain: {fileID: 0}
   score: {fileID: 0}
   guitarI: {fileID: 0}
+  HDstand: {fileID: 0}
+  boomBox: {fileID: 0}
   change: 0
   blocked: 0
   NearBarricade: 0
@@ -531,8 +533,6 @@ MonoBehaviour:
   agent: {fileID: 4158084361835803335}
   canEat: 0
   canExit: 0
-  character: {fileID: 1115384355127930346, guid: 5586bf60ce153fc4e86ceea484963673,
-    type: 3}
 --- !u!1 &4005410322321949607
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8575493656187140974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,7 +572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4458903044442904077}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +602,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8318135550732050750}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanSpine030
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1940374227790591640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanRThigh010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 409403897033229743}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanLPalm010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4434167760215159324}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanRPlatform010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +725,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 295377816102396817}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base Human010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,7 +755,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4775639320389450192}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanLCalf010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8729598470804233199}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanSpine029
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -817,7 +817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4266415544246001601}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanPelvis010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8475853456072397100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanSpine028
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -881,7 +881,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7526920477781418510}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanLForearm010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -912,7 +912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2031592196353923411}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanNeck021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -943,7 +943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3695208634246723238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanRUpperarm010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +974,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1247145655028651298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanHead010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4811593562501168818}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanLUpperarm010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1035,7 +1035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8442748749994308460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanNeck022
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1066,7 +1066,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5309295158800407579}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base HumanRCollarbone010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
