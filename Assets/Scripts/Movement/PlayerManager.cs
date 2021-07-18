@@ -9,8 +9,7 @@ public class PlayerManager : MonoBehaviour
     PlayerMovement playerMovement;
     Animator animator;
 
-    public bool isInteracting;
-
+    public bool isInteracting = false;
 
     private void Awake()
     {

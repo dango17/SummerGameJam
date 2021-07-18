@@ -36,6 +36,8 @@ public class Crowd : CrowdMaster
         player = FindObjectOfType<PlayerManager>();
         score = FindObjectOfType<Score>();
         guitarI = FindObjectOfType<Guitar>();
+        boomBox = FindObjectOfType<Boombox>();
+        HDstand = FindObjectOfType<HotDogStand>();
     }
 
     // Update is called once per frame

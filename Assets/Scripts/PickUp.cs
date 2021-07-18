@@ -14,6 +14,7 @@ public class PickUp : CrowdMaster
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         block = FindObjectsOfType<Block>();
 
         holding = false;
