@@ -826,6 +826,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hot Dog Stand Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2697324097020074254, guid: a275bea7566ead54e8f4f9a61fba080e,
+        type: 3}
+      propertyPath: TrailModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8568219481396460087, guid: a275bea7566ead54e8f4f9a61fba080e,
         type: 3}
       propertyPath: m_LocalPosition.x
