@@ -18,6 +18,7 @@ TagManager:
   - MenuThing
   - Boombox
   - PauseMenu
+  - GameOverMenu
   layers:
   - Default
   - TransparentFX
