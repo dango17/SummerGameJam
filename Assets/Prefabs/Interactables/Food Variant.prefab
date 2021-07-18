@@ -91,7 +91,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4958566925356909306, guid: 60c916d29995a4f449f826b9dcc27107, type: 3}
+    - {fileID: 6543631106128438379, guid: 60c916d29995a4f449f826b9dcc27107, type: 3}
+    - {fileID: 8425663417684743094, guid: 60c916d29995a4f449f826b9dcc27107, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60c916d29995a4f449f826b9dcc27107, type: 3}
 --- !u!1 &6927810516987555841 stripped
 GameObject:

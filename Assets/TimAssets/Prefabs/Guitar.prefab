@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 505359312007030077}
   - component: {fileID: 3507387154102905496}
   - component: {fileID: 1677671405925342802}
+  - component: {fileID: 881103096364184815}
+  - component: {fileID: 5804566429804368365}
   m_Layer: 0
   m_Name: Guitar
   m_TagString: Untagged
@@ -79,3 +81,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &881103096364184815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885156550961610631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fde40850abab5849b744f6a62d0d2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usesAvailable: 2
+  inputManager: {fileID: 1077394927828696656, guid: 1fd64c5eea9913b42a1e03dca4474c89,
+    type: 3}
+  interfacePrefab: {fileID: 8665479525893431592, guid: cb34998f965df0641b6ec66df10ca6a5,
+    type: 3}
+  score: {fileID: 0}
+--- !u!65 &5804566429804368365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885156550961610631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7622316, y: 1.5247049, z: 0.51395077}
+  m_Center: {x: 0.06125432, y: -0.31597662, z: 0.1925171}
