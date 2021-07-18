@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     InputManager inputManager;
     PlayerManager playerManager;
     AnimationHandler animationHandler; 
+    Animator animator; 
 
     Vector3 moveDirection;
     Transform cameraObject;
@@ -27,8 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Bools")]
     public bool isSprinting;
-    public bool isGrounded; 
-
+    public bool isGrounded;
 
     private void Awake()
     {
@@ -36,8 +36,9 @@ public class PlayerMovement : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         playerManager = GetComponent<PlayerManager>();
         animationHandler = GetComponent<AnimationHandler>();
+        animator = GetComponent<Animator>();
         cameraObject = Camera.main.transform; 
-    }  
+    }
 
     public void HandleAllMovement()
     {
@@ -49,6 +50,13 @@ public class PlayerMovement : MonoBehaviour
         HandleMovement();
         HandleRotation(); 
     }
+
+    /// <summary>
+    /// Ends the dancing mini-game.
+    /// </summary>
+    public void DancingComplete() {
+        GameObject.FindGameObjectWithTag("Boombox").GetComponent<Boombox>().CompleteEvent();
+	}
 
     private void HandleMovement()
     {
