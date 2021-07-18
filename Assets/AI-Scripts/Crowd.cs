@@ -196,8 +196,8 @@ public class Crowd : CrowdMaster
         {
             agent.ResetPath();
             Brain.pushState(Idle, OnIdleEnter, null);
-            hunger -= 10;
-            boredom -= 10;
+            hunger -= 2;
+            boredom -= 2;
         }
     }
 
@@ -222,19 +222,13 @@ public class Crowd : CrowdMaster
             boredomChange = 3f;
         }
 
-        if (score.Scored > 5 && guitarI.IsMiniGameActive == true || HDstand.IsMiniGameActive == true) 
+        if (guitarI && guitarI.IsMiniGameActive == true || HDstand && HDstand.IsMiniGameActive == true || boomBox && boomBox.IsMiniGameActive)
         {
             boredom += 25;
             boredomChange = 5f;
         }
 
-        if (score.Scored < 0)
-        {
-            boredom -= 3;
-            boredomChange = 5f;
-        }
-
-        if(guitarI.IsMiniGameActive == false || HDstand.IsMiniGameActive == false || boomBox.IsMiniGameActive == false)
+        if (guitarI && guitarI.IsMiniGameActive == false || HDstand && HDstand.IsMiniGameActive == false || boomBox && boomBox.IsMiniGameActive == false)
         {
             Brain.pushState(Idle, OnIdleEnter, null);
         }
