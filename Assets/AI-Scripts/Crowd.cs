@@ -33,8 +33,6 @@ public class Crowd : CrowdMaster
         bored = false;
         NearBarricade = false;
         block = FindObjectsOfType<Block>();
-        hunger = 100;
-        boredom = 200;
         player = FindObjectOfType<PlayerManager>();
         score = FindObjectOfType<Score>();
         guitarI = FindObjectOfType<Guitar>();

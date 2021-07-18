@@ -476,7 +476,8 @@ MonoBehaviour:
   blocked: 0
   NearBarricade: 0
   nearPlayer: 0
-  block: {fileID: 0}
+  block:
+  - {fileID: 0}
   Hungry: 0
   bored: 0
   boredomChange: 0
@@ -484,8 +485,8 @@ MonoBehaviour:
   foodStall: []
   entertainment: []
   exit: []
-  hunger: 0
-  boredom: 0
+  hunger: 75
+  boredom: 75
   pDistance: 4
   agent: {fileID: 3131665174045172185}
   canEat: 0

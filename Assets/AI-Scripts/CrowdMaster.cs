@@ -41,7 +41,7 @@ public class CrowdMaster : MonoBehaviour
     [HideInInspector]
     public Exit[] exit;
 
-    [HideInInspector] public int hunger;
+    public int hunger;
     public int boredom;
 
     [HideInInspector]

@@ -31,12 +31,12 @@ public class PlayerAbility : MonoBehaviour {
 		RaycastHit[] hitInfo;
 		hitInfo = Physics.SphereCastAll(new Ray(gameObject.transform.position, Vector3.up), powerLevel, 0.0f);
 
-		//this feels like a rough way of doing this
-		//fartPart1.transform.position = player.transform.position;
-		//fartPart1.Play();
-		//fartPart2.transform.position = player.transform.position;
-		//fartPart2.Play();
-		source.Play();
+        //this feels like a rough way of doing this
+        fartPart1.transform.position = player.transform.position;
+        fartPart1.Play();
+        fartPart2.transform.position = player.transform.position;
+        fartPart2.Play();
+        source.Play();
 
 		foreach (RaycastHit hit in hitInfo) {
 			if (hit.collider.CompareTag("AI")) {
