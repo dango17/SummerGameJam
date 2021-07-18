@@ -1015,11 +1015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce6d1934196c0d4ebbdd544a04d1468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  endgamestuff: {fileID: 0}
   minPowerLevel: 0
   maxPowerLevel: 10
   powerLevel: 0.5
+  pauseMenu: {fileID: 8741849712986447163, guid: ed0929e535b2ed34d845cf2c3b18b38e,
+    type: 3}
   fartPart1: {fileID: 3765006053949277180}
   fartPart2: {fileID: 3765006053447348730}
 --- !u!114 &7876010551839095817

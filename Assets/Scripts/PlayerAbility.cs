@@ -4,11 +4,6 @@ using UnityEngine.UI;
 public class PlayerAbility : MonoBehaviour {
 	public bool Used { get; private set; } = false;
 
-	public Transform player;
-
-	public Canvas endgamestuff;
-
-
 	[Tooltip("Minimum diameter for the ability's area of effect.")]
 	[SerializeField]
 	private float minPowerLevel = 0.0f;
@@ -18,6 +13,8 @@ public class PlayerAbility : MonoBehaviour {
 	public float powerLevel = 0.5f;
 	private Score score = null;
 	private Slider powerLevelSlider = null;
+	[SerializeField]
+	private Canvas pauseMenu = null;
 	private AudioSource source = null;
 
 	[SerializeField]

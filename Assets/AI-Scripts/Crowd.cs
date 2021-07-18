@@ -57,15 +57,21 @@ public class Crowd : CrowdMaster
             }
         }
 
-        float distanceToFood = float.MaxValue;
-        Stall closestStall = foodStall[0];
-        foreach (Stall fS in foodStall)
-        {
-            float distFS = Vector3.Distance(transform.position, fS.transform.position);
-            if(distFS < distanceToFood)
-            {
-                closestStall = fS;
-                distanceToFood = distFS;
+        if (foodStall.Length > 0) {
+            float distanceToFood = float.MaxValue;
+            Stall closestStall = foodStall[0];
+            foreach (Stall fS in foodStall) {
+                float distFS = Vector3.Distance(transform.position, fS.transform.position);
+                if (distFS < distanceToFood) {
+                    closestStall = fS;
+                    distanceToFood = distFS;
+                }
+            }
+
+            if (hunger <= 50) {
+                Hungry = true;
+                canEat = Vector3.Distance(transform.position, closestStall.transform.position) < 1;
+                agent.SetDestination(closestStall.transform.position);
             }
         }
 
@@ -81,14 +87,9 @@ public class Crowd : CrowdMaster
             }
         }
 
-        if (hunger <= 50)
-        {
-            Hungry = true;
-            canEat = Vector3.Distance(transform.position, closestStall.transform.position) < 1;
-            agent.SetDestination(closestStall.transform.position);
-        }
-
-        if (guitarI.IsMiniGameActive || boomBox.IsMiniGameActive || HDstand.IsMiniGameActive && boredom <= 10)
+        if ((guitarI && guitarI.IsMiniGameActive) ||
+            (boomBox && boomBox.IsMiniGameActive) ||
+            (HDstand && HDstand.IsMiniGameActive) && boredom <= 10)
         {
             agent.SetDestination(character.transform.position);
             animator.SetBool("playing", true);
