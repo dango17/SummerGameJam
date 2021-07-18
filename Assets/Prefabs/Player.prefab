@@ -286,8 +286,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3587471869204030010}
   m_Layer: 8
-  m_Name: Container
-  m_TagString: Untagged
+  m_Name: Picked Up Object Hold Position
+  m_TagString: HoldPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 7876010551839095819}
   - component: {fileID: 7876010551839095860}
   m_Layer: 8
-  m_Name: Chartest2
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,8 +1018,6 @@ MonoBehaviour:
   minPowerLevel: 0
   maxPowerLevel: 10
   powerLevel: 0.5
-  pauseMenu: {fileID: 8741849712986447163, guid: ed0929e535b2ed34d845cf2c3b18b38e,
-    type: 3}
   fartPart1: {fileID: 3765006053949277180}
   fartPart2: {fileID: 3765006053447348730}
 --- !u!114 &7876010551839095817
