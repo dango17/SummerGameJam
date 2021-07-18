@@ -11,8 +11,8 @@ public class Food : Interactable {
 
 	public override void Use() {
 		if (timesUsed < usesAvailable) {
-			GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAbility>().ChangePowerLevel(energy);
 			isUsed = true;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAbility>().ChangePowerLevel(energy);
 			++timesUsed;
 		}
 		

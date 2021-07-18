@@ -12,7 +12,7 @@ public class PlayerAbility : MonoBehaviour {
 	[Tooltip("Maximum diameter for the ability's area of effect.")]
 	[SerializeField]
 	private float maxPowerLevel = 10.0f;
-	private float powerLevel = 0.5f;
+	public float powerLevel = 0.5f;
 	private Score score = null;
 	private Slider powerLevelSlider = null;
 	private AudioSource source = null;

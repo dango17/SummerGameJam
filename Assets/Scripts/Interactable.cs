@@ -16,7 +16,7 @@ public abstract class Interactable : MonoBehaviour {
 
 	[Tooltip("Amount of times the item can be activated.")]
 	[SerializeField]
-	protected int usesAvailable = 1;
+	protected int usesAvailable = 2;
 	/// <summary>
 	/// Amount of times the item has been activated.
 	/// </summary>
