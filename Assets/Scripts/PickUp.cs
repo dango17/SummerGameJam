@@ -2,41 +2,109 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUp : MonoBehaviour
+public class PickUp : CrowdMaster
 {
+   
+    public Transform player, container;
 
-    public Transform destination;
+    public float pickupRange;
 
-    public GameObject heldObj;
-
+    public bool holding;
     public bool canPickup;
 
-    private void OnCollisionEnter(Collision collision)
+    private void Start()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        block = FindObjectsOfType<Block>();
+
+        holding = false;
+        canPickup = false;
+    }
+
+    private void Update()
+    {
+        float distanceToBlock = 1;
+        Block closestBlock = block[0];
+        foreach (Block bl in block)
+        {
+            float distBl = Vector3.Distance(player.transform.position, bl.transform.position);
+            if (distBl < distanceToBlock)
+            {
+                closestBlock = bl;
+                distanceToBlock = distBl;
+            }
+        }
+
+        if(!holding && distanceToBlock < pickupRange)
         {
             canPickup = true;
         }
+
+        if(distanceToBlock > pickupRange)
+        {
+            canPickup = false;
+        }
+
+        //Vector3 distanceToPlayer = player.position - transform.position;
+        //if (!holding && distanceToPlayer.magnitude < pickupRange)
+        //{
+        //    this.canPickup = true;
+        //}
+
+        //if (distanceToPlayer.magnitude > pickupRange)
+        //{
+        //    this.canPickup = false;
+        //}
     }
 
     public void PickUpObject()
     {
-        GetComponent<BoxCollider>().enabled = false;
-        GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Rigidbody>().freezeRotation = true;
-        GetComponent<Rigidbody>().isKinematic = true;
-        this.transform.position = destination.position;
-        this.transform.parent = GameObject.Find("Head").transform;
-        heldObj = this.gameObject;
+        this.holding = true;
+
+        float distanceToBlock = float.MaxValue;
+        Block closestBlock = block[0];
+        foreach (Block bl in block)
+        {
+            float distBl = Vector3.Distance(player.transform.position, bl.transform.position);
+            if (distBl < distanceToBlock)
+            {
+                closestBlock = bl;
+                distanceToBlock = distBl;
+            }
+        }
+
+        closestBlock.transform.SetParent(container);
+        closestBlock.transform.position = container.position;
+
+        closestBlock.GetComponent<BoxCollider>().enabled = false;
+        closestBlock.GetComponent<Rigidbody>().useGravity = false;
+        closestBlock.GetComponent<Rigidbody>().freezeRotation = true;
+        closestBlock.GetComponent<Rigidbody>().isKinematic = true;
+
+
     }
 
     public void DropObject()
     {
-        this.transform.parent = null;
-        this.GetComponent<Rigidbody>().useGravity = true;
-        this.GetComponent<BoxCollider>().enabled = true;
-        GetComponent<Rigidbody>().freezeRotation = false;
-        GetComponent<Rigidbody>().isKinematic = false;
+
+        float distanceToBlock = float.MaxValue;
+        Block closestBlock = block[0];
+        foreach (Block bl in block)
+        {
+            float distBl = Vector3.Distance(player.transform.position, bl.transform.position);
+            if (distBl < distanceToBlock)
+            {
+                closestBlock = bl;
+                distanceToBlock = distBl;
+            }
+        }
+
+        holding = false;
+
+        closestBlock.transform.SetParent(null);
+        closestBlock.GetComponent<Rigidbody>().useGravity = true;
+        closestBlock.GetComponent<BoxCollider>().enabled = true;
+        closestBlock.GetComponent<Rigidbody>().freezeRotation = false;
+        closestBlock.GetComponent<Rigidbody>().isKinematic = false;
 
     }
 }

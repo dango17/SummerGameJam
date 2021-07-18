@@ -327,7 +327,6 @@ GameObject:
   - component: {fileID: 1299938377882222356}
   - component: {fileID: 4755544177294372939}
   - component: {fileID: 8789991509176331008}
-  - component: {fileID: 8273168116999149608}
   m_Layer: 0
   m_Name: CheeseSign
   m_TagString: Untagged
@@ -396,20 +395,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8273168116999149608
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4757774174078298088}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4782117077724845455
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 4782117077724845455}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 25.278, y: 0.0057103634, z: 1.403}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1429126882717423930}
   - {fileID: 9097126521964203245}

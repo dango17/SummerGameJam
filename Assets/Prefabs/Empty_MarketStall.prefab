@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 6823893280011764084}
   - component: {fileID: 3713161878980727285}
   - component: {fileID: 3569059946221846907}
+  - component: {fileID: 8660505736266535066}
   m_Layer: 0
   m_Name: LemonadeStall 1
   m_TagString: Untagged
@@ -632,6 +633,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8660505736266535066
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595519058259964416}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3762522, y: 0.544293, z: 0.8466003}
+  m_Center: {x: 0, y: -1.0899692e-15, z: 0.42330012}
 --- !u!1 &4991295765712032695
 GameObject:
   m_ObjectHideFlags: 0

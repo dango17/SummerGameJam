@@ -70,7 +70,6 @@ GameObject:
   - component: {fileID: 4818522596800230652}
   - component: {fileID: 5161693278800874747}
   - component: {fileID: 587834592574308869}
-  - component: {fileID: 7484243856746869104}
   m_Layer: 0
   m_Name: WoodenPlank015
   m_TagString: Untagged
@@ -139,19 +138,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7484243856746869104
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 228146559128909474}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05291658, y: 0.010932989, z: 0.0025353387}
-  m_Center: {x: 7.25095e-10, y: -0.0003750218, z: 0.0012676686}
 --- !u!1 &273478973302846876
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +149,6 @@ GameObject:
   - component: {fileID: 4721617008945969569}
   - component: {fileID: 1680337980801644949}
   - component: {fileID: 7568682113848944216}
-  - component: {fileID: 899992010133634949}
   m_Layer: 0
   m_Name: WoodenPlank018
   m_TagString: Untagged
@@ -232,19 +217,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &899992010133634949
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273478973302846876}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353371}
-  m_Center: {x: 0.000000014901161, y: -0.00028939382, z: 0.0012676723}
 --- !u!1 &301618765649173130
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +228,6 @@ GameObject:
   - component: {fileID: 7439477994056925288}
   - component: {fileID: 4653664320346096239}
   - component: {fileID: 3566611211864607148}
-  - component: {fileID: 7047859622082694717}
   m_Layer: 0
   m_Name: WoodenPlank008
   m_TagString: Untagged
@@ -325,19 +296,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7047859622082694717
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301618765649173130}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353378}
-  m_Center: {x: 1.3612337e-16, y: -0.0003750179, z: 0.0012676741}
 --- !u!1 &504403240410713745
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +307,6 @@ GameObject:
   - component: {fileID: 8754610530149419643}
   - component: {fileID: 6234441555583941886}
   - component: {fileID: 6166269977887950844}
-  - component: {fileID: 8828230265578386477}
   m_Layer: 0
   m_Name: WoodenPlank022
   m_TagString: Untagged
@@ -418,19 +375,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8828230265578386477
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504403240410713745}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353371}
-  m_Center: {x: 5.7429227e-18, y: -0.000375018, z: 0.001267676}
 --- !u!1 &785127920604752820
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +386,6 @@ GameObject:
   - component: {fileID: 6993664644720127442}
   - component: {fileID: 1884790563703957874}
   - component: {fileID: 823665380499746062}
-  - component: {fileID: 7562656576098373315}
   m_Layer: 0
   m_Name: WoodenPlank005 (2)
   m_TagString: Untagged
@@ -511,19 +454,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7562656576098373315
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785127920604752820}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353378}
-  m_Center: {x: 2.3103066e-18, y: -0.00028939187, z: 0.0012676741}
 --- !u!1 &1211361821977220732
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +465,6 @@ GameObject:
   - component: {fileID: 7018613288105870952}
   - component: {fileID: 124379174821682062}
   - component: {fileID: 1004757188747762374}
-  - component: {fileID: 3905280126435689846}
   m_Layer: 0
   m_Name: WoodenPlank009 (2)
   m_TagString: Untagged
@@ -605,19 +534,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3905280126435689846
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211361821977220732}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353371}
-  m_Center: {x: 1.7831767e-17, y: -0.00028937706, z: 0.0012676741}
 --- !u!1 &2258458792799728470
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +545,6 @@ GameObject:
   - component: {fileID: 5727072234730630931}
   - component: {fileID: 587992183680929878}
   - component: {fileID: 994208209616564740}
-  - component: {fileID: 1270482224531544600}
   m_Layer: 0
   m_Name: WoodenPlank005 (1)
   m_TagString: Untagged
@@ -698,19 +613,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1270482224531544600
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2258458792799728470}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353378}
-  m_Center: {x: 2.3103066e-18, y: -0.00028939187, z: 0.0012676741}
 --- !u!1 &2322429667473863706
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +624,6 @@ GameObject:
   - component: {fileID: 7027416016252446586}
   - component: {fileID: 2110122566892806124}
   - component: {fileID: 4148858539983707557}
-  - component: {fileID: 2506863055540862343}
   m_Layer: 0
   m_Name: WoodenPlank021
   m_TagString: Untagged
@@ -791,19 +692,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2506863055540862343
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2322429667473863706}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353378}
-  m_Center: {x: 2.1384551e-17, y: -0.00037499992, z: 0.0012676723}
 --- !u!1 &2482414420565378718
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +703,6 @@ GameObject:
   - component: {fileID: 3188366771423814269}
   - component: {fileID: 2368157713167548375}
   - component: {fileID: 8597129198800573482}
-  - component: {fileID: 2712294353507176316}
   m_Layer: 0
   m_Name: WoodenPlank004 (2)
   m_TagString: Untagged
@@ -885,19 +772,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2712294353507176316
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2482414420565378718}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353371}
-  m_Center: {x: 0.000000014901161, y: -0.00037500495, z: 0.0012676741}
 --- !u!1 &2649364458543808261
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,7 +783,6 @@ GameObject:
   - component: {fileID: 7587712919920662185}
   - component: {fileID: 447839363695945747}
   - component: {fileID: 4832160576838985895}
-  - component: {fileID: 7419463885083107306}
   m_Layer: 0
   m_Name: WoodenPlank008 (1)
   m_TagString: Untagged
@@ -978,19 +851,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7419463885083107306
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2649364458543808261}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353378}
-  m_Center: {x: 1.3612337e-16, y: -0.0003750179, z: 0.0012676741}
 --- !u!1 &2662246196364800257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +862,6 @@ GameObject:
   - component: {fileID: 1347109602815543569}
   - component: {fileID: 5766783723062666566}
   - component: {fileID: 1162914159435488592}
-  - component: {fileID: 3197274297448140112}
   m_Layer: 0
   m_Name: WoodenPlank003 (1)
   m_TagString: Untagged
@@ -1071,19 +930,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3197274297448140112
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2662246196364800257}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353378}
-  m_Center: {x: -2.3103066e-18, y: -0.00028939047, z: 0.0012676741}
 --- !u!1 &2748342149186569942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +941,6 @@ GameObject:
   - component: {fileID: 5571689275827496222}
   - component: {fileID: 8910807855864408665}
   - component: {fileID: 861948366723404013}
-  - component: {fileID: 5428521001906381713}
   m_Layer: 0
   m_Name: WoodenPlank004
   m_TagString: Untagged
@@ -1164,19 +1009,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5428521001906381713
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2748342149186569942}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353371}
-  m_Center: {x: 0.000000014901161, y: -0.00037500495, z: 0.0012676741}
 --- !u!1 &2964868662048304501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1020,6 @@ GameObject:
   - component: {fileID: 4923320895254145541}
   - component: {fileID: 2124570623215386240}
   - component: {fileID: 864320689990837052}
-  - component: {fileID: 1568995098049695698}
   m_Layer: 0
   m_Name: WoodenPlank019
   m_TagString: Untagged
@@ -1257,19 +1088,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1568995098049695698
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2964868662048304501}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353378}
-  m_Center: {x: -0.000000014901161, y: -0.00037500504, z: 0.0012676723}
 --- !u!1 &3590098527462873959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1099,6 @@ GameObject:
   - component: {fileID: 4318848017088254439}
   - component: {fileID: 5228137149411272104}
   - component: {fileID: 339048686251039873}
-  - component: {fileID: 6604208739068983632}
   m_Layer: 0
   m_Name: WoodenPlank009
   m_TagString: Untagged
@@ -1350,19 +1167,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6604208739068983632
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3590098527462873959}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353371}
-  m_Center: {x: 1.7831767e-17, y: -0.00028937706, z: 0.0012676741}
 --- !u!1 &3669380480469507498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,7 +1178,6 @@ GameObject:
   - component: {fileID: 5672109029020504943}
   - component: {fileID: 5341821867854621708}
   - component: {fileID: 3722588262733787580}
-  - component: {fileID: 6794107251244087}
   m_Layer: 0
   m_Name: WoodenPlank009 (1)
   m_TagString: Untagged
@@ -1444,19 +1247,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6794107251244087
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3669380480469507498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353371}
-  m_Center: {x: 1.7831767e-17, y: -0.00028937706, z: 0.0012676741}
 --- !u!1 &4194882069747836429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,7 +1258,6 @@ GameObject:
   - component: {fileID: 7499208547938140808}
   - component: {fileID: 5419824148249113727}
   - component: {fileID: 4127492079637632619}
-  - component: {fileID: 2912047333608873937}
   m_Layer: 0
   m_Name: WoodenPlank006
   m_TagString: Untagged
@@ -1537,19 +1326,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2912047333608873937
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4194882069747836429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353371}
-  m_Center: {x: -0.000000014901161, y: -0.0003749975, z: 0.0012676723}
 --- !u!1 &4492105588357065777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,7 +1337,6 @@ GameObject:
   - component: {fileID: 6991324009404613413}
   - component: {fileID: 8370631111440180232}
   - component: {fileID: 4423650431657809846}
-  - component: {fileID: 7348068837797634612}
   m_Layer: 0
   m_Name: WoodenPlank014
   m_TagString: Untagged
@@ -1630,19 +1405,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7348068837797634612
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4492105588357065777}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05291658, y: 0.01076173, z: 0.0025353385}
-  m_Center: {x: 9.1079166e-10, y: -0.00028939385, z: 0.0012676385}
 --- !u!1 &5247728259292005033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,7 +1416,6 @@ GameObject:
   - component: {fileID: 7144999096313322617}
   - component: {fileID: 4833242664153264997}
   - component: {fileID: 1377417208148020955}
-  - component: {fileID: 2028242808252020848}
   m_Layer: 0
   m_Name: WoodenPlank010
   m_TagString: Untagged
@@ -1723,19 +1484,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2028242808252020848
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5247728259292005033}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05291658, y: 0.010761729, z: 0.002535339}
-  m_Center: {x: -4.9481647e-10, y: -0.00028939344, z: 0.0012676686}
 --- !u!1 &5355143282724882129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,7 +1495,6 @@ GameObject:
   - component: {fileID: 1647700326734949046}
   - component: {fileID: 2341062350797869630}
   - component: {fileID: 1267544389712724454}
-  - component: {fileID: 8735097397926292161}
   m_Layer: 0
   m_Name: WoodenPlank020
   m_TagString: Untagged
@@ -1816,19 +1563,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8735097397926292161
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5355143282724882129}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353371}
-  m_Center: {x: -0.000000014901161, y: -0.0002893901, z: 0.0012676741}
 --- !u!1 &6287674468603945858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,7 +1574,6 @@ GameObject:
   - component: {fileID: 4836545610595599261}
   - component: {fileID: 6229887681290570473}
   - component: {fileID: 875918564532028217}
-  - component: {fileID: 6169874577638370085}
   m_Layer: 0
   m_Name: WoodenPlank006 (1)
   m_TagString: Untagged
@@ -1910,19 +1643,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6169874577638370085
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6287674468603945858}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353371}
-  m_Center: {x: -0.000000014901161, y: -0.0003749975, z: 0.0012676723}
 --- !u!1 &6324756553841692966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,7 +1654,6 @@ GameObject:
   - component: {fileID: 8229429987065085613}
   - component: {fileID: 3320259377997397032}
   - component: {fileID: 1280676356245691602}
-  - component: {fileID: 8300804896531034895}
   m_Layer: 0
   m_Name: WoodenPlank023
   m_TagString: Untagged
@@ -2003,19 +1722,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8300804896531034895
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6324756553841692966}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353378}
-  m_Center: {x: -0.000000029802322, y: -0.00028937342, z: 0.0012676741}
 --- !u!1 &6737575203264229605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,7 +1733,6 @@ GameObject:
   - component: {fileID: 5084678140624388506}
   - component: {fileID: 5437761928161852894}
   - component: {fileID: 6381538410210656547}
-  - component: {fileID: 7989695941961058230}
   m_Layer: 0
   m_Name: WoodenPlank005
   m_TagString: Untagged
@@ -2096,19 +1801,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7989695941961058230
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6737575203264229605}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353378}
-  m_Center: {x: 2.3103066e-18, y: -0.00028939187, z: 0.0012676741}
 --- !u!1 &6844358245062637578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,7 +1812,6 @@ GameObject:
   - component: {fileID: 7527218137318515454}
   - component: {fileID: 8358542027044631015}
   - component: {fileID: 823669581623684203}
-  - component: {fileID: 7718856253960169615}
   m_Layer: 0
   m_Name: WoodenPlank012
   m_TagString: Untagged
@@ -2189,19 +1880,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7718856253960169615
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6844358245062637578}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916594, y: 0.010932998, z: 0.0025353474}
-  m_Center: {x: 4.537133e-10, y: -0.00037500495, z: 0.0012676689}
 --- !u!1 &6845238942390701953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,7 +1891,6 @@ GameObject:
   - component: {fileID: 4135019119378573594}
   - component: {fileID: 6285664620777963757}
   - component: {fileID: 2614060868231210336}
-  - component: {fileID: 5426318112722030644}
   m_Layer: 0
   m_Name: WoodenPlank016
   m_TagString: Untagged
@@ -2282,19 +1959,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5426318112722030644
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6845238942390701953}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05291658, y: 0.010932988, z: 0.00253534}
-  m_Center: {x: -4.2788156e-10, y: -0.00037500862, z: 0.0012676686}
 --- !u!1 &6944484669167153710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,7 +1970,6 @@ GameObject:
   - component: {fileID: 7879510784642730974}
   - component: {fileID: 3791183500948763185}
   - component: {fileID: 2021213709139919052}
-  - component: {fileID: 1137898337283052976}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -2375,19 +2038,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1137898337283052976
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6944484669167153710}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7289615313652985849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,7 +2049,6 @@ GameObject:
   - component: {fileID: 7236116719092386396}
   - component: {fileID: 6933816442410555948}
   - component: {fileID: 3226354466331437669}
-  - component: {fileID: 7696405091776064366}
   m_Layer: 0
   m_Name: WoodenPlank011
   m_TagString: Untagged
@@ -2468,19 +2117,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7696405091776064366
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289615313652985849}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05291658, y: 0.01093299, z: 0.0025353385}
-  m_Center: {x: -9.158957e-10, y: -0.0003750199, z: 0.0012676832}
 --- !u!1 &7385686657343010419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,7 +2128,6 @@ GameObject:
   - component: {fileID: 617591696186481007}
   - component: {fileID: 246915203564333098}
   - component: {fileID: 7547230431642957240}
-  - component: {fileID: 1292765971577564917}
   m_Layer: 0
   m_Name: WoodenPlank003
   m_TagString: Untagged
@@ -2561,19 +2196,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1292765971577564917
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7385686657343010419}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010761725, z: 0.0025353378}
-  m_Center: {x: -2.3103066e-18, y: -0.00028939047, z: 0.0012676741}
 --- !u!1 &8799654610482434731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,7 +2207,7 @@ GameObject:
   - component: {fileID: 9193132668345168580}
   - component: {fileID: 5938217201953268665}
   - component: {fileID: 1318926654030156498}
-  - component: {fileID: 6843020546358509218}
+  - component: {fileID: 4514798246083810623}
   m_Layer: 0
   m_Name: WoodenPlank004 (1)
   m_TagString: Untagged
@@ -2655,7 +2277,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6843020546358509218
+--- !u!65 &4514798246083810623
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2666,8 +2288,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353371}
-  m_Center: {x: 0.000000014901161, y: -0.00037500495, z: 0.0012676741}
+  m_Size: {x: 0.11120954, y: 0.05971857, z: 0.06689314}
+  m_Center: {x: 0.0291465, y: -0.010985271, z: 0.00022296015}
 --- !u!1 &9047094618110499650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,7 +2301,6 @@ GameObject:
   - component: {fileID: 394467469265594366}
   - component: {fileID: 6160029860833839715}
   - component: {fileID: 2453107294303095230}
-  - component: {fileID: 8863104796082917387}
   m_Layer: 0
   m_Name: WoodenPlank008 (2)
   m_TagString: Untagged
@@ -2748,16 +2369,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8863104796082917387
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9047094618110499650}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052916568, y: 0.010932985, z: 0.0025353378}
-  m_Center: {x: 1.3612337e-16, y: -0.0003750179, z: 0.0012676741}
