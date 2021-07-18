@@ -222,7 +222,7 @@ public class Crowd : CrowdMaster
             boredomChange = 3f;
         }
 
-        if (score.Scored > 5 && guitarI.IsMiniGameActive == true) 
+        if (score.Scored > 5 && guitarI.IsMiniGameActive == true || HDstand.IsMiniGameActive == true) 
         {
             boredom += 25;
             boredomChange = 5f;
@@ -234,7 +234,7 @@ public class Crowd : CrowdMaster
             boredomChange = 5f;
         }
 
-        if(guitarI.IsMiniGameActive == false)
+        if(guitarI.IsMiniGameActive == false || HDstand.IsMiniGameActive == false || boomBox.IsMiniGameActive == false)
         {
             Brain.pushState(Idle, OnIdleEnter, null);
         }
