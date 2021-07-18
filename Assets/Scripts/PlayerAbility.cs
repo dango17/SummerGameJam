@@ -11,7 +11,8 @@ public class PlayerAbility : MonoBehaviour {
 	[SerializeField]
 	private float maxPowerLevel = 10.0f;
 	public float powerLevel = 0.5f;
-	private Score score = null;
+	private Score totalGameScore = null;
+	private Score aiStunnedScore = null;
 	private Slider powerLevelSlider = null;
 	private Canvas gameOverMenu = null;
 	private AudioSource source = null;
@@ -30,14 +31,17 @@ public class PlayerAbility : MonoBehaviour {
 		GetComponent<InputManager>().SwitchInputMode(InputManager.InputModes.GameOver);
 		RaycastHit[] hitInfo;
 		hitInfo = Physics.SphereCastAll(new Ray(gameObject.transform.position, Vector3.up), powerLevel, 0.0f);
+		int aiStunned = 0;
 
 		foreach (RaycastHit hit in hitInfo) {
 			if (hit.collider.CompareTag("AI")) {
+				++aiStunned;
 				const int scoreAmount = 10;
-				score.AddScore(scoreAmount);
+				totalGameScore.AddScore(scoreAmount);
 			}
 		}
 
+		aiStunnedScore.AddScore(aiStunned);
 		// Play fart particle effects.
 		fartPart1.startLifetime = powerLevel;
 		fartPart2.startLifetime = powerLevel;
@@ -45,7 +49,8 @@ public class PlayerAbility : MonoBehaviour {
 		fartPart2.Play();
 		// Play fart sfx.
 		source.Play();
-		score.ShowScore();
+		totalGameScore.ShowScore();
+		aiStunnedScore.ShowScore();
 		gameOverMenu.enabled = true;
 	}
 
@@ -67,7 +72,8 @@ public class PlayerAbility : MonoBehaviour {
 
 	private void Start() {
 		source = GetComponent<AudioSource>();
-		score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
+		totalGameScore = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
+		aiStunnedScore = GameObject.FindGameObjectWithTag("AIStunned").GetComponent<Score>();
 		powerLevelSlider = GameObject.FindGameObjectWithTag("PowerLevelSlider").GetComponent<Slider>();
 		powerLevelSlider.minValue = minPowerLevel;
 		powerLevelSlider.maxValue = maxPowerLevel;

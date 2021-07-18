@@ -4,17 +4,18 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour {
 	public int Scored { get; private set; } = 0;
 
+	[SerializeField]
+	private string textPrefix = "";
 	private Text scoreText = null;
 
-    public void AddScore(int addAmount) {
+	public void AddScore(int addAmount) {
 		Scored += addAmount;
-		scoreText.text = Scored.ToString();
+		scoreText.text = textPrefix + Scored.ToString();
 	}
 
-    public void SubtractScore(int subtractAmount)
-    {
+	public void SubtractScore(int subtractAmount) {
 		Scored -= subtractAmount;
-		scoreText.text = Scored.ToString();
+		scoreText.text = textPrefix + Scored.ToString();
 	}
 
 	public void ShowScore() {
