@@ -12,6 +12,10 @@ public class CrowdMaster : MonoBehaviour
 
     [HideInInspector]
     public Guitar guitarI;
+    [HideInInspector]
+    public HotDogStand HDstand;
+    [HideInInspector]
+    public Boombox boomBox;
 
     [HideInInspector]
     public float change;
