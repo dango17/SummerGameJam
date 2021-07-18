@@ -47,6 +47,7 @@ public class HotDogStand : MiniGame {
 	private void Start() {
 		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
 		playerAbility = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAbility>();
+		inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
 	}
 
 	private void SpawnInstruction() {

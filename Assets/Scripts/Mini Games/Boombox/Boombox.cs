@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Boombox : MiniGame {
 	private void Start() {
 		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
+		inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
 	}
 
 	public override void Use() {

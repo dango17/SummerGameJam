@@ -13,8 +13,7 @@ public class PlayerAbility : MonoBehaviour {
 	public float powerLevel = 0.5f;
 	private Score score = null;
 	private Slider powerLevelSlider = null;
-	[SerializeField]
-	private Canvas pauseMenu = null;
+	private Canvas gameOverMenu = null;
 	private AudioSource source = null;
 
 	[SerializeField]
@@ -46,8 +45,8 @@ public class PlayerAbility : MonoBehaviour {
 		// Play fart sfx.
 		source.Play();
 		score.ShowScore();
-		// TODO: restart game
-		//endgamestuff.gameObject.SetActive(true);
+		//gameOverMenu.enabled = true;
+		Time.timeScale = 0.0f;
 	}
 
 	/// <summary>

@@ -17,6 +17,7 @@ TagManager:
   - ButtonPrompt
   - MenuThing
   - Boombox
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

@@ -29,9 +29,14 @@ public class InputManager : MonoBehaviour {
 	private AnimationHandler animationHandler;
 	private PlayerMovement playerMovement;
 	private PlayerAbility playerAbility;
+	private PauseMenu pauseMenu = null;
 	[HideInInspector] PickUp pickUpA;
 
 	public void HandleAllInputs() {
+		if (pauseMenu.Paused) {
+			return;
+		}
+
 		switch (inputMode) {
 			case InputModes.Player: {
 				HandleMovementInput();
@@ -64,6 +69,10 @@ public class InputManager : MonoBehaviour {
 		playerMovement = GetComponent<PlayerMovement>();
 		playerAbility = GetComponent<PlayerAbility>();
 		pickUpA = FindObjectOfType<PickUp>();
+	}
+
+	private void Start() {
+		pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
 	}
 
 	private void OnEnable() {

@@ -8,7 +8,6 @@ public abstract class MiniGame : Interactable {
 	/// </summary>
 	public bool IsMiniGameActive { get; protected set; } = false;
 
-	[SerializeField]
 	protected InputManager inputManager = null;
 	[SerializeField]
 	protected GameObject interfacePrefab = null;
