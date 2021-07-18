@@ -86,7 +86,7 @@ public class Crowd : CrowdMaster
             agent.SetDestination(closestStall.transform.position);
         }
 
-        if (guitarI.IsMiniGameActive && boredom <= 10)
+        if (guitarI.IsMiniGameActive || boomBox.IsMiniGameActive || HDstand.IsMiniGameActive && boredom <= 10)
         {
             agent.SetDestination(character.transform.position);
             animator.SetBool("playing", true);
@@ -117,7 +117,7 @@ public class Crowd : CrowdMaster
 
         if(bored && nearPlayer)
         {
-            Brain.pushState(OnListenEnter, ListenToGuitar, null);
+            Brain.pushState(OnWatchEnter, WatchingPlayer, null);
         }
 
         
@@ -206,13 +206,13 @@ public class Crowd : CrowdMaster
         animator.SetBool("walk", false);
     }
 
-    void OnListenEnter()
+    void OnWatchEnter()
     {
         agent.ResetPath();
         animator.SetBool("playing", false);
     }
 
-    void ListenToGuitar()
+    void WatchingPlayer()
     {
         boredomChange -= Time.deltaTime;
 
@@ -222,7 +222,7 @@ public class Crowd : CrowdMaster
             boredomChange = 3f;
         }
 
-        if (score.Scored > 5 && guitarI.IsMiniGameActive == true) 
+        if (score.Scored > 5 && guitarI.IsMiniGameActive == true || HDstand.IsMiniGameActive == true) 
         {
             boredom += 25;
             boredomChange = 5f;
@@ -234,7 +234,7 @@ public class Crowd : CrowdMaster
             boredomChange = 5f;
         }
 
-        if(guitarI.IsMiniGameActive == false)
+        if(guitarI.IsMiniGameActive == false || HDstand.IsMiniGameActive == false || boomBox.IsMiniGameActive == false)
         {
             Brain.pushState(Idle, OnIdleEnter, null);
         }
