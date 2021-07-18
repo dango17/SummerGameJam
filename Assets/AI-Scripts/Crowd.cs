@@ -34,7 +34,7 @@ public class Crowd : CrowdMaster
         NearBarricade = false;
         block = FindObjectsOfType<Block>();
         hunger = 100;
-        boredom = 20;
+        boredom = 200;
         player = FindObjectOfType<PlayerManager>();
         score = FindObjectOfType<Score>();
         guitarI = FindObjectOfType<Guitar>();
@@ -198,8 +198,8 @@ public class Crowd : CrowdMaster
         {
             agent.ResetPath();
             Brain.pushState(Idle, OnIdleEnter, null);
-            hunger -= 2;
-            boredom -= 2;
+            hunger -= 10;
+            boredom -= 10;
         }
     }
 

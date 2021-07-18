@@ -22,7 +22,7 @@ public class PickUp : CrowdMaster
 
     private void Update()
     {
-        float distanceToBlock = 1;
+        float distanceToBlock = float.MaxValue;
         Block closestBlock = block[0];
         foreach (Block bl in block)
         {
@@ -43,22 +43,11 @@ public class PickUp : CrowdMaster
         {
             canPickup = false;
         }
-
-        //Vector3 distanceToPlayer = player.position - transform.position;
-        //if (!holding && distanceToPlayer.magnitude < pickupRange)
-        //{
-        //    this.canPickup = true;
-        //}
-
-        //if (distanceToPlayer.magnitude > pickupRange)
-        //{
-        //    this.canPickup = false;
-        //}
     }
 
     public void PickUpObject()
     {
-        this.holding = true;
+        holding = true;
 
         float distanceToBlock = float.MaxValue;
         Block closestBlock = block[0];
