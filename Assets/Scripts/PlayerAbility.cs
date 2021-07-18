@@ -6,6 +6,9 @@ public class PlayerAbility : MonoBehaviour {
 
 	public Transform player;
 
+	public Canvas endgamestuff;
+
+
 	[Tooltip("Minimum diameter for the ability's area of effect.")]
 	[SerializeField]
 	private float minPowerLevel = 0.0f;
@@ -47,6 +50,9 @@ public class PlayerAbility : MonoBehaviour {
 		}
 
 		score.ShowScore();
+
+
+		//endgamestuff.gameObject.SetActive(true);
 		// TODO: restart game
 	}
 

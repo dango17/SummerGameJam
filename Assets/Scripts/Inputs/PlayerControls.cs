@@ -515,6 +515,82 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Pause"",
+            ""id"": ""335a3e9b-8d0c-4b1d-bfea-40269159ee4e"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""948fedf3-8cdd-4bb0-85da-1c1f58bac87e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""027271ee-c9f8-493b-820b-1457a328e9af"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""086e88df-4cb0-4f37-858d-55cb93241456"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Restart"",
+            ""id"": ""62ea18b1-004f-47f8-8ba0-2fb83c93871a"",
+            ""actions"": [
+                {
+                    ""name"": ""restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d6a01bd-0081-41c4-92c1-580094a9cf0a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""42f575a5-0888-415c-8f03-8e5c326761d8"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb361252-9402-44ea-bda2-dc894f931caa"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -540,6 +616,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_PlayerPickup = asset.FindActionMap("Player Pickup", throwIfNotFound: true);
         m_PlayerPickup_PickUp = m_PlayerPickup.FindAction("PickUp", throwIfNotFound: true);
         m_PlayerPickup_Drop = m_PlayerPickup.FindAction("Drop", throwIfNotFound: true);
+        // Pause
+        m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
+        m_Pause_Pause = m_Pause.FindAction("Pause", throwIfNotFound: true);
+        // Restart
+        m_Restart = asset.FindActionMap("Restart", throwIfNotFound: true);
+        m_Restart_restart = m_Restart.FindAction("restart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -798,6 +880,72 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public PlayerPickupActions @PlayerPickup => new PlayerPickupActions(this);
+
+    // Pause
+    private readonly InputActionMap m_Pause;
+    private IPauseActions m_PauseActionsCallbackInterface;
+    private readonly InputAction m_Pause_Pause;
+    public struct PauseActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PauseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_Pause_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Pause; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PauseActions set) { return set.Get(); }
+        public void SetCallbacks(IPauseActions instance)
+        {
+            if (m_Wrapper.m_PauseActionsCallbackInterface != null)
+            {
+                @Pause.started -= m_Wrapper.m_PauseActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PauseActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PauseActionsCallbackInterface.OnPause;
+            }
+            m_Wrapper.m_PauseActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+            }
+        }
+    }
+    public PauseActions @Pause => new PauseActions(this);
+
+    // Restart
+    private readonly InputActionMap m_Restart;
+    private IRestartActions m_RestartActionsCallbackInterface;
+    private readonly InputAction m_Restart_restart;
+    public struct RestartActions
+    {
+        private @PlayerControls m_Wrapper;
+        public RestartActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @restart => m_Wrapper.m_Restart_restart;
+        public InputActionMap Get() { return m_Wrapper.m_Restart; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RestartActions set) { return set.Get(); }
+        public void SetCallbacks(IRestartActions instance)
+        {
+            if (m_Wrapper.m_RestartActionsCallbackInterface != null)
+            {
+                @restart.started -= m_Wrapper.m_RestartActionsCallbackInterface.OnRestart;
+                @restart.performed -= m_Wrapper.m_RestartActionsCallbackInterface.OnRestart;
+                @restart.canceled -= m_Wrapper.m_RestartActionsCallbackInterface.OnRestart;
+            }
+            m_Wrapper.m_RestartActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @restart.started += instance.OnRestart;
+                @restart.performed += instance.OnRestart;
+                @restart.canceled += instance.OnRestart;
+            }
+        }
+    }
+    public RestartActions @Restart => new RestartActions(this);
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -823,5 +971,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnPickUp(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
+    }
+    public interface IPauseActions
+    {
+        void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IRestartActions
+    {
+        void OnRestart(InputAction.CallbackContext context);
     }
 }
