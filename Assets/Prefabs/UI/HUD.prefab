@@ -392,6 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPrefix: 'Score: '
+  scoreType: Score
 --- !u!1 &6781472099148179720
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,3 +637,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPrefix: 'AI Stunned: '
+  scoreType: AI Stunned
