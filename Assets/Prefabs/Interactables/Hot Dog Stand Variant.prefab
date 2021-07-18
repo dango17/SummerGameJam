@@ -17,10 +17,12 @@ MonoBehaviour:
   interfacePrefab: {fileID: 3298930662058792684, guid: 77120937b0a832c48b36a1c294635106,
     type: 3}
   buttonsToSpawn: 4
-  standInterfacePrefab: {fileID: 3298930662058792687, guid: 77120937b0a832c48b36a1c294635106,
-    type: 3}
-  buttonPrefab: {fileID: 5783795369156517711, guid: 21a3c2f1870a6f44d80450c8aa93efe8,
-    type: 3}
+  TotalGameScore: {fileID: 0}
+  buttonPromptPrefabs:
+  - {fileID: 8561935960569899386, guid: 8ac70c9aca930194f93ee8d573548224, type: 3}
+  - {fileID: 2061301518225436960, guid: a546e5d0620565d4dac871cef57d068c, type: 3}
+  - {fileID: 7900730412844201253, guid: 41431e4ee9f326440b070e3a795dcae8, type: 3}
+  - {fileID: 3132998046362453555, guid: 7b0f1f4f12ffb8247b20046206ea52c2, type: 3}
 --- !u!1001 &5907514162720639437
 PrefabInstance:
   m_ObjectHideFlags: 0

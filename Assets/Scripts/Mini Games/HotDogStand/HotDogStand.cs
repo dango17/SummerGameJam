@@ -18,7 +18,7 @@ public class HotDogStand : MiniGame {
 	private Score TotalGameScore = null;
 	private GameObject standInterfaceInstance = null;
 	[SerializeField]
-	private GameObject buttonPrefab = null;
+	private GameObject[] buttonPromptPrefabs = null;
 
 	public override void Use() {
 		inputManager.SwitchInputMode(InputManager.InputModes.MiniGame);
@@ -33,6 +33,10 @@ public class HotDogStand : MiniGame {
 	}
 
 	public override void CompleteEvent() {
+		if (standInterfaceInstance) {
+			Destroy(standInterfaceInstance);
+		}
+
 		TotalGameScore.AddScore(MiniGameScore.Scored);
 		IsMiniGameActive = false;
 		inputManager.SwitchInputMode(InputManager.InputModes.Player);
@@ -50,7 +54,8 @@ public class HotDogStand : MiniGame {
 		}
 
 		ButtonPrompt lastSpawnedButton = null;
-		lastSpawnedButton = Instantiate(buttonPrefab,
+		int buttonPromptIndex = Random.Range(0, buttonPromptPrefabs.Length);
+		lastSpawnedButton = Instantiate(buttonPromptPrefabs[buttonPromptIndex],
 			standInterfaceInstance.transform.position,
 			Quaternion.identity,
 			standInterfaceInstance.transform).GetComponent<ButtonPrompt>();
@@ -64,7 +69,7 @@ public class HotDogStand : MiniGame {
 	private void EatHotDog(ButtonPrompt buttonPrompt) {
 		const int hotDogScoreWorth = 5;
 		MiniGameScore.AddScore(hotDogScoreWorth);
-		const float hotDogEnergy = 0.1f;
+		const float hotDogEnergy = 0.2f;
 		playerAbility.ChangePowerLevel(hotDogEnergy);
 		SpawnInstruction();
 	}
