@@ -854,6 +854,7 @@ Transform:
   m_Children:
   - {fileID: 5064084269206754910}
   - {fileID: 7876010551850360915}
+  - {fileID: 3765006054117145597}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1015,10 +1016,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  endgamestuff: {fileID: 0}
   minPowerLevel: 0
   maxPowerLevel: 10
-  fartPart1: {fileID: 0}
-  fartPart2: {fileID: 0}
+  powerLevel: 0.5
+  fartPart1: {fileID: 3765006053949277180}
+  fartPart2: {fileID: 3765006053447348730}
 --- !u!114 &7876010551839095817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,3 +1459,115 @@ Transform:
   m_Father: {fileID: 1742808636570383148}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2717467462250081517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7694273121225791073}
+    m_Modifications:
+    - target: {fileID: 1263716321652481298, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_Name
+      value: FartCloud 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716321652481303, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322051741457, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_Name
+      value: Fart Particle Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322421681937, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322421681937, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263716322421681948, guid: adb573e783c55d94282d56103f8e3bd0,
+        type: 3}
+      propertyPath: m_Name
+      value: FartCloud 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: adb573e783c55d94282d56103f8e3bd0, type: 3}
+--- !u!4 &3765006054117145597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1263716322051741456, guid: adb573e783c55d94282d56103f8e3bd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2717467462250081517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3765006053949277180 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1263716322421681937, guid: adb573e783c55d94282d56103f8e3bd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2717467462250081517}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3765006053447348730 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1263716321652481303, guid: adb573e783c55d94282d56103f8e3bd0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2717467462250081517}
+  m_PrefabAsset: {fileID: 0}

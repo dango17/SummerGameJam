@@ -34,26 +34,23 @@ public class PlayerAbility : MonoBehaviour {
 		RaycastHit[] hitInfo;
 		hitInfo = Physics.SphereCastAll(new Ray(gameObject.transform.position, Vector3.up), powerLevel, 0.0f);
 
-        //this feels like a rough way of doing this
-        fartPart1.transform.position = player.transform.position;
-        fartPart1.Play();
-        fartPart2.transform.position = player.transform.position;
-        fartPart2.Play();
-        source.Play();
-
 		foreach (RaycastHit hit in hitInfo) {
 			if (hit.collider.CompareTag("AI")) {
-				// TODO: send AI into ragdoll state
 				const int scoreAmount = 10;
 				score.AddScore(scoreAmount);
 			}
 		}
 
+		// Play fart particle effects.
+		fartPart1.startLifetime = powerLevel;
+		fartPart2.startLifetime = powerLevel;
+		fartPart1.Play();
+		fartPart2.Play();
+		// Play fart sfx.
+		source.Play();
 		score.ShowScore();
-
-
-		//endgamestuff.gameObject.SetActive(true);
 		// TODO: restart game
+		//endgamestuff.gameObject.SetActive(true);
 	}
 
 	/// <summary>
