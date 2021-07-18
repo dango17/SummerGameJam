@@ -27,6 +27,7 @@ public class PlayerAbility : MonoBehaviour {
 		}
 
 		Used = true;
+		GetComponent<InputManager>().SwitchInputMode(InputManager.InputModes.GameOver);
 		RaycastHit[] hitInfo;
 		hitInfo = Physics.SphereCastAll(new Ray(gameObject.transform.position, Vector3.up), powerLevel, 0.0f);
 
@@ -45,8 +46,7 @@ public class PlayerAbility : MonoBehaviour {
 		// Play fart sfx.
 		source.Play();
 		score.ShowScore();
-		//gameOverMenu.enabled = true;
-		Time.timeScale = 0.0f;
+		gameOverMenu.enabled = true;
 	}
 
 	/// <summary>
@@ -66,10 +66,11 @@ public class PlayerAbility : MonoBehaviour {
 	}
 
 	private void Start() {
+		source = GetComponent<AudioSource>();
 		score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
 		powerLevelSlider = GameObject.FindGameObjectWithTag("PowerLevelSlider").GetComponent<Slider>();
 		powerLevelSlider.minValue = minPowerLevel;
 		powerLevelSlider.maxValue = maxPowerLevel;
-		source = GetComponent<AudioSource>();
+		gameOverMenu = GameObject.FindGameObjectWithTag("GameOverMenu").GetComponent<Canvas>();
 	}
 }

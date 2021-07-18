@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour {
 	public enum InputModes {
 		Player,
 		MiniGame,
+		GameOver,
 		Count
 	}
 
