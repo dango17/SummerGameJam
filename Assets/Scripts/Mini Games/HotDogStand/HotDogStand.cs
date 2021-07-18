@@ -16,6 +16,8 @@ public class HotDogStand : MiniGame {
 	[Tooltip("The player's total game score.")]
 	[SerializeField]
 	private Score TotalGameScore = null;
+	[SerializeField]
+	private ParticleSystem eatEffect = null;
 	private GameObject standInterfaceInstance = null;
 	[SerializeField]
 	private GameObject[] buttonPromptPrefabs = null;
@@ -67,6 +69,7 @@ public class HotDogStand : MiniGame {
 	}
 
 	private void EatHotDog(ButtonPrompt buttonPrompt) {
+		eatEffect.Play();
 		const int hotDogScoreWorth = 5;
 		MiniGameScore.AddScore(hotDogScoreWorth);
 		const float hotDogEnergy = 0.2f;

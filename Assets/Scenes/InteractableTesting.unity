@@ -2343,6 +2343,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hot Dog Stand
       objectReference: {fileID: 0}
+    - target: {fileID: 2697324097020074254, guid: a275bea7566ead54e8f4f9a61fba080e,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4190316916556765002, guid: a275bea7566ead54e8f4f9a61fba080e,
         type: 3}
       propertyPath: inputManager
