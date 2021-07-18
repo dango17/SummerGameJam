@@ -917,8 +917,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce6d1934196c0d4ebbdd544a04d1468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   minPowerLevel: 0
   maxPowerLevel: 10
+  fartPart1: {fileID: 0}
+  fartPart2: {fileID: 0}
 --- !u!114 &7876010551839095817
 MonoBehaviour:
   m_ObjectHideFlags: 0

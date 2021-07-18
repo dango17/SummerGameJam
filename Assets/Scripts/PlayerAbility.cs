@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class PlayerAbility : MonoBehaviour {
 	public bool Used { get; private set; } = false;
 
+	public Transform player;
+
 	[Tooltip("Minimum diameter for the ability's area of effect.")]
 	[SerializeField]
 	private float minPowerLevel = 0.0f;
@@ -13,6 +15,9 @@ public class PlayerAbility : MonoBehaviour {
 	private float powerLevel = 0.5f;
 	private Score score = null;
 	private Slider powerLevelSlider = null;
+	private AudioSource source;
+
+	[SerializeField] private ParticleSystem fartPart1, fartPart2;
 
 	public void Use() {
 		if (Used) {
@@ -22,7 +27,15 @@ public class PlayerAbility : MonoBehaviour {
 		Used = true;
 		RaycastHit[] hitInfo;
 		hitInfo = Physics.SphereCastAll(new Ray(gameObject.transform.position, Vector3.up), powerLevel, 0.0f);
-		
+
+
+		//this feels like a rough way of doing this
+		fartPart1.transform.position = player.transform.position;
+		fartPart1.Play();
+		fartPart2.transform.position = player.transform.position;
+		fartPart2.Play();
+		source.Play();
+
 		foreach (RaycastHit hit in hitInfo) {
 			if (hit.collider.CompareTag("AI")) {
 				// TODO: send AI into ragdoll state
@@ -56,5 +69,7 @@ public class PlayerAbility : MonoBehaviour {
 		powerLevelSlider = GameObject.FindGameObjectWithTag("PowerLevelSlider").GetComponent<Slider>();
 		powerLevelSlider.minValue = minPowerLevel;
 		powerLevelSlider.maxValue = maxPowerLevel;
+
+		source = GetComponent<AudioSource>();
 	}
 }
