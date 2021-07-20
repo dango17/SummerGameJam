@@ -57,6 +57,7 @@ public class PlayerAbility : MonoBehaviour {
 		totalGameScore.ShowScore();
 		aiStunnedScore.ShowScore();
 		gameOverMenu.enabled = true;
+		Cursor.visible = true;
 	}
 
 	/// <summary>

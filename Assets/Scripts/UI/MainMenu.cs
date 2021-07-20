@@ -1,29 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement; 
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
-{
-    public void StartGame()
-    {
-        Debug.Log("You Started the Game :)");
+public class MainMenu : MonoBehaviour {
+	public void StartGame() {
+		Cursor.visible = false;
+		// Load the game's gameplay scene.
+		SceneManager.LoadScene("Level_Whitebox");
+	}
 
-        //String empty, main scene to go inside
-        SceneManager.LoadScene("Level_Whitebox");
-    } 
-
-    public void QuitGame()
-    {
-        Debug.Log("You Quit the Game :(");
-
-        //Close Application
-        Application.Quit();  
-    } 
-
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
+	public void QuitGame() {
+		Application.Quit();
+	}
 }
