@@ -8,6 +8,8 @@ public class PickUp : CrowdMaster {
 	public bool holding;
 	public bool canPickup;
 
+	private GameObject heldblock;
+
 	private Transform player = null;
 	/// <summary>
 	/// Position to place picked up objects.
@@ -42,9 +44,16 @@ public class PickUp : CrowdMaster {
 			canPickup = true;
 		}
 
+        else if (holding && distanceToBlock < pickupRange)
+        {
+            canPickup = false;
+        }
+
 		if (distanceToBlock > pickupRange) {
 			canPickup = false;
 		}
+
+
 	}
 
 	public void PickUpObject() {
@@ -71,27 +80,20 @@ public class PickUp : CrowdMaster {
 		closestBlock.GetComponent<Rigidbody>().useGravity = false;
 		closestBlock.GetComponent<Rigidbody>().freezeRotation = true;
 		closestBlock.GetComponent<Rigidbody>().isKinematic = true;
+
+		heldblock = closestBlock.gameObject;
 	}
 
 	public void DropObject() {
 
-		float distanceToBlock = float.MaxValue;
-		Block closestBlock = block[0];
-		foreach (Block bl in block) {
-			float distBl = Vector3.Distance(player.transform.position, bl.transform.position);
-			if (distBl < distanceToBlock) {
-				closestBlock = bl;
-				distanceToBlock = distBl;
-			}
-		}
 
 		holding = false;
 
-		closestBlock.transform.SetParent(null);
-		closestBlock.GetComponent<Rigidbody>().useGravity = true;
-		closestBlock.GetComponent<BoxCollider>().enabled = true;
-		closestBlock.GetComponent<Rigidbody>().freezeRotation = false;
-		closestBlock.GetComponent<Rigidbody>().isKinematic = false;
+		heldblock.transform.SetParent(null);
+		heldblock.GetComponent<Rigidbody>().useGravity = true;
+		heldblock.GetComponent<BoxCollider>().enabled = true;
+		heldblock.GetComponent<Rigidbody>().freezeRotation = false;
+		heldblock.GetComponent<Rigidbody>().isKinematic = false;
 
 	}
 }
