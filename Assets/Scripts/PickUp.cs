@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PickUp : CrowdMaster {
+
+	public Text pickuptext;
+	public Text dropText;
 	public float pickupRange;
 
 	public bool holding;
 	public bool canPickup;
 
 	private GameObject heldblock;
+
+	public Outline outline;
 
 	private Transform player = null;
 	/// <summary>
@@ -20,7 +27,8 @@ public class PickUp : CrowdMaster {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		holdPosition = GameObject.FindGameObjectWithTag("HoldPosition").transform;
 		block = FindObjectsOfType<Block>();
-
+		outline = GetComponentInChildren<Outline>();
+		
 		holding = false;
 		canPickup = false;
 	}
@@ -42,18 +50,38 @@ public class PickUp : CrowdMaster {
 
 		if (!holding && distanceToBlock < pickupRange) {
 			canPickup = true;
+			pickuptext.gameObject.SetActive(true);
+			
 		}
 
-        else if (holding && distanceToBlock < pickupRange)
+        else if (holding)
         {
             canPickup = false;
-        }
-
-		if (distanceToBlock > pickupRange) {
-			canPickup = false;
+			pickuptext.gameObject.SetActive(false);
+			dropText.gameObject.SetActive(true);
 		}
 
 
+		if (distanceToBlock > pickupRange)
+        {
+			pickuptext.gameObject.SetActive(false);
+			canPickup = false;
+        }
+
+		if (canPickup == true && distanceToBlock <= pickupRange && !holding)
+		{
+			outline = closestBlock.GetComponentInChildren<Outline>();
+
+			outline.renderer.material = outline.pickUp;
+		}
+
+		if(holding && distanceToBlock <= pickupRange || distanceToBlock >= pickupRange)
+        {
+			pickuptext.gameObject.SetActive(false);
+			outline = closestBlock.GetComponentInChildren<Outline>();
+
+			outline.renderer.material = outline.outOfRange;
+		}
 	}
 
 	public void PickUpObject() {
@@ -80,8 +108,11 @@ public class PickUp : CrowdMaster {
 		closestBlock.GetComponent<Rigidbody>().useGravity = false;
 		closestBlock.GetComponent<Rigidbody>().freezeRotation = true;
 		closestBlock.GetComponent<Rigidbody>().isKinematic = true;
+		
 
 		heldblock = closestBlock.gameObject;
+		pickuptext.gameObject.SetActive(false);
+
 	}
 
 	public void DropObject() {
@@ -94,6 +125,9 @@ public class PickUp : CrowdMaster {
 		heldblock.GetComponent<BoxCollider>().enabled = true;
 		heldblock.GetComponent<Rigidbody>().freezeRotation = false;
 		heldblock.GetComponent<Rigidbody>().isKinematic = false;
+
+		dropText.gameObject.SetActive(false);
+
 
 	}
 }

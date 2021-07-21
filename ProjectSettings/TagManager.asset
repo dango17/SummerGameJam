@@ -21,6 +21,7 @@ TagManager:
   - GameOverMenu
   - AIStunned
   - HoldPosition
+  - Ridges
   layers:
   - Default
   - TransparentFX

@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 2020482677584283907}
   - component: {fileID: 6654629529739492918}
   - component: {fileID: 6615536859011840763}
+  - component: {fileID: 5693716268831466349}
   m_Layer: 0
   m_Name: Ridges
   m_TagString: Untagged
@@ -237,6 +238,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5693716268831466349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803413757585583317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246e440192debdd42b0a381ec039823f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUp: {fileID: 2100000, guid: e5d21687c3240e8459cf6071a020ced4, type: 2}
+  outOfRange: {fileID: 2100000, guid: 9576923dbd158a64d85c15b8dbb063e4, type: 2}
+  renderer: {fileID: 0}
 --- !u!1 &8095598776494299457
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,11 +348,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b583218d4e26abb4e97e74cd5a3d1487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  container: {fileID: 0}
-  pickupRange: 0
+  Brain: {fileID: 0}
+  score: {fileID: 0}
+  guitarI: {fileID: 0}
+  HDstand: {fileID: 0}
+  boomBox: {fileID: 0}
+  change: 0
+  blocked: 0
+  NearBarricade: 0
+  nearPlayer: 0
+  block: []
+  Hungry: 0
+  bored: 0
+  boredomChange: 0
+  EatTimer: 0
+  foodStall: []
+  entertainment: []
+  exit: []
+  hunger: 0
+  boredom: 0
+  pDistance: 4
+  pickupRange: 0.5
   holding: 0
   canPickup: 0
+  outline: {fileID: 5693716268831466349}
 --- !u!114 &8452144246434886832
 MonoBehaviour:
   m_ObjectHideFlags: 0

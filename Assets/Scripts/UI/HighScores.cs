@@ -2,6 +2,8 @@
 using TMPro;
 
 public class HighScores : MonoBehaviour {
+
+
 	[SerializeField]
 	private string[] highScoreKeys = null;
 	private int[] highScores = null;
