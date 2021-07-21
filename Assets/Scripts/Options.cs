@@ -7,7 +7,6 @@ using TMPro;
 public class Options : MonoBehaviour
 {
     public Toggle fullscreen;
-    public Toggle Mute;
 
     private bool isMuted;
 

@@ -1435,7 +1435,7 @@ GameObject:
   - component: {fileID: 8634592414333509818}
   - component: {fileID: 8634592414333509816}
   - component: {fileID: 8634592414333509817}
-  - component: {fileID: 3735622032754829831}
+  - component: {fileID: 7842939189933001138}
   m_Layer: 5
   m_Name: OptionsMenu(WIP)
   m_TagString: Untagged
@@ -1502,7 +1502,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &3735622032754829831
+--- !u!114 &7842939189933001138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1515,9 +1515,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreen: {fileID: 3662657836581929734}
-  Mute: {fileID: 0}
-  resolutions: []
-  resLabels: {fileID: 0}
+  resolutions:
+  - horizontal: 1920
+    vertical: 1080
+  - horizontal: 1280
+    vertical: 720
+  - horizontal: 854
+    vertical: 480
+  resLabels: {fileID: 2386148191914721058}
 --- !u!1 &8634592414439553907
 GameObject:
   m_ObjectHideFlags: 0
