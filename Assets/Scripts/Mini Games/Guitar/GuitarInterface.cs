@@ -39,7 +39,7 @@ public class GuitarInterface : MonoBehaviour {
 		Score.ShowScore();
 
 		foreach (GameObject buttonPrompt in buttonPrompts) {
-			buttonPrompt.GetComponent<ButtonPrompt>().LinkButton(HandleInput);
+			buttonPrompt.GetComponent<ButtonPrompt>().LinkMethodToButton(HandleInput);
 		}
 	}
 

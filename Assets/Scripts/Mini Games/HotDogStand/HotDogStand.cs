@@ -22,6 +22,9 @@ public class HotDogStand : MiniGame {
 	[SerializeField]
 	private GameObject[] buttonPromptPrefabs = null;
 
+	/// <summary>
+	/// Starts the mini-game event.
+	/// </summary>
 	public override void Use() {
 		inputManager.SwitchInputMode(InputManager.InputModes.MiniGame);
 		GameObject ui = GameObject.FindGameObjectWithTag("UI");
@@ -36,6 +39,9 @@ public class HotDogStand : MiniGame {
 		SpawnInstruction();
 	}
 
+	/// <summary>
+	/// Ends the mini-game event.
+	/// </summary>
 	public override void CompleteEvent() {
 		if (standInterfaceInstance) {
 			Destroy(standInterfaceInstance);
@@ -54,6 +60,9 @@ public class HotDogStand : MiniGame {
 		inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
 	}
 
+	/// <summary>
+	/// Create's a UI prompt telling the player what input to enter.
+	/// </summary>
 	private void SpawnInstruction() {
 		if (buttonsSpawned >= buttonsToSpawn) {
 			CompleteEvent();
@@ -66,13 +75,19 @@ public class HotDogStand : MiniGame {
 			standInterfaceInstance.transform.position,
 			Quaternion.identity,
 			standInterfaceInstance.transform).GetComponent<ButtonPrompt>();
-		lastSpawnedButton.TimeToActivate = 4;
+		const int pressesToUseButton = 4;
+		lastSpawnedButton.TimeToActivate = pressesToUseButton;
 		lastSpawnedButton.DestroyOnUse = true;
+		lastSpawnedButton.ShowProgressBar = true;
 		lastSpawnedButton.ButtonType = ButtonPrompt.ButtonTypes.MultiplePress;
-		lastSpawnedButton.LinkButton(EatHotDog);
+		lastSpawnedButton.LinkMethodToButton(EatHotDog);
 		++buttonsSpawned;
 	}
 
+	/// <summary>
+	/// Increases the player's power level.
+	/// </summary>
+	/// <param name="buttonPrompt"> Button that triggered this method. </param>
 	private void EatHotDog(ButtonPrompt buttonPrompt) {
 		eatEffect.Play();
 		const int hotDogScoreWorth = 5;
