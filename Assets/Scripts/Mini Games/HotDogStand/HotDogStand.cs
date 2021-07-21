@@ -25,6 +25,8 @@ public class HotDogStand : MiniGame {
 	public override void Use() {
 		inputManager.SwitchInputMode(InputManager.InputModes.MiniGame);
 		GameObject ui = GameObject.FindGameObjectWithTag("UI");
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().Play("Idle");
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = true;
 		standInterfaceInstance = Instantiate(interfacePrefab,
 			ui.transform.position,
 			Quaternion.identity,
@@ -41,6 +43,8 @@ public class HotDogStand : MiniGame {
 
 		TotalGameScore.AddScore(MiniGameScore.Scored);
 		IsMiniGameActive = false;
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = false;
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().Play("Movement");
 		inputManager.SwitchInputMode(InputManager.InputModes.Player);
 	}
 

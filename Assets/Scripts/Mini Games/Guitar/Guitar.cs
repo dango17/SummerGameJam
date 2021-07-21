@@ -13,11 +13,14 @@ public class Guitar : MiniGame {
 	private void Start() {
 		interactPrompt = GameObject.FindGameObjectWithTag("InteractPrompt").GetComponent<Text>();
 		inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager>();
+		
 	}
 
 	public override void Use() {
 		if (timesUsed < usesAvailable) {
 			GameObject canvas = GameObject.FindGameObjectWithTag("UI");
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().Play("Idle");
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = true;
 			guitarInterface = Instantiate(interfacePrefab, canvas.transform.position, Quaternion.identity, canvas.transform).GetComponent<GuitarInterface>();
 			guitarInterface.GuitarOwner = this;
 			IsMiniGameActive = true;
@@ -34,6 +37,8 @@ public class Guitar : MiniGame {
 		}
 
 		IsMiniGameActive = false;
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>().isKinematic = false;
+		GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().Play("Movement");
 		inputManager.SwitchInputMode(InputManager.InputModes.Player);
 	}
 }
