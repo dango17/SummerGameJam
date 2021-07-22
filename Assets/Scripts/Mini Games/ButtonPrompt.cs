@@ -38,18 +38,9 @@ public class ButtonPrompt : MonoBehaviour {
 	[SerializeField]
 	private InputAction inputButton = null;
 	private Slider progressBar = null;
+	private ParticleSystem particleEffect = null;
 
 	public delegate void MethodToExecute(ButtonPrompt buttonPrompt);
-
-	public void Use() {
-		// Reset the button's use.
-		timesActivated = 0;
-		methodToExecute(this);
-
-		if (destroyOnUse) {
-			Destroy(gameObject);
-		}
-	}
 
 	/// <summary>
 	/// Sets the method to call when the button is triggered.
@@ -61,6 +52,7 @@ public class ButtonPrompt : MonoBehaviour {
 
 	private void Awake() {
 		progressBar = GetComponent<Slider>();
+		particleEffect = GetComponent<ParticleSystem>();
 
 		if (!progressBar) {
 			progressBar = GetComponentInChildren<Slider>();
@@ -89,23 +81,50 @@ public class ButtonPrompt : MonoBehaviour {
 
 		if (buttonType == ButtonTypes.Hold) {
 			if (held) {
-				duration += Time.deltaTime;
-				progressBar.value = duration;
-
-				if (duration >= timeToActivate) {
-					Use();
-				}
+				Hold();
 			}
 		} else {
 			if (pressed) {
-				pressed = false;
-				++timesActivated;
-				progressBar.value = timesActivated;
-
-				if (timesActivated >= timeToActivate) {
-					Use();
-				}
+				Press();
 			}
+		}
+	}
+
+	private void Use() {
+		// Reset the button's use.
+		timesActivated = 0;
+		methodToExecute(this);
+		particleEffect.Play();
+
+		if (destroyOnUse) {
+			Destroy(gameObject);
+		}
+	}
+
+	private void Press() {
+		// Reset the bool after pressing.
+		pressed = false;
+		++timesActivated;
+		progressBar.value = timesActivated;
+
+		if (timesActivated >= timeToActivate) {
+			Use();
+		} else {
+			if (particleEffect.isPlaying) {
+				particleEffect.Stop();
+			}
+
+			// Only play the particle effect if we haven't used the button.
+			particleEffect.Play();
+		}
+	}
+
+	private void Hold() {
+		duration += Time.deltaTime;
+		progressBar.value = duration;
+
+		if (duration >= timeToActivate) {
+			Use();
 		}
 	}
 }
