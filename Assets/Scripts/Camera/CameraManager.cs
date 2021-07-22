@@ -33,6 +33,8 @@ public class CameraManager : MonoBehaviour
     public float lookAngle; //Up - Down
     public float pivotAngle; //Left - Right
 
+    private OptionsMenu optionsMenu = null;
+
     private void Awake()
     {
         inputManager = FindObjectOfType<InputManager>(); 
@@ -41,7 +43,15 @@ public class CameraManager : MonoBehaviour
         cameraTransform = Camera.main.transform; 
     }
 
-    public void HandleAllCameraMovement()
+	private void Start() {
+        optionsMenu = FindObjectOfType<OptionsMenu>();
+
+        if (PlayerPrefs.HasKey("Sensitivity")) {
+            cameraLookSpeed = PlayerPrefs.GetFloat("Sensitivity");
+		}
+    }
+
+	public void HandleAllCameraMovement()
     {
         FollowTarget();
         RotateCamera();
