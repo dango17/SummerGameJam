@@ -21,6 +21,5 @@ public class DontDeleteMusic : MonoBehaviour
         {
             volumeControl = this;
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 }
