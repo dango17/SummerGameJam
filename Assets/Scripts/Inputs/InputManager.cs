@@ -31,7 +31,6 @@ public class InputManager : MonoBehaviour {
 	private PlayerMovement playerMovement;
 	private PlayerAbility playerAbility;
 	private PauseMenu pauseMenu = null;
-	[HideInInspector] PickUp pickUpA;
 
 	public void HandleAllInputs() {
 		if (pauseMenu.Paused) {
@@ -69,7 +68,6 @@ public class InputManager : MonoBehaviour {
 		animationHandler = GetComponent<AnimationHandler>();
 		playerMovement = GetComponent<PlayerMovement>();
 		playerAbility = GetComponent<PlayerAbility>();
-		pickUpA = FindObjectOfType<PickUp>();
 	}
 
 	private void Start() {
@@ -128,16 +126,13 @@ public class InputManager : MonoBehaviour {
 		}
 	}
 
-	private void HandlePickup()
-    {
-        if (playerControls.PlayerPickup.PickUp.triggered && pickUpA.canPickup == true)
-        {
-            pickUpA.PickUpObject();
-        }
+	private void HandlePickup() {
+		if (playerControls.PlayerPickup.PickUp.triggered && !PickUp.HeldBlock && PickUp.ClosestPickUp.CanPickUp) {
+			PickUp.ClosestPickUp.PickUpObject();
+		}
 
-        if (playerControls.PlayerPickup.Drop.triggered)
-        {
-            pickUpA.DropObject();
-        }
-    }
+		if (playerControls.PlayerPickup.Drop.triggered && PickUp.HeldBlock) {
+			PickUp.ClosestPickUp.DropObject();
+		}
+	}
 }

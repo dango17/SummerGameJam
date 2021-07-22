@@ -33,7 +33,7 @@ public class Crowd : CrowdMaster
         Hungry = false;
         bored = false;
         NearBarricade = false;
-        block = FindObjectsOfType<Block>();
+        nearbyBlocks = FindObjectsOfType<Block>();
         player = GameObject.FindGameObjectWithTag("Player");
         score = FindObjectOfType<Score>();
         guitarI = FindObjectOfType<Guitar>();
@@ -45,8 +45,8 @@ public class Crowd : CrowdMaster
     private void Update()
     {
         float distanceToBlock = float.MaxValue;
-        Block closestBlock = block[0];
-        foreach(Block bl in block)
+        Block closestBlock = nearbyBlocks[0];
+        foreach(Block bl in nearbyBlocks)
         {
             float distBl = Vector3.Distance(transform.position, bl.transform.position);
             if(distBl < distanceToBlock)
@@ -135,8 +135,8 @@ public class Crowd : CrowdMaster
     void Run()
     {
         float distanceToBlock = float.MaxValue;
-        Block closestBlock = block[0];
-        foreach (Block bl in block)
+        Block closestBlock = nearbyBlocks[0];
+        foreach (Block bl in nearbyBlocks)
         {
             float distBl = Vector3.Distance(transform.position, bl.transform.position);
             if (distBl < distanceToBlock)

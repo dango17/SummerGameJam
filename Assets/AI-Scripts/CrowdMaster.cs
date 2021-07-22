@@ -25,9 +25,6 @@ public class CrowdMaster : MonoBehaviour
     public bool nearPlayer;
 
     [HideInInspector]
-    public Block[] block;
-
-    [HideInInspector]
     public bool Hungry;
     [HideInInspector]
     public bool bored;
@@ -51,5 +48,5 @@ public class CrowdMaster : MonoBehaviour
     [HideInInspector]
     public float pDistance = 4.0f;
 
-
+    protected Block[] nearbyBlocks;
 }

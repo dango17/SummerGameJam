@@ -2,128 +2,90 @@
 using UnityEngine.UI;
 
 public class PickUp : CrowdMaster {
+	public bool CanPickUp { get { return canPickup; } set { } }
+	public static PickUp ClosestPickUp { get { return closestBlock.GetComponent<PickUp>(); } private set { } }
+	public static GameObject HeldBlock { get; private set; } = null;
 
-	public Text pickuptext = null;
-	public Text dropText = null;
-	public float pickupRange = 0.5f;
+	[SerializeField]
+	private float pickupRange = 1.25f;
 
-	public bool holding = false;
-	public bool canPickup = false;
+	private static bool holding = false;
+	private bool canPickup = false;
 
-	private GameObject heldblock = null;
+	[SerializeField]
+	private string pickUpPromptText = "Left Click to Pick Up";
+	[SerializeField]
+	private string dropPromptText = "Right Click to Drop";
 
-	public Outline outline = null;
-
+	private static Block closestBlock = null;
 	private Transform player = null;
 	/// <summary>
 	/// Position to place picked up objects.
 	/// </summary>
 	private Transform holdPosition = null;
 
+	private Text pickuptext = null;
+	private Outline closestBlockOutline = null;
+
 	private void Start() {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		holdPosition = GameObject.FindGameObjectWithTag("HoldPosition").transform;
-		block = FindObjectsOfType<Block>();
-		outline = GetComponentInChildren<Outline>();
+		nearbyBlocks = FindObjectsOfType<Block>();
 		pickuptext = GameObject.FindGameObjectWithTag("PickUpText").GetComponent<Text>();
-		dropText = GameObject.FindGameObjectWithTag("DropText").GetComponent<Text>();
 	}
 
 	private void Update() {
-		if (block.Length == 0) {
-			return;
-		}
-
-		float distanceToBlock = float.MaxValue;
-		Block closestBlock = block[0];
-		foreach (Block bl in block) {
-			float distBl = Vector3.Distance(player.transform.position, bl.transform.position);
-			if (distBl < distanceToBlock) {
-				closestBlock = bl;
-				distanceToBlock = distBl;
+		if (!holding) {
+			if (nearbyBlocks.Length == 0) {
+				return;
 			}
-		}
 
-		if (!holding && distanceToBlock < pickupRange) {
-			canPickup = true;
-			pickuptext.gameObject.SetActive(true);
-			
-		}
+			float shorestDistanceToBlock = float.MaxValue;
+			closestBlock = nearbyBlocks[0];
 
-        else if (holding)
-        {
-            canPickup = false;
-			pickuptext.gameObject.SetActive(false);
-			dropText.gameObject.SetActive(true);
-		}
+			foreach (Block block in nearbyBlocks) {
+				float distanceToBlock = Vector3.Distance(block.transform.position, player.transform.position);
 
+				if (distanceToBlock < shorestDistanceToBlock) {
+					closestBlock = block;
+					closestBlockOutline = closestBlock.GetComponentInChildren<Outline>();
+					shorestDistanceToBlock = distanceToBlock;
+				}
+			}
 
-		if (distanceToBlock > pickupRange)
-        {
-			pickuptext.gameObject.SetActive(false);
-			canPickup = false;
-        }
-
-		if (canPickup == true && distanceToBlock <= pickupRange && !holding)
-		{
-			outline = closestBlock.GetComponentInChildren<Outline>();
-
-			outline.renderer.material = outline.pickUp;
-		}
-
-		if(holding && distanceToBlock <= pickupRange || distanceToBlock >= pickupRange)
-        {
-			pickuptext.gameObject.SetActive(false);
-			outline = closestBlock.GetComponentInChildren<Outline>();
-
-			outline.renderer.material = outline.outOfRange;
+			if (shorestDistanceToBlock <= pickupRange) {
+				canPickup = true;
+				pickuptext.text = pickUpPromptText;
+				closestBlockOutline.renderer.material = closestBlockOutline.pickUp;
+			} else {
+				canPickup = false;
+				pickuptext.text = "";
+				closestBlockOutline.renderer.material = closestBlockOutline.outOfRange;
+			}
 		}
 	}
 
 	public void PickUpObject() {
-		if (block.Length == 0) {
-			return;
-		}
-
 		holding = true;
-
-		float distanceToBlock = float.MaxValue;
-		Block closestBlock = block[0];
-		foreach (Block bl in block) {
-			float distBl = Vector3.Distance(player.transform.position, bl.transform.position);
-			if (distBl < distanceToBlock) {
-				closestBlock = bl;
-				distanceToBlock = distBl;
-			}
-		}
-
-		closestBlock.transform.SetParent(holdPosition);
-		closestBlock.transform.position = holdPosition.position;
-
-		closestBlock.GetComponent<BoxCollider>().enabled = false;
-		closestBlock.GetComponent<Rigidbody>().useGravity = false;
-		closestBlock.GetComponent<Rigidbody>().freezeRotation = true;
-		closestBlock.GetComponent<Rigidbody>().isKinematic = true;
-		
-
-		heldblock = closestBlock.gameObject;
-		pickuptext.gameObject.SetActive(false);
-
+		HeldBlock = closestBlock.gameObject;
+		HeldBlock.transform.SetParent(holdPosition);
+		HeldBlock.transform.position = holdPosition.position;
+		HeldBlock.GetComponent<BoxCollider>().enabled = false;
+		HeldBlock.GetComponent<Rigidbody>().useGravity = false;
+		HeldBlock.GetComponent<Rigidbody>().freezeRotation = true;
+		HeldBlock.GetComponent<Rigidbody>().isKinematic = true;
+		pickuptext.text = dropPromptText;
+		canPickup = false;
 	}
 
 	public void DropObject() {
-
-
 		holding = false;
-
-		heldblock.transform.SetParent(null);
-		heldblock.GetComponent<Rigidbody>().useGravity = true;
-		heldblock.GetComponent<BoxCollider>().enabled = true;
-		heldblock.GetComponent<Rigidbody>().freezeRotation = false;
-		heldblock.GetComponent<Rigidbody>().isKinematic = false;
-
-		dropText.gameObject.SetActive(false);
-
-
+		HeldBlock.transform.SetParent(null);
+		HeldBlock.GetComponent<Rigidbody>().useGravity = true;
+		HeldBlock.GetComponent<BoxCollider>().enabled = true;
+		HeldBlock.GetComponent<Rigidbody>().freezeRotation = false;
+		HeldBlock.GetComponent<Rigidbody>().isKinematic = false;
+		HeldBlock = null;
+		pickuptext.text = "";
 	}
 }
