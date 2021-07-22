@@ -22,6 +22,8 @@ TagManager:
   - AIStunned
   - HoldPosition
   - Ridges
+  - PickUpText
+  - DropText
   layers:
   - Default
   - TransparentFX

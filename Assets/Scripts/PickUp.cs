@@ -1,21 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PickUp : CrowdMaster {
 
-	public Text pickuptext;
-	public Text dropText;
-	public float pickupRange;
+	public Text pickuptext = null;
+	public Text dropText = null;
+	public float pickupRange = 0.5f;
 
-	public bool holding;
-	public bool canPickup;
+	public bool holding = false;
+	public bool canPickup = false;
 
-	private GameObject heldblock;
+	private GameObject heldblock = null;
 
-	public Outline outline;
+	public Outline outline = null;
 
 	private Transform player = null;
 	/// <summary>
@@ -28,9 +25,8 @@ public class PickUp : CrowdMaster {
 		holdPosition = GameObject.FindGameObjectWithTag("HoldPosition").transform;
 		block = FindObjectsOfType<Block>();
 		outline = GetComponentInChildren<Outline>();
-		
-		holding = false;
-		canPickup = false;
+		pickuptext = GameObject.FindGameObjectWithTag("PickUpText").GetComponent<Text>();
+		dropText = GameObject.FindGameObjectWithTag("DropText").GetComponent<Text>();
 	}
 
 	private void Update() {

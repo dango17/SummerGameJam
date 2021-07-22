@@ -44,8 +44,6 @@ public class Crowd : CrowdMaster
     // Update is called once per frame
     private void Update()
     {
-        nearPlayer = Vector3.Distance(transform.position, player.transform.position) < 5;
-
         float distanceToBlock = float.MaxValue;
         Block closestBlock = block[0];
         foreach(Block bl in block)
@@ -120,12 +118,13 @@ public class Crowd : CrowdMaster
             Brain.pushState(Eat, OnEatEnter, null);
         }
 
-        if(bored && nearPlayer)
-        {
-            Brain.pushState(OnWatchEnter, WatchingPlayer, null);
-        }
+        if (player) {
+            nearPlayer = Vector3.Distance(transform.position, player.transform.position) < 5;
 
-        
+            if (bored && nearPlayer) {
+                Brain.pushState(OnWatchEnter, WatchingPlayer, null);
+            }
+        }
     }
 
     void OnRunEnter()
