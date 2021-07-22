@@ -44,7 +44,7 @@ public class Crowd : CrowdMaster
     // Update is called once per frame
     private void Update()
     {
-        nearPlayer = Vector3.Distance(transform.position, player.transform.position) < 4;
+        nearPlayer = Vector3.Distance(transform.position, player.transform.position) < 5;
 
         float distanceToBlock = float.MaxValue;
         Block closestBlock = block[0];
@@ -94,6 +94,7 @@ public class Crowd : CrowdMaster
         {
             agent.SetDestination(player.transform.position);
             animator.SetBool("playing", true);
+            animator.SetBool("walk", false);
         }
 
         else if (boredom <= 0) 
@@ -232,7 +233,7 @@ public class Crowd : CrowdMaster
             boredomChange = 5f;
         }
 
-        if (guitarI && guitarI.IsMiniGameActive == false || HDstand && HDstand.IsMiniGameActive == false || boomBox && boomBox.IsMiniGameActive == false)
+        if (guitarI && guitarI.IsMiniGameActive == false || HDstand && HDstand.IsMiniGameActive == false || boomBox && boomBox.IsMiniGameActive == false && nearPlayer)
         {
             Brain.pushState(Idle, OnIdleEnter, null);
         }
